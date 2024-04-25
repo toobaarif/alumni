@@ -41,7 +41,7 @@
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="name">Name</label>
-        <input class="form-control form-control" type="text" name="name" id="name" value="{{ old('name') }}"  autofocus>
+        <input class="form-control form-control" type="text" name="name" id="name" placeholder="Enter Name" value="{{ old('name') }}"  autofocus>
         @error('name')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror
@@ -49,7 +49,7 @@
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="email">Email</label>
-        <input class="form-control form-control" type="email" name="email" id="email" value="{{ old('email') }}" >
+        <input class="form-control form-control" placeholder="Enter Email" type="email" name="email" id="email" value="{{ old('email') }}" >
         @error('email')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror
@@ -57,7 +57,7 @@
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="password">Password</label>
-        <input class="form-control form-control" type="password" name="password" id="password" >
+        <input class="form-control form-control" type="password" placeholder="Enter Password" name="password" id="password" >
         @error('password')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror
@@ -65,7 +65,7 @@
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="password_confirmation">Confirm Password</label>
-        <input class="form-control form-control" type="password" name="password_confirmation" id="password_confirmation" >
+        <input class="form-control form-control" placeholder="Confirm Password" type="password" name="password_confirmation" id="password_confirmation" >
         @error('password_confirmation')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror
@@ -73,15 +73,18 @@
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="graduation_year">Graduation Year</label>
-        <input class="form-control form-control" type="number" name="graduation_year" id="graduation_year">
+        <input class="form-control form-control" type="date" name="graduation_year" id="graduation_year" min="1900">
         @error('graduation_year')
-        <span style="color: red" class="text-danger">{{ $message }}</span>
-    @enderror
+            <span style="color: red" class="text-danger">{{ $message }}</span>
+        @enderror
     </div>
+    
+    
+    
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="transcript_no">Transcript No</label>
-        <input class="form-control form-control" type="number" name="transcript_no" id="transcript_no">
+        <input class="form-control form-control" placeholder="Enter Transcript" type="number" name="transcript_no" id="transcript_no">
         @error('transcript_no')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror
@@ -89,7 +92,7 @@
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="degree_no">Degree No</label>
-        <input class="form-control form-control" type="number" name="degree_no" id="degree_no">
+        <input class="form-control form-control" placeholder="Degree No" type="number" name="degree_no" id="degree_no">
         @error('degree_no')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror
@@ -97,7 +100,7 @@
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="current_city">Current City</label>
-        <input class="form-control form-control" type="text" name="current_city" id="current_city">
+        <input class="form-control form-control" placeholder="Enter City" type="text" name="current_city" id="current_city">
         @error('current_city')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror
@@ -113,7 +116,7 @@
 
     <div>
         <label class="mb-1 text-dark" for="bio">Bio</label>
-        <textarea  class="form-control form-control" name="bio" id="bio" rows="4" cols="60"></textarea>
+        <textarea  class="form-control form-control" placeholder="About Yourself" name="bio" id="bio" rows="4" cols="60"></textarea>
         @error('bio')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror
@@ -121,7 +124,7 @@
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="website">Website</label>
-        <input class="form-control form-control" type="text" name="website" id="website">
+        <input class="form-control form-control" placeholder="Enter URL" type="text" name="website" id="website">
         @error('website')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror
@@ -129,7 +132,7 @@
 
     <div class="mb-4">
         <label class="mb-1 text-dark" for="linkedin">LinkedIn</label>
-        <input class="form-control form-control" type="text" name="linkedin" id="linkedin">
+        <input class="form-control form-control" placeholder="Enter Linkedin" type="text" name="linkedin" id="linkedin">
         @error('linkedin')
         <span style="color: red" class="text-danger">{{ $message }}</span>
     @enderror

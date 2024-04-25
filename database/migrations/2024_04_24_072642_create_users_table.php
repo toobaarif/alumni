@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('graduation_year')->nullable();
+            $table->date('graduation_year')->nullable(); // Change 'integer' to 'date'
             $table->integer('transcript_no')->nullable();
             $table->integer('degree_no')->nullable();
             $table->string('current_city')->nullable();
@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('user_role')->default(0);
             $table->string('user_status')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

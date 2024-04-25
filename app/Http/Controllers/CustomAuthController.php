@@ -14,59 +14,71 @@ class CustomAuthController extends Controller
 {
 
 
-    public function admin_dashboard(){
-        return view('admin.admin-dashboard');
+    public function admin_dashboard()
+    {
+        if (Auth::check()) {
+            return view('admin.admin-dashboard');
+        } else {
+            return redirect()->route('login');
+        }
     }
 
-
-    public function student_dashboard(){
-        return view('students.student-dashboard');
+    public function student_dashboard()
+    {
+        if (Auth::check()) {
+            return view('students.student-dashboard');
+        } else {
+            return redirect()->route('login');
+        }
     }
 
-public function register(Request $request){
-
-    // Validate the form data
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
-        'graduation_year' => 'nullable|integer',
-        'transcript_no' => 'nullable|integer',
-        'degree_no' => 'nullable|integer',
-        'current_city' => 'nullable|string|max:255',
-        'profile_picture' => 'nullable|image|max:2048', // Adjust max file size as needed
-        'bio' => 'nullable|string',
-        'website' => 'nullable|string|max:255',
-        'linkedin' => 'nullable|string|max:255',
-    ]);
-
-    // Store the profile picture if provided
-    $profilePicturePath = null;
-    if ($request->hasFile('profile_picture')) {
-        $profilePicturePath = $request->file('profile_picture')->store('profile-pictures', 'public');
+    public function register(Request $request)
+    {
+        // Validate the form data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'graduation_year' => 'nullable|date', // Change 'integer' to 'date'
+            'transcript_no' => 'nullable|integer',
+            'degree_no' => 'nullable|integer',
+            'current_city' => 'nullable|string|max:255',
+            'profile_picture' => 'nullable|image|max:2048', // Adjust max file size as needed
+            'bio' => 'nullable|string',
+            'website' => 'nullable|string|max:255',
+            'linkedin' => 'nullable|string|max:255',
+        ]);
+    
+        // Store the profile picture if provided
+        $profilePicturePath = null;
+        if ($request->hasFile('profile_picture')) {
+            $profilePicturePath = $request->file('profile_picture')->store('profile-pictures', 'public');
+        }
+    
+        // Create a new user record
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'graduation_year' => $request->graduation_year,
+            'transcript_no' => $request->transcript_no,
+            'degree_no' => $request->degree_no,
+            'current_city' => $request->current_city,
+            'profile_picture' => $profilePicturePath,
+            'bio' => $request->bio,
+            'website' => $request->website,
+            'linkedin' => $request->linkedin,
+        ]);
+    
+        // Log in the user
+        auth()->login($user);
+    
+        // Redirect the user after registration
+        return redirect('/')->with('success', 'Registration successful! Welcome to our platform.');
     }
-
-    // Create a new user record
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-        'graduation_year' => $request->graduation_year,
-        'transcript_no' => $request->transcript_no,
-        'degree_no' => $request->degree_no,
-        'current_city' => $request->current_city,
-        'profile_picture' => $profilePicturePath,
-        'bio' => $request->bio,
-        'website' => $request->website,
-        'linkedin' => $request->linkedin,
-    ]);
-
-    // Log in the user
-    auth()->login($user);
-
-    // Redirect the user after registration
-    return redirect('/')->with('success', 'Registration successful! Welcome to our platform.');
-}
+    
+    
+    
 
 
 

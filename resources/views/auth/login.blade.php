@@ -22,7 +22,7 @@
        <link href="{{url('assets/css/style.css')}}" rel="stylesheet">
     
     </head>
-<body>
+    <body class="vh-100">
 
     <div class="authincation h-100">
         <div class="container-fluid h-100">
@@ -39,7 +39,7 @@
                         
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="email">Email</label>
-                                <input  class="form-control form-control" type="email" id="email" name="email" value="{{ old('email') }}">
+                                <input  class="form-control form-control" placeholder="Enter Email" type="email" id="email" name="email" value="{{ old('email') }}">
                                 @error('email')
                                     <span style="color: red">{{ $message }}</span>
                                 @enderror
@@ -49,7 +49,7 @@
                         
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="password">Password</label>
-                                <input  class="form-control form-control" type="password" id="password" name="password" required>
+                                <input placeholder="Enter Password" class="form-control form-control" type="password" id="password" name="password" required>
                                 @error('password')
                                     <span style="color: red">{{ $message }}</span>
                                 @enderror
@@ -62,27 +62,43 @@
                       <span>Forgot your password?</span>  <a style="color: rgb(56, 56, 222)" href="{{ route('password.request') }}">Reset Password</a>
 
 
+               <h6 class="login-title"><span>Or continue with</span></h6>
+							
+               <div class="mb-3">
+                   <ul class="d-flex align-self-center justify-content-center">
+                       <li><a target="_blank" href="https://www.facebook.com/" class="fab fa-facebook-f btn-facebook"></a></li>
+                       <li><a target="_blank" href="https://www.google.com/" class="fab fa-google-plus-g btn-google-plus mx-2"></a></li>
+                       <li><a target="_blank" href="https://www.linkedin.com/" class="fab fa-linkedin-in btn-linkedin me-2"></a></li>
+                       <li><a target="_blank" href="https://twitter.com/" class="fab fa-twitter btn-twitter"></a></li>
+                   </ul>
+               </div>
+               <p class="text-center">Not registered?  
+                   <a class="btn-link text-primary" href="{{url('register')}}">Register</a>
+               </p>
 
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
-                    <div class="pages-left h-100">
-                        <div class="login-content">
-                            <a href="index.html"><img src="images/logo-full.png" class="mb-3 logo-dark"
-                                    alt=""></a>
-                            <a href="index.html"><img src="images/logi-white.png" class="mb-3 logo-light"
-                                    alt=""></a>
-    
-                          
-                        </div>
-                        <div class="login-media text-center">
-                            <img src="{{ url('assets/images/login.png') }}" alt="">
-                        </div>
-                    </div>
+					<div class="pages-left h-100">
+						<div class="login-content">
+							<a href="index.html"><img src="{{url('assets/images/logo-full.png')}}" class="mb-3 logo-dark" alt=""></a>
+							<a href="index.html"><img src="{{url('assets/images/logi-white.png')}}" class="mb-3 logo-light" alt=""></a>
+                            <div class="login-media text-center">
+                                <img src="{{ url('assets/images/login.png') }}" alt="">
+                            </div>
+							<p>CRM dashboard uses line charts to visualize customer-related metrics and trends over time.</p>
+						</div>
+						<div class="login-media text-center">
+							<img src="images/login.png" alt="">
+						</div>
+					</div>
                 </div>
             </div>
         </div>
     </div>
+    
+
+
     
 </body>
 
@@ -96,8 +112,6 @@
 <script src="{{ url('assets/js/custom.js') }}"></script>
 <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
 </html>
-
-
 
 
 

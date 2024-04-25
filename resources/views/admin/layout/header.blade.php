@@ -337,10 +337,9 @@
                                                 <img src="images/tab/1.jpg" alt="">
                                             </div>
                                             <div class="header-info">
-                                                <h6>Thomas Fleming</h6>
-                                                <p>info@gmail.com</p>
+                                                <h6>{{ Auth::user()->name }}</h6>
+                                                <p>{{ Auth::user()->email }}</p>
                                             </div>
-
                                         </div>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end" style="">
@@ -349,10 +348,16 @@
                                                 <div class="products">
                                                     <img src="images/tab/1.jpg" class="avatar avatar-md"
                                                         alt="">
-                                                    <div>
-                                                        <h6>Thomas Fleming</h6>
-                                                        <span>Web Designer</span>
-                                                    </div>
+                                                        <div>
+                                                            <h6>{{ Auth::user()->name }}</h6>
+                                                            @if(Auth::user()->user_role == 1)
+                                                                <span>Admin</span>
+                                                            @elseif(Auth::user()->user_role == 0)
+                                                                <span>Alumni</span>
+                                                           
+                                                            @endif
+                                                        </div>
+                                                        
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 py-2">
