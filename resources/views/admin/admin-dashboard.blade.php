@@ -22,12 +22,12 @@
     <link rel="shortcut icon" type="image/png" href="{{ url('assets/images/favicon.png') }}">
 
     <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/css/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/vendor/swiper/css/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('assets/ajax/libs/noUiSlider/14.6.4/nouislider.min.css') }}">
     <link href="{{ url('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/jvmap/jquery-jvectormap.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/css/buttons.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ url('assets//buttons/1.6.4/css/buttons.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"
         rel="stylesheet">
 
@@ -81,7 +81,7 @@
         <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
         <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
         <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-        <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
+        {{-- <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script> --}}
 
         <!-- Dashboard 1 -->
         <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
@@ -104,9 +104,9 @@
 
 
         <!-- Vectormap -->
-        <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
-        <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
-        <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
+        {{-- <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script> --}}
+        {{-- <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script> --}}
+        {{-- <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script> --}}
         <script src="{{ url('assets/js/custom.js') }}"></script>
         <script src="{{ url('assets/js/deznav-init.js') }}"></script>
         <script src="{{ url('assets/js/demo.js') }}"></script>

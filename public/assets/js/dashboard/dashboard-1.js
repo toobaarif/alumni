@@ -154,8 +154,8 @@
 		}
 		};
 
-		var chartBar1 = new ApexCharts(document.querySelector("#NewCustomers"), options);
-		chartBar1.render();
+		// var chartBar1 = new ApexCharts(document.querySelector("#NewCustomers"), options);
+		// chartBar1.render();
 	 
 	}
 	var NewExperience = function(){
@@ -303,8 +303,8 @@
 		}
 		};
 
-		var chartBar1 = new ApexCharts(document.querySelector("#NewExperience"), options);
-		chartBar1.render();
+		// var chartBar1 = new ApexCharts(document.querySelector("#NewExperience"), options);
+		// chartBar1.render();
 	 
 	}
 	var AllProject = function(){
@@ -357,8 +357,8 @@
 				enabled: false,
 			},
         };
-		var chartBar1 = new ApexCharts(document.querySelector("#AllProject"), options);
-		chartBar1.render();
+		// var chartBar1 = new ApexCharts(document.querySelector("#AllProject"), options);
+		// chartBar1.render();
 	 
 	}
 	
@@ -500,8 +500,8 @@
         }
         };
 
-        var chart = new ApexCharts(document.querySelector("#overiewChart"), options);
-        chart.render();
+        // var chart = new ApexCharts(document.querySelector("#overiewChart"), options);
+        // chart.render();
 		
 		$(".mix-chart-tab .nav-link").on('click',function(){
 			var seriesType = $(this).attr('data-series');
@@ -677,8 +677,8 @@
 		}
 		};
 
-		var chartBar1 = new ApexCharts(document.querySelector("#earningChart"), options);
-		chartBar1.render();
+		// var chartBar1 = new ApexCharts(document.querySelector("#earningChart"), options);
+		// chartBar1.render();
 		
 		$(".earning-chart .nav-link").on('click',function(){
 			var seriesType = $(this).attr('data-series');
@@ -758,8 +758,8 @@
 				enabled: false,
 			},
         };
-		var chartBar1 = new ApexCharts(document.querySelector("#projectChart"), options);
-		chartBar1.render();
+		// var chartBar1 = new ApexCharts(document.querySelector("#projectChart"), options);
+		// chartBar1.render();
 	 
 	}
 	var handleWorldMap = function(trigger = 'load'){
@@ -770,31 +770,31 @@
 			vmapSelector.removeAttr('style');
 		}
 		
-		vmapSelector.delay( 500 ).unbind().vectorMap({ 
-			map: 'world_en',
-			backgroundColor: 'transparent',
-			borderColor: 'rgb(239, 242, 244)',
-			borderOpacity: 0.25,
-			borderWidth: 1,
-			color: 'rgb(239, 242, 244)',
-			enableZoom: true,
-			hoverColor: 'rgba(239, 242, 244 0.9)',
-			hoverOpacity: null,
-			normalizeFunction: 'linear',
-			scaleColors: ['#b6d6ff', '#005ace'],
-			selectedColor: 'rgba(239, 242, 244 0.9)',
-			selectedRegions: null,
-			showTooltip: true,
-			onRegionClick: function(element, code, region)
-			{
-				var message = 'You clicked "'
-					+ region
-					+ '" which has the code: '
-					+ code.toUpperCase();
+		// vmapSelector.delay( 500 ).unbind().vectorMap({ 
+		// 	map: 'world_en',
+		// 	backgroundColor: 'transparent',
+		// 	borderColor: 'rgb(239, 242, 244)',
+		// 	borderOpacity: 0.25,
+		// 	borderWidth: 1,
+		// 	color: 'rgb(239, 242, 244)',
+		// 	enableZoom: true,
+		// 	hoverColor: 'rgba(239, 242, 244 0.9)',
+		// 	hoverOpacity: null,
+		// 	normalizeFunction: 'linear',
+		// 	scaleColors: ['#b6d6ff', '#005ace'],
+		// 	selectedColor: 'rgba(239, 242, 244 0.9)',
+		// 	selectedRegions: null,
+		// 	showTooltip: true,
+		// 	onRegionClick: function(element, code, region)
+		// 	{
+		// 		var message = 'You clicked "'
+		// 			+ region
+		// 			+ '" which has the code: '
+		// 			+ code.toUpperCase();
 		 
-				alert(message);
-			}
-		});
+		// 		alert(message);
+		// 	}
+		// });
 	}
 	
 	

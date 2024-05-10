@@ -17,21 +17,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'graduation_year',
-        'department_id',
-        'program_id',
-        'transcript_no',
-        'degree_no',
-        'current_city',
-        'profile_picture',
-        'bio',
-        'website',
-        'linkedin',
-        'role_id',
-        'user_status',
+        'name', 'email', 'password', 'graduation_year', 'transcript_no', 'profile_picture', 'user_role', 'department_id', 'program_id'
     ];
 
     /**
@@ -57,18 +43,15 @@ class User extends Authenticatable
     /**
      * Define relationships
      */
-    public function role()
-    {
-        return $this->belongsTo(Role::class, 'role_id');
-    }
+  
 
-    public function department()
-    {
-        return $this->belongsTo(Department::class, 'department_id');
-    }
-
-    public function program()
-    {
-        return $this->belongsTo(Program::class, 'program_id');
-    }
+     public function department()
+     {
+         return $this->belongsTo(Department::class);
+     }
+ 
+     public function program()
+     {
+         return $this->belongsTo(Program::class);
+     }
 }

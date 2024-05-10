@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\AlumnisController;
+use App\Http\Controllers\DepartController;
+use App\Http\Controllers\ProgramController;
 
 
 /*
@@ -21,7 +24,8 @@ Route::get('/', function () {
 
 // auth
 // registration 
-Route::view('/register', 'auth.registration');
+// Route::view('/register', 'auth.registration');
+Route::get('/register', [CustomAuthController::class, 'showRegistrationForm']);
 Route::post('/register', [CustomAuthController::class, 'register'])->name('register');
 // login
 Route::view('/login', 'auth.login');
@@ -41,6 +45,28 @@ Route::get('/admin/dashboard', [CustomAuthController::class, 'admin_dashboard'])
 // Route for student dashboard
 Route::get('/student/dashboard', [CustomAuthController::class, 'student_dashboard'])->name('student.dashboard');
 Route::post('/logout', [CustomAuthController::class, 'logout'])->name('logout');
+
+
+// alumnis admin side
+Route::get('/alumnis', [AlumnisController::class, 'index']);
+Route::get('/view-profile', [AlumnisController::class, 'alumnisProfiles']);
+Route::get('/get-programs/{departmentId}', [AlumnisController::class, 'getPrograms'])->name('getPrograms');
+
+
+// departments
+Route::get('/departments', [DepartController::class, 'showDepartments']);
+Route::post('/delete/{id}', [DepartController::class, 'destroy']);
+Route::post('/update-department', [DepartController::class, 'update'])->name('update.department');
+Route::post('/add-department', [DepartController::class, 'addDepartment'])->name('add.department');
+
+
+
+
+Route::get('/programs', [ProgramController::class, "show" ]);
+Route::post('programs/delete/{id}', [ProgramController::class, 'destroy'])->name('programs.delete');
+Route::post('programs/add', [ProgramController::class, 'store'])->name('add.program');
+
+
 
 
 

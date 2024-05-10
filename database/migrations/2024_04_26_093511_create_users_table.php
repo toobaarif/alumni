@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,16 +15,14 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->date('graduation_year')->nullable(); // Change 'integer' to 'date'
+            $table->date('graduation_year')->nullable(); 
             $table->integer('transcript_no')->nullable();
-            $table->integer('degree_no')->nullable();
-            $table->string('current_city')->nullable();
             $table->string('profile_picture')->nullable();
-            $table->text('bio')->nullable();
-            $table->string('website')->nullable();
-            $table->string('linkedin')->nullable();
             $table->string('user_role')->default(0);
-            $table->string('user_status')->nullable();
+            $table->unsignedBigInteger('department_id')->nullable(); // Add department_id column
+            $table->unsignedBigInteger('program_id')->nullable(); // Add program_id column
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('set null');
+            $table->foreign('program_id')->references('id')->on('programs')->onDelete('set null');
             $table->rememberToken();
             $table->timestamps();
         });

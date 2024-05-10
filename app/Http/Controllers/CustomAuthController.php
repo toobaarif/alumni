@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Department;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\PasswordReset;
@@ -32,6 +33,14 @@ class CustomAuthController extends Controller
         }
     }
 
+
+    public function showRegistrationForm()
+    {
+        $departments = Department::all();
+        return view('auth.registration', compact('departments'));
+    }
+
+
     public function register(Request $request)
     {
         // Validate the form data
@@ -41,12 +50,8 @@ class CustomAuthController extends Controller
             'password' => 'required|string|min:8|confirmed',
             'graduation_year' => 'nullable|date', // Change 'integer' to 'date'
             'transcript_no' => 'nullable|integer',
-            'degree_no' => 'nullable|integer',
-            'current_city' => 'nullable|string|max:255',
-            'profile_picture' => 'nullable|image|max:2048', // Adjust max file size as needed
-            'bio' => 'nullable|string',
-            'website' => 'nullable|string|max:255',
-            'linkedin' => 'nullable|string|max:255',
+            'department' => 'required|exists:departments,id',
+            'program' => 'required|exists:programs,id',
         ]);
     
         // Store the profile picture if provided
@@ -62,12 +67,9 @@ class CustomAuthController extends Controller
             'password' => Hash::make($request->password),
             'graduation_year' => $request->graduation_year,
             'transcript_no' => $request->transcript_no,
-            'degree_no' => $request->degree_no,
-            'current_city' => $request->current_city,
             'profile_picture' => $profilePicturePath,
-            'bio' => $request->bio,
-            'website' => $request->website,
-            'linkedin' => $request->linkedin,
+            'department_id' => $request->department, // Store department ID
+            'program_id' => $request->program, // Store program ID
         ]);
     
         // Log in the user
@@ -77,12 +79,6 @@ class CustomAuthController extends Controller
         return redirect('/')->with('success', 'Registration successful! Welcome to our platform.');
     }
     
-    
-    
-
-
-
-
 public function login(Request $request)
 {
     // Validate the form data
