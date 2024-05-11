@@ -42,7 +42,7 @@ class ProgramController extends Controller
     public function destroy($id)
 {
     // Find the program by its ID
-    $program = Program::findOrFail($id);
+    $program = Department::findOrFail($id);
     
     // Delete the program
     $program->delete();
@@ -52,5 +52,29 @@ class ProgramController extends Controller
 }
 
 
+public function update(Request $request)
+{
+    // Validate the request data
+    $validatedData = $request->validate([
+        'programId' => 'required|exists:programs,id',
+        'programName' => 'required|string',
+        'departmentId' => 'required|exists:departments,id',
+    ]);
+
+    // Find the program by ID
+    $program = Program::findOrFail($validatedData['programId']);
+
+    // Update program details
+    $program->program_name = $validatedData['programName']; // Updated column name
+    $program->department_id = $validatedData['departmentId'];
+    $program->save();
+
+    // Return the updated program data
+    return response()->json([
+        'success' => true,
+        'message' => 'Program updated successfully',
+        'program' => $program
+    ]);
+}
 
 }

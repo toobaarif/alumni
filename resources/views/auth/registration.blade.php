@@ -76,7 +76,7 @@
                                 @error('graduation_year')
                                 <span style="color: red" class="text-danger">{{ $message }}</span>
                                 @enderror
-                            </div>
+                     </div>
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="department">Department</label>
                                 <select class="form-control" name="department" id="department">

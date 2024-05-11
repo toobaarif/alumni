@@ -46,7 +46,7 @@ Route::get('/admin/dashboard', [CustomAuthController::class, 'admin_dashboard'])
 Route::get('/student/dashboard', [CustomAuthController::class, 'student_dashboard'])->name('student.dashboard');
 Route::post('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
-
+ 
 // alumnis admin side
 Route::get('/alumnis', [AlumnisController::class, 'index']);
 Route::get('/view-profile', [AlumnisController::class, 'alumnisProfiles']);
@@ -65,6 +65,7 @@ Route::post('/add-department', [DepartController::class, 'addDepartment'])->name
 Route::get('/programs', [ProgramController::class, "show" ]);
 Route::post('programs/delete/{id}', [ProgramController::class, 'destroy'])->name('programs.delete');
 Route::post('programs/add', [ProgramController::class, 'store'])->name('add.program');
+Route::post('/update-program', [ProgramController::class, 'update'])->name('update.program');
 
 
 

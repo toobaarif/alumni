@@ -86,32 +86,34 @@
                                             <h3 class="card-title">Program</h3>
                                         </div>
                                         <form action="{{ route('add.program') }}" method="post"
-                                        class="d-flex align-items-center">
-                                        @csrf
-                                        <input type="text" name="program_name" class="form-control me-2"
-                                            placeholder="Enter program name">
-                                            <span style="color: red">@error ('program_name')  {{$message}} @enderror</span>
-                                        <select name="department_id" class="form-select me-2">
-                                            <option value="">Select Department</option>
-                                            @foreach ($departments as $department)
-                                                <option value="{{ $department->id }}">
-                                                    {{ $department->department_name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <span style="color: red">@error ('program_name')  {{$message}} @enderror</span>
-                                        <button type="submit" class="btn btn-primary">Add program</button>
-                                    </form>
+                                            class="d-flex align-items-center">
+                                            @csrf
+                                            <input type="text" name="program_name" class="form-control me-2"
+                                                placeholder="Enter program name">
+                                            <span style="color: red">@error ('program_name') {{$message}}
+                                                @enderror</span>
+                                            <select name="department_id" class="form-select me-2">
+                                                <option value="">Select Department</option>
+                                                @foreach ($departments as $department)
+                                                    <option value="{{ $department->id }}">
+                                                        {{ $department->department_name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <span style="color: red">@error ('program_name') {{$message}}
+                                                @enderror</span>
+                                            <button type="submit" class="btn btn-primary">Add program</button>
+                                        </form>
                                         <div class="card-header flex-wrap">
                                             <div>
                                                 <h4 class="card-title">Programs Table</h4>
                                             </div>
                                             <div>
-                                           
+
 
                                             </div>
 
                                         </div>
-
 
                                         <!--tab-content-->
                                         <div class="tab-content" id="myTabContent">
@@ -142,6 +144,7 @@
                                                                         </td>
                                                                         <!-- Access the department name through the relationship -->
                                                                         <td>
+                                                                            <!-- ye btn hai edit wala  -->
                                                                             <button type="button"
                                                                                 class="btn btn-primary edit-btn"
                                                                                 data-program-id="{{ $program->id }}"
@@ -151,8 +154,7 @@
                                                                                 action="{{ route('programs.delete', $program->id) }}"
                                                                                 method="POST">
                                                                                 @csrf
-                                                                                <button type="submit"
-                                                                                    class="btn btn-danger"
+                                                                                <button type="submit" class="btn btn-danger"
                                                                                     onclick="return confirm('Are you sure you want to delete?')">Delete</button>
                                                                             </form>
 
@@ -167,7 +169,7 @@
 
                                                     </div>
                                                 </div>
-                                               
+
                                             </div>
 
 
@@ -190,6 +192,41 @@
 
                         </div>
                     </div>
+
+                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editProgramModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProgramModalLabel">Edit Program</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Your form for editing programs -->
+                <form id="editForm">
+                    <!-- Program name input -->
+                    <div class="mb-3">
+                        <label for="programName" class="form-label">Program Name</label>
+                        <input type="text" class="form-control" id="programName" name="programName" required>
+                    </div>
+                    <!-- Department selection -->
+                    <div class="mb-3">
+                        <label for="departmentSelect" class="form-label">Department</label>
+                        <select class="form-select" id="departmentSelect" name="departmentId" required>
+                            <!-- Blade syntax to dynamically populate options with department names -->
+                            <option value="">Select Department</option>
+                            @foreach ($departments as $department)
+                                <option value="{{ $department->id }}">{{ $department->department_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <!-- Hidden input for program ID -->
+                    <input type="hidden" id="programId" name="programId">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -220,7 +257,8 @@
                 <!-- Apex Chart -->
 
                 <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
-                <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+                <script
+                    src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
 
 
                 <!-- Vectormap -->
@@ -237,6 +275,67 @@
                 <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
                 <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
 
+
+                <!-- ye dekhna hai wo nhi program ka  -->
+                <!-- Your existing JavaScript code -->
+      
+
+<script>
+       $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+$(document).ready(function () {
+    // Add event listener to form submission
+    $('#editForm').submit(function (event) {
+        // Prevent default form submission behavior
+        event.preventDefault();
+
+        // Serialize form data
+        var formData = $(this).serialize();
+
+        // Send AJAX request to update data
+        $.ajax({
+            url: '{{ route('update.program') }}', // Use named route instead of URL
+            type: 'POST',
+            data: formData,
+            success: function (response) {
+                // Log response for debugging
+                console.log('AJAX request successful');
+                console.log('Response:', response);
+
+                // Hide the modal after successful update
+                $('#editModal').modal('hide');
+
+                // Assuming you have a function to update the UI with the updated program data
+                updateProgramUI(response);
+            },
+            error: function (xhr, status, error) {
+                // Handle error response
+                console.error(xhr.responseText); // Log detailed error message
+                alert('An error occurred while updating the program. Please try again.'); // Show generic error message
+            }
+        });
+    });
+
+    $('.edit-btn').click(function () {
+        // Get program ID, name, and department ID from data attributes
+        var programId = $(this).data('program-id');
+        var programName = $(this).data('program-name');
+        var departmentId = $(this).data('department-id');
+
+        // Populate the modal with program details
+        $('#programId').val(programId);
+        $('#programName').val(programName);
+        $('#departmentSelect').val(departmentId); // Select the department in the dropdown
+
+        // Show the modal
+        $('#editModal').modal('show');
+    });
+});
+
+</script>
 
 
 

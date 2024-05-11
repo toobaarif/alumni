@@ -28,7 +28,7 @@ class DepartController extends Controller
         return redirect('departments')->with('success', 'Department deleted successfully.');
     }
 
-
+// yhn se  dekh k bnana 
     public function update(Request $request)
     {
         // Validate the incoming request data
