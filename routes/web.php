@@ -22,6 +22,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function () {
+    return view('pages.about-us');
+});
+Route::get('/event', function () {
+    return view('pages.event-details');
+});
+Route::get('/gallery', function () {
+    return view('pages.gallery');
+});
+Route::get('/event', function () {
+    return view('pages.notice');
+});
+Route::get('/event', function () {
+    return view('pages.courses');
+});
+
+
 // auth
 // registration 
 // Route::view('/register', 'auth.registration');
