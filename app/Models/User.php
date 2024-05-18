@@ -54,4 +54,20 @@ class User extends Authenticatable
      {
          return $this->belongsTo(Program::class);
      }
+
+     // app/Models/User.php
+
+public function basicInfo()
+{
+    return $this->hasOne(BasicInfo::class);
+}
+public function workExperiences()
+{
+    return $this->hasMany(WorkExperience::class);
+}
+
+public function educationDetails()
+{
+    return $this->hasOne(EducationDetail::class);
+}
 }

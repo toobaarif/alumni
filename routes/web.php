@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserDetails;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\AlumnisController;
@@ -92,5 +93,16 @@ Route::post('/update-program', [ProgramController::class, 'update'])->name('upda
 
 
 
+
+
+// add data 
+Route::get('/basic-information', [UserDetails::class, 'basicDetails']);
+Route::post('/add-details', [UserDetails::class, 'storeDetails'])->name('store.details');
+
+Route::get('/work-experience', [UserDetails::class, 'workExperience']);
+Route::post('/work-experience', [UserDetails::class, 'storeWorkExperience'])->name('store.work.experience');
+
+Route::get('/education', [UserDetails::class, 'education']);
+Route::post('/store-education', [UserDetails::class, 'storeEducation'])->name('store.education');
 
 

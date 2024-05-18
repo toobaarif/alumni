@@ -76,7 +76,7 @@ class CustomAuthController extends Controller
         auth()->login($user);
     
         // Redirect the user after registration
-        return redirect('/')->with('success', 'Registration successful! Welcome to our platform.');
+        return redirect('/basic-information')->with('success', 'Registration successful! Welcome to our platform.');
     }
     
 public function login(Request $request)
