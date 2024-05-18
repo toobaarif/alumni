@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\AlumnisController;
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -62,6 +63,10 @@ Route::get('/admin/dashboard', [CustomAuthController::class, 'admin_dashboard'])
 // Route for student dashboard
 Route::get('/student/dashboard', [CustomAuthController::class, 'student_dashboard'])->name('student.dashboard');
 Route::post('/logout', [CustomAuthController::class, 'logout'])->name('logout');
+
+// profile
+Route::get('/profile', [ProfileController::class, 'profile']);
+Route::get('/edit-profile', [ProfileController::class, 'edit']);
 
  
 // alumnis admin side
