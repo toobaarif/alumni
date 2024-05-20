@@ -66,7 +66,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="{{ url('/programs') }}" class="" aria-expanded="false">
+							<a href="{{ url('/profile') }}" class="" aria-expanded="false">
 								<div class="menu-icon">
 									<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M14.4065 14.8714H7.78821" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"></path>

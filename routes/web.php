@@ -66,8 +66,7 @@ Route::get('/student/dashboard', [CustomAuthController::class, 'student_dashboar
 Route::post('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
 // profile
-Route::get('/profile', [ProfileController::class, 'profile']);
-Route::get('/edit-profile', [ProfileController::class, 'edit']);
+// Route::get('/edit-profile', [ProfileController::class, 'edit']);
 
  
 // alumnis admin side
@@ -105,4 +104,19 @@ Route::post('/work-experience', [UserDetails::class, 'storeWorkExperience'])->na
 Route::get('/education', [UserDetails::class, 'education']);
 Route::post('/store-education', [UserDetails::class, 'storeEducation'])->name('store.education');
 
+Route::get('/profile', [UserDetails::class, 'showUserDetails'])->name('user.details');
 
+// edit of user details
+// Route::get('user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::get('basicInfo/{id}/edit', [UserDetails::class, 'editBasicInfo'])->name('basicInfo.edit');
+
+Route::get('workExperience/{id}/edit', [UserDetails::class, 'editWorkExperience'])->name('workExperience.edit');
+
+Route::get('educationDetails/{id}/edit', [UserDetails::class, 'editEducationDetails'])->name('educationDetails.edit');
+
+
+// update 
+// Route::put('/basic-info/{id}', 'UserDetails@updateBasicInfo')->name('basicInfo.update');
+Route::post('/basic-info/{id}', [UserDetails::class, 'updateBasicInfo'])->name('basicInfo.update');
+Route::post('workExperience/{id}', [UserDetails::class, 'updateWorkExperience'])->name('workExperience.update');
+Route::post('educationDetails/{id}', [UserDetails::class, 'updateEducationDetails'])->name('educationDetails.update');

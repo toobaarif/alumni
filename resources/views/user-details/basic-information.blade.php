@@ -17,7 +17,7 @@
     <title>Alumni | Register</title>
 
     <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="{{ url('assets/images/favicon.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/favi.png') }}">
     <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
 </head>

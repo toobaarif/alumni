@@ -19,7 +19,7 @@
     <!-- PAGE TITLE HERE -->
     <title>W3CRM Customer Relationship Management</title>
     <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/alumni.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ url('assets/images/favicon.png') }}">
 
     <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/css/swiper-bundle.min.css') }}" rel="stylesheet">
@@ -37,10 +37,7 @@
     <!-- Style css -->
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
-
-    <link href="{{ url('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
@@ -60,67 +57,60 @@
     Preloader end
 ********-->
 
+
         @include('admin.layout.header')
         @include('admin.layout.sidebar')
 
 
         <div class="content-body">
-
-            <!-- container starts -->
+            <div class="page-titles">
+                <ol class="breadcrumb">
+                    <h1>Edit Your Profile</h1>
+                </ol>
+            </div>
             <div class="container-fluid">
-
-                <!-- row -->
-                <div class="element-area">
-                    <div class="demo-view">
-                        <div class="container-fluid pt-0 ps-0 pe-lg-4 pe-0">
-                            <div class="row">
-                                <!-- Column starts -->
-                                <div class="col-xl-12">
-                                    <div class="card dz-card" id="accordion-one">
-
-                                        <div class="card-header flex-wrap">
-
-                                            <div>
-                                                <h4 class="card-title">Alumnni Profile</h4>
-                                            </div>
-                                        </div>
-                                        
-                                            <!--tab-content-->
-                                            <div class="tab-content" id="myTabContent">
-                                                <div class="tab-pane fade show active" id="Preview" role="tabpanel"
-                                                    aria-labelledby="home-tab">
-                                                    <div class="card-body pt-0">
-                                                     
-                                                    </div>
-                                                    <!-- /Default accordion -->
-                                                </div>
-
-
-
-                                                <div class="tab-pane fade " id="html" role="tabpanel"
-                                                    aria-labelledby="home-tab">
-                                                    <div class="card-body pt-0 p-0 code-area">
-
-                                                    </div>
-                                                </div>
-                                                <!--/tab-content-->
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <!-- Column ends -->
-
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-
-
+               
+            
+                <div class="section">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3>Edit Education</h3>
                     </div>
+                    <div class="section">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3>Edit Education Details</h3>
+                        </div>
+                        <form action="{{ route('educationDetails.update', $educationDetails->id) }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label for="institution">Institution:</label>
+                                <input type="text" class="form-control" id="institution" name="institution" value="{{ $educationDetails->institution }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="degree">Degree:</label>
+                                <input type="text" class="form-control" id="degree" name="degree" value="{{ $educationDetails->degree }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="field_of_study">Field of Study:</label>
+                                <input type="text" class="form-control" id="field_of_study" name="field_of_study" value="{{ $educationDetails->field_of_study }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="gpa">GPA:</label>
+                                <input type="text" class="form-control" id="gpa" name="gpa" value="{{ $educationDetails->gpa }}">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                    
+                </div>
+                
+
+
+            
+            </div></div></div>
+
+
+
+
 
                     <!-- Required vendors -->
                     <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
@@ -132,22 +122,6 @@
                     <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
                     <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
 
-
-                    <!-- tagify -->
-                    <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
-
-                    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
-                    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-
-                    <!-- Apex Chart -->
-
-                    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
-                    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
-
-
                     <!-- Vectormap -->
                     <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
                     <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
@@ -158,18 +132,11 @@
                     <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
 
 
-                    <!-- Datatable -->
-                    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-                    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
 
 
-
-
-
-
-
-
+                </div>
 </body>
 
+<!-- Mirrored from w3crm.dexignzone.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 14 Feb 2024 14:29:04 GMT -->
 
 </html>

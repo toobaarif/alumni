@@ -145,4 +145,71 @@ class UserDetails extends Controller
         return redirect('/student/dashboard')->with('success', 'Education details added successfully!');
     }
     
+
+    public function showUserDetails()
+    {
+        $user = auth()->user(); // assuming the user is logged in
+        $basicInfo = BasicInfo::where('user_id', $user->id)->first();
+        $workExperience = WorkExperience::where('user_id', $user->id)->first();
+        $educationDetails = EducationDetail::where('user_id', $user->id)->first();
+
+        return view('students.profile', compact('user', 'basicInfo', 'workExperience', 'educationDetails'));
+    }
+
+
+
+
+
+//    basic info 
+public function editBasicInfo($id)
+{
+    $basicInfo = BasicInfo::findOrFail($id);
+    return view('students.edit-basicInfo', compact('basicInfo'));
+}
+
+//    working experiennce 
+
+
+
+public function editWorkExperience($id)
+{
+    $workExperience = WorkExperience::findOrFail($id);
+    return view('students.edit-workExp', compact('workExperience'));
+}
+
+
+public function editEducationDetails($id)
+{
+    $educationDetails = EducationDetail::findOrFail($id);
+    return view('students.edit-education', compact('educationDetails'));
+}
+
+
+
+public function updateBasicInfo(Request $request, $id)
+{
+    $basicInfo = BasicInfo::findOrFail($id);
+    
+    // Update the basic info fields based on the submitted form data
+    $basicInfo->update($request->all());
+    
+    return redirect('/profile')->with('success', 'Basic info updated successfully');
+}
+
+public function updateWorkExperience(Request $request, $id)
+{
+    $workingExperience = WorkExperience::findOrFail($id);
+    $workingExperience->update($request->all());
+    return redirect('/profile')->with('success', 'Work experience updated successfully.');
+}
+
+
+public function updateEducationDetails(Request $request, $id)
+{
+    $educationDetails = EducationDetail::findOrFail($id);
+    $educationDetails->update($request->all());
+    return redirect('/profile')->with('success', 'Education details updated successfully.');
+}
+
+
 }

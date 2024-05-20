@@ -37,6 +37,7 @@
     <!-- Style css -->
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 
@@ -61,17 +62,77 @@
 @include('admin.layout.sidebar')
 
 
-
 <div class="content-body">
-    <!-- row -->	
- <div class="page-titles">
-    <ol class="breadcrumb">
-        <a href="{{url('edit-profile')}}" class="btn btn-primary">Edit Profile</a>
-    </ol>
-   
- </div>
+    <div class="container-fluid">
+        <!-- User Section -->
+        <div class="section">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>User Details</h3>
+                {{-- <a href="{{ route('user.edit', $user->id) }}" class="edit-icon"><i class="fas fa-edit"></i></a> --}}
+            </div>
+            <p><strong>Name:</strong> {{ $user->name }}</p>
+            <p><strong>Email:</strong> {{ $user->email }}</p>
+            <p><strong>Graduation Year:</strong> {{ $user->graduation_year }}</p>
+            <!-- Add other user fields as needed -->
+        </div>
 
+        <!-- Basic Info Section -->
+        <div class="section">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>Basic Information</h3>
+                <a href="{{ route('basicInfo.edit', $basicInfo->id) }}" class="edit-icon"><i class="fas fa-edit"></i></a>
+            </div>
+            @if($basicInfo)
+                <p><strong>Phone:</strong> {{ $basicInfo->phone }}</p>
+                <p><strong>Address:</strong> {{ $basicInfo->address }}</p>
+                <p><strong>City:</strong> {{ $basicInfo->city }}</p>
+                <p><strong>State:</strong> {{ $basicInfo->state }}</p>
+                <p><strong>Zip:</strong> {{ $basicInfo->zip }}</p>
+                <p><strong>Gender:</strong> {{ $basicInfo->gender }}</p>
+                <p><strong>Birthdate:</strong> {{ $basicInfo->birthdate }}</p>
+            @else
+                <p>No basic information available.</p>
+            @endif
+        </div>
+
+        <!-- Work Experience Section -->
+        <div class="section">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>Work Experience</h3>
+                <a href="{{ route('workExperience.edit', $workExperience->id) }}" class="edit-icon"><i class="fas fa-edit"></i></a>
+            </div>
+            @if($workExperience)
+                <p><strong>Job Title:</strong> {{ $workExperience->job_title }}</p>
+                <p><strong>Company:</strong> {{ $workExperience->company }}</p>
+                <p><strong>Start Date:</strong> {{ $workExperience->start_date }}</p>
+                <p><strong>End Date:</strong> {{ $workExperience->end_date }}</p>
+                <p><strong>Job Description:</strong> {{ $workExperience->job_description }}</p>
+            @else
+                <p>No work experience available.</p>
+            @endif
+        </div>
+
+        <!-- Education Details Section -->
+        <div class="section">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3>Education Details</h3>
+                <a href="{{ route('educationDetails.edit', $educationDetails->id) }}" class="edit-icon"><i class="fas fa-edit"></i></a>
+            </div>
+            @if($educationDetails)
+                <p><strong>Institution:</strong> {{ $educationDetails->institution }}</p>
+                <p><strong>Degree:</strong> {{ $educationDetails->degree }}</p>
+                <p><strong>Field of Study:</strong> {{ $educationDetails->field_of_study }}</p>
+                <p><strong>Graduation Year:</strong> {{ $educationDetails->graduation_year }}</p>
+                <p><strong>GPA:</strong> {{ $educationDetails->gpa }}</p>
+            @else
+                <p>No education details available.</p>
+            @endif
+        </div>
+    </div>
 </div>
+
+
+
 
         <!-- Required vendors -->
         <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
@@ -82,22 +143,6 @@
         <!-- Dashboard 1 -->
         <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
         <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
-
-
-        <!-- tagify -->
-        <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
-
-        <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
-        <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
-        <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
-        <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-
-        <!-- Apex Chart -->
-
-        <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
-        <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
-
 
         <!-- Vectormap -->
         <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>

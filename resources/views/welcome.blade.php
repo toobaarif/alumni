@@ -14,7 +14,7 @@
     <meta name="author" content="bitspeck">
     <title>Alumni Portal</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/fav.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/favi.png') }}">
     <!-- bootstrap.min - css -->
     <link type="text/css" href="{{ url('theme/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- font-awesome.min - css -->
@@ -185,123 +185,7 @@
     </section>
     <!-- Here is the About us part End -->
 
-    <!-- Latest News Start -->
-    <div id="latest-news" class="rs-latest-news sec-spacer">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12">
-                    <div class="heading-border">
-                        <h3>LATEST NOTICES</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="news-normal-block">
-                        <div class="news-img">
-                            <a href="#">
-                                <img src="{{ url('theme/images/courses-3.jpg') }}" alt="" />
-                            </a>
-                        </div>
-                        <div class="news-date">
-                            <i class="fa fa-calendar-check-o"></i>
-                            <span>June 28, 2027</span>
-                        </div>
-                        <h4 class="news-title">
-                            <a href="blog-details-page.html">Those Other College Expenses You
-                                Aren't Thinking About</a>
-                        </h4>
-                        <div class="news-desc">
-                            <p>
-                                Blandit rutrum, erat et egestas ultricies, dolor tortor egestas enim, quiste rhoncus sem
-                                the purus eu sapien curabitur.
-                                Blandit rutrum, erat et egestas ultricies, dolor tortor egestas enim, quiste rhoncus sem
-                                the purus eu sapien curabitur.
-                            </p>
-                        </div>
-                        <div class="news-btn">
-                            <a href="notice.html">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="news-list-block">
-                        <div class="news-list-item">
-                            <div class="news-img">
-                                <a href="#">
-                                    <img src="{{ url('theme/images/news1.jpg') }}" alt="" />
-                                </a>
-                            </div>
-                            <div class="news-content">
-                                <h5 class="news-title">
-                                    <a href="blog-details-page.html">While the lovely valley
-                                        team work</a>
-                                </h5>
-                                <div class="news-date">
-                                    <i class="fa fa-calendar-check-o"></i>
-                                    <span>June 28, 2027</span>
-                                </div>
-                                <div class="news-desc">
-                                    <p>
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="news-list-item">
-                            <div class="news-img">
-                                <a href="#">
-                                    <img src="{{ url('theme/images/event-1.jpg') }}" alt="" />
-                                </a>
-                            </div>
-                            <div class="news-content">
-                                <h5 class="news-title">
-                                    <a href="blog-details-page.html">I must explain to you how
-                                        all this idea</a>
-                                </h5>
-                                <div class="news-date">
-                                    <i class="fa fa-calendar-check-o"></i>
-                                    <span>June 28, 2027</span>
-                                </div>
-                                <div class="news-desc">
-                                    <p>
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="news-list-item">
-                            <div class="news-img">
-                                <a href="#">
-                                    <img src="{{ url('theme/images/notice-feture.jpg') }}" alt="" />
-                                </a>
-                            </div>
-                            <div class="news-content">
-                                <h5 class="news-title">
-                                    <a href="blog-details-page.html">I should be incapable of
-                                        drawing</a>
-                                </h5>
-                                <div class="news-date">
-                                    <i class="fa fa-calendar-check-o"></i>
-                                    <span>June 28, 2027</span>
-                                </div>
-                                <div class="news-desc">
-                                    <p>
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Latest News End -->
-
+    
     <!-- Here is the achievements  part start -->
 
     <section id="counter">
@@ -515,7 +399,7 @@
                                                             <img src="{{ url('theme/images/icon-56.png') }}"
                                                                 width="16" height="17" alt="image"
                                                                 class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
+                                                            <img src="{{ url('theme/images/slider10') }}"
                                                                 width="16" height="17" alt="image"
                                                                 class="normal">
                                                         </a>
