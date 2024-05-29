@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +11,7 @@
     <meta name="description" content="Bitpro is a simple HTML5 Business Portfolio Template with a modern look. HTML files are well organized and named accordingly so its very easy to customize and update.">
     <meta name="keywords" content="ART,BUSINESS,DESIGN,GRAPHIC,FASHION,MODEL,PHOTOGRAPHY,WEB DESIGN">
     <meta name="author" content="bitspeck">
-    <title>Bit institute-Gallery</title>
+    <title>Alumni-Gallery</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{url('theme/images/fav.png')}}">
     <!-- bootstrap.min - css -->
@@ -84,7 +85,7 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-164.jpg')}} width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/29.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -106,13 +107,13 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-165.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/6.jpg')}}" width="360" height="300" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
                                                         <a href="#">
-                                                            <img src="{{url('theme/images/icon-56.png')}} width="16" height="17" alt="image" class="hover-img">
-                                                            <img src="{{url('theme/images/icon-57.png')}}" width="16" height="17" alt="image" class="normal">
+                                                            <img src="{{url('/theme/images/bbsul/1.jpg')}} "width="16" height="17" alt="image" class="hover-img">
+                                                            <img src="{{url('/theme/images/bbsul/2.jpg')}}" width="16" height="17" alt="image" class="normal">
                                                         </a>
                                                     </li>
                                                     <li> 
@@ -127,7 +128,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-166.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/14.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -148,7 +149,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-167.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/34.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -169,7 +170,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-168.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/31.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -190,7 +191,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-169.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/21.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -215,7 +216,7 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-164.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/6.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -237,7 +238,29 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-165.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/3.jpg')}}" width="360" height="350" alt="image">
+                                            <div class="hover">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <img src="{{url('theme/images/icon-56.png')}}" width="16" height="17" alt="image" class="hover-img">
+                                                            <img src="{{url('theme/images/icon-57.png')}}" width="16" height="17" alt="image" class="normal">
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <img src="{{url('theme/images/icon-58.png')}}" width="16" height="16" alt="image" class="hover-img">
+                                                            <img src="{{url('theme/images/icon-59.png')}}" width="16" height="16" alt="image" class="normal">
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-4 col-xs-12">
+                                        <div class="gallery-img">
+                                            <img src="{{url('/theme/images/bbsul/11.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -258,7 +281,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-166.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/17.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -279,7 +302,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-167.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/29.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -300,28 +323,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-168.jpg')}}" width="360" height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{url('theme/images/icon-56.png')}}" width="16" height="17" alt="image" class="hover-img">
-                                                            <img src="{{url('theme/images/icon-57.png')}}" width="16" height="17" alt="image" class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{url('theme/images/icon-58.png')}}" width="16" height="16" alt="image" class="hover-img">
-                                                            <img src="{{url('theme/images/icon-59.png')}}" width="16" height="16" alt="image" class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-169.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/22.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -346,7 +348,7 @@
                                 <div class="row">
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-164.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('theme/images/bbsul/13.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -367,7 +369,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-165.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/17.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -388,7 +390,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-166.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/28.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -409,7 +411,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-167.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/15.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -430,7 +432,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-168.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/30.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -451,7 +453,7 @@
                                     </div>
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-169.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/6.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -488,7 +490,7 @@
 
                                         <div class="gallery-img">
 
-                                            <img src="{{url('theme/images/img-164.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/35.jpg')}}" width="360" height="350" alt="image">
 
                                             <div class="hover">
 
@@ -526,7 +528,7 @@
 
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-165.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/22.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -550,7 +552,7 @@
 
                                         <div class="gallery-img">
 
-                                            <img src="{{url('theme/images/img-166.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/13.jpg')}}" width="360" height="350" alt="image">
 
                                             <div class="hover">
 
@@ -582,7 +584,7 @@
 
                                     <div class="col-sm-4 col-xs-12">
                                         <div class="gallery-img">
-                                            <img src="{{url('theme/images/img-167.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/26.jpg')}}" width="360" height="350" alt="image">
                                             <div class="hover">
                                                 <ul>
                                                     <li>
@@ -617,7 +619,7 @@
 
                                         <div class="gallery-img">
 
-                                            <img src="{{url('theme/images/img-168.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/30.jpg')}}" width="360" height="350" alt="image">
 
                                             <div class="hover">
 
@@ -659,7 +661,7 @@
 
                                         <div class="gallery-img">
 
-                                            <img src="{{url('theme/images/img-169.jpg')}}" width="360" height="350" alt="image">
+                                            <img src="{{url('/theme/images/bbsul/17.jpg')}}" width="360" height="350" alt="image">
 
                                             <div class="hover">
 
@@ -705,7 +707,7 @@
     <!-- Here is the Gallery part End -->
 
     <!-- Here is Contact part Start -->
-    <section id="contact" class="about-contact">
+    <!-- <section id="contact" class="about-contact">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
@@ -742,10 +744,11 @@
     <!-- Here is Contact part End -->
 
     <!-- Footer Start -->
-    <footer id="rs-footer" class="bg3 rs-footer">
+    @include('pages.footer')
+    <!-- <footer id="rs-footer" class="bg3 rs-footer">
         <div class="container">
-            <!-- Footer Address -->
-            <div>
+             Footer Address -->
+            <!-- <div>
                 <div class="row footer-contact-desc">
                     <div class="col-md-4">
                         <div class="contact-inner">
@@ -779,10 +782,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Footer Top -->
-        <div class="footer-top">
+        <!-- <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
@@ -873,17 +876,17 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Footer Bottom -->
-        <div class="footer-bottom">
+        <!-- <div class="footer-bottom">
             <div class="container">
                 <div class="copyright">
                     <p>© 2027 <a href="#">Bit institute</a>. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>  -->
     <!-- Footer End -->
 
     <!-- jquery-1.12.4.min - js -->

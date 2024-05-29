@@ -81,12 +81,12 @@
                 <div class="col-xl-6 col-lg-6">
 					<div class="pages-left h-100">
 						<div class="login-content">
-							<a href="index.html"><img src="{{url('assets/images/logo-full.png')}}" class="mb-3 logo-dark" alt=""></a>
+							<!-- <a href="index.html"><img src="{{url('assets/images/logo-full.png')}}" class="mb-3 logo-dark" alt=""></a> -->
 							<a href="index.html"><img src="{{url('assets/images/logi-white.png')}}" class="mb-3 logo-light" alt=""></a>
                             <div class="login-media text-center">
                                 <img src="{{ url('assets/images/login.png') }}" alt="">
                             </div>
-							<p>CRM dashboard uses line charts to visualize customer-related metrics and trends over time.</p>
+
 						</div>
 						<div class="login-media text-center">
 							<img src="images/login.png" alt="">
