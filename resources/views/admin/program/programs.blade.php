@@ -76,13 +76,13 @@
                                     <div class="card dz-card" id="accordion-one">
                                         {{-- success alert --}}
                                         @if (session()->has('message'))
-                                            <div class="alert alert-success">
-                                                <button type="button" class="close" data-dismiss="alert"
-                                                    aria-hidden="true"></button>
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                 {{ session()->get('message') }}
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                             </div>
                                         @endif
-                                        <div>
+                                    </div>
+                                    
                                             <h3 class="card-title">Program</h3>
                                         </div>
                                         <form action="{{ route('add.program') }}" method="post"

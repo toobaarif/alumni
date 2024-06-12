@@ -48,8 +48,7 @@ class CustomAuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'graduation_year' => 'nullable|date', // Change 'integer' to 'date'
-            'transcript_no' => 'nullable|integer',
+            'graduation_year' => 'required|nullable|date', // Change 'integer' to 'date'
             'department' => 'required|exists:departments,id',
             'program' => 'required|exists:programs,id',
         ]);
@@ -66,7 +65,6 @@ class CustomAuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'graduation_year' => $request->graduation_year,
-            'transcript_no' => $request->transcript_no,
             'profile_picture' => $profilePicturePath,
             'department_id' => $request->department, // Store department ID
             'program_id' => $request->program, // Store program ID
