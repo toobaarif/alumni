@@ -16,9 +16,10 @@
 	<meta name="format-detection" content="telephone=no">
 	
 	<!-- PAGE TITLE HERE -->
-	<title>W3CRM Customer Relationship Management</title>
-	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="{{url('assets/images/favicon.png')}}">
+	<title>Alumni portal</title>
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/png" 
+    href="{{url('theme/images/favi.png')}}">
 	
     <link href="{{url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
 	<link href="vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">

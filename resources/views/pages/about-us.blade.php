@@ -75,8 +75,7 @@
             <div class="row">
                 <div class="col-md-12 col-about">
                     <div id="About">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <p> It is a matter of great pride for me that Allah, most beneficent and merciful provided me opportunity to serve Benazir Bhutto Shaheed University, Lyari, Karachi Sindh Pakistan as Vice-Chancellor.My message to the students is that, "There is no shortcut to success. You should set your realistic personal, academic and social goals and then put all your talents and capabilities to achieve these goals". I would advise teachers that they should devote their energies in cultivating knowledge, values and skills among the students.
                         </p>
                     </div>
                 </div>
@@ -99,7 +98,7 @@
     <!-- Here is the About us part End -->
 
     <!-- testimonial part start -->
-    <section id="testimonial" class="testimonial-top">
+    <!-- <section id="testimonial" class="testimonial-top">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
@@ -129,9 +128,9 @@
                                             <i class="fa fa-star-half-empty"></i>
                                             <i class="fa fa-star-half-empty"></i>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- feedback_txt -->
-                                    <div class="feedback_txt">
+                                    <!-- <div class="feedback_txt">
                                         <p>
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. orem Ipsum has been the industry's standard dummy text of the printing and typesetting text text of the printing and typesetting ever since the 1500s.
                                         </p>
@@ -144,9 +143,9 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-empty"></i>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- feedback_txt -->
-                                    <div class="feedback_txt">
+                                    <!-- <div class="feedback_txt">
                                         <p>
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. orem Ipsum has been the industry's standard dummy text text of the printing and typesetting ever since the 1500s.
                                         </p>
@@ -159,9 +158,9 @@
                                             <i class="fa fa-star-half-empty"></i>
                                             <i class="fa fa-star-half-empty"></i>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- feedback_txt -->
-                                    <div class="feedback_txt">
+                                    <!-- <div class="feedback_txt">
                                         <p>
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. orem Ipsum has been the industry's standard dummy text of the printing typesetting  text ever since the 1500s.
                                         </p>
@@ -174,9 +173,9 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- feedback_txt -->
-                                </div>
+                                <!-- </div>
                             </div>
                             <div class="client">
                                 <div class="client_main_img">
@@ -217,7 +216,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- testimonial part End -->
 
     <!-- Here is the Team part Start -->
@@ -236,7 +235,7 @@
                     <div class="col-md-4 col-sm-4 team-wrap">
                         <div class="team-member text-center">
                             <div class="team-img">
-                                <img src="{{url('theme/images/team_1.jpg')}}" alt="">
+                                <img src="{{url('theme/images/bbsul_team.png')}}" alt="">
                                 <div class="overlay-team">
                                     <div class="team-details text-center">
                                         <div class="socials mt-20">
@@ -248,8 +247,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <h6 class="team-title">Mustakim parvez</h6>
-                            <span>Founder</span>
+                            <h6 class="team-title">DR. KHADIM HUSSAIN DAHRI</h6>
+                            <span> Head Department of Education</span>
                         </div>
                     </div>
                     <!-- end team member -->
@@ -257,7 +256,7 @@
                     <div class="col-md-4 col-sm-4 team-wrap">
                         <div class="team-member text-center">
                             <div class="team-img">
-                                <img src="{{url('theme/images/team_2.jpg')}}" alt="">
+                                <img src="{{url('theme/images/bbusl_team2.png')}}" alt="">
                                 <div class="overlay-team">
                                     <div class="team-details text-center">
                                         <div class="socials mt-20">
@@ -269,8 +268,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <h6 class="team-title">Al Razy</h6>
-                            <span>Professor</span>
+                            <h6 class="team-title">MR. SAQIB ABBAS</h6>
+                            <span>Assistant Professor</span>
                         </div>
                     </div>
                     <!-- end team member -->
@@ -278,20 +277,20 @@
                     <div class="col-md-4 col-sm-4 team-wrap">
                         <div class="team-member last text-center">
                             <div class="team-img">
-                                <img src="{{url('theme/images/team_3.jpg')}}" alt="">
+                                <img src="{{url('theme/images/bbsul_team3.png')}}" alt="">
                                 <div class="overlay-team">
                                     <div class="team-details text-center">
                                         <div class="socials mt-20">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
                                             <a href="#"><i class="fa fa-twitter"></i></a>
                                             <a href="#"><i class="fa fa-google-plus"></i></a>
-                                            <a href="#"><i class="fa fa-envelope"></i></a>
+                                            <a href="shazia.mazhar@bbsul.edu.pk"><i class="fa fa-envelope"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <h6 class="team-title">Jahir Alam</h6>
-                            <span>Finance Advisor</span>
+                            <h6 class="team-title">MS. SHAZIA SHAH</h6>
+                            <span>Assistant Professor</span>
                         </div>
                     </div>
                     <!-- end team member -->
@@ -382,7 +381,7 @@
             </div>
         </div>
         <div class="page-section form-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.153590044365!2d151.2283635148165!3d-33.88569802736661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae064d4035c7%3A0xafd8ab9b32253d24!2sUnderwood+St%2C+Paddington+NSW+2021%2C+Australia!5e0!3m2!1sen!2s!4v1489007994183"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d24170.086874657147!2d67.002548!3d24.868733!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e2209666b9f%3A0xc4fff7ccafc0ec80!2sBenazir%20Bhutto%20Shaheed%20University%20Lyari!5e1!3m2!1sen!2sus!4v1716459035050!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div class="container">
                 <div class="row">
                     <div class="form-section">
@@ -418,8 +417,8 @@
                             <i class="fa fa-map-marker"></i>
                             <h4 class="contact-title">Address</h4>
                             <p class="contact-desc">
-                                503 Old Buffalo Street
-                                <br> Northwest #205, New York-3087
+                            Faqeer Muhammad Durra Khan Road, 
+                                <br>Near Cheel Chowk, Lyari Karachi Sindh Pakistan.
                             </p>
                         </div>
                     </div>
@@ -428,8 +427,8 @@
                             <i class="fa fa-phone"></i>
                             <h4 class="contact-title">Phone Number</h4>
                             <p class="contact-desc">
-                                +3453-909-6565
-                                <br> +2390-875-2235
+                            021-99216535
+                                <br> 021-99216532
                             </p>
                         </div>
                     </div>
@@ -438,8 +437,8 @@
                             <i class="fa fa-map-marker"></i>
                             <h4 class="contact-title">Email Address</h4>
                             <p class="contact-desc">
-                                infoname@gmail.com
-                                <br> www.yourname.com
+                            info@bbsul.edu.pk
+                                <br> psvc@bbsul.edu.pkk
                             </p>
                         </div>
                     </div>
@@ -453,10 +452,11 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
                         <div class="about-widget">
-                            <h4><i class="fa fa-fa fa-graduation-cap ftr-cap"></i> Bit University
+                            <h4><i class="fa fa-fa fa-graduation-cap ftr-cap"></i> BBSUL University
                             </h4>
-                            <p>We create Premium Html Themes for more than three years. Our team goal is to reunite the elegance of unique.</p>
-                            <p class="margin-remove">We create Unique and Easy To Use Flexible Html Themes.</p>
+                            <p> Prepare citizens to face life challenges and enable them to be useful for their family, community and country.</p>
+                            <p class="margin-remove">BENAZIR BHUTTO SHAHEED UNIVERSITY
+LYARI KARACHI SINDH PAKISTAN</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3">
@@ -468,9 +468,8 @@
                                     <span>June</span>
                                 </div>
                                 <div class="post-desc">
-                                    <h5 class="post-title"><a href="#">While the lovely
-                                            valley team work</a></h5>
-                                    <span class="post-category">Keyword Analysis</span>
+                                    <h5 class="post-title"><a href="#">the official partner of SAP Germany organized one day seminar</a></h5>
+                                    <span class="post-category">Benazir Bhutto Shaheed University Lyari</span>
                                 </div>
                             </div>
                             <div class="post-item">
@@ -533,7 +532,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="copyright">
-                    <p>© 2027 <a href="#">BBSUL</a>. All Rights Reserved.</p>
+                    <p>© 2017 <a href="#">BBSUL</a>. All Rights Reserved.</p>
                 </div>
             </div>
         </div>

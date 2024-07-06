@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- PAGE TITLE HERE -->
-    <title>W3CRM Customer Relationship Management</title>
+    <title>Alumni Portal</title>
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/favi.png') }}">
 
@@ -68,140 +68,108 @@
 
             <!-- container starts -->
             <div class="container-fluid">
-
-                <!-- row -->
-                <div class="element-area">
-                    <div class="demo-view">
-                        <div class="container-fluid pt-0 ps-0 pe-lg-4 pe-0">
-                            <div class="row">
-                                <!-- Column starts -->
-                                <div class="col-xl-12">
-                                    <div class="card dz-card"  id="accordion-one">
-
-                                        <div class="card-header flex-wrap">
-
-                                            <div>
-                                                <h4 class="card-title">Basic Datatable</h4>
-                                            </div>
-                                        </div>
-                                        
-                                            <!--tab-content-->
-                                            <div class="tab-content" id="myTabContent">
-                                                <div class="tab-pane fade show active" id="Preview" role="tabpanel"
-                                                    aria-labelledby="home-tab">
-                                                    <div class="card-body pt-0">
-                                                        <div class="table-responsive">
-                                                            <table id="example" class="display table"
-                                                                style="min-width: 845px">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>S.No</th>
-                                                                        <th>Name</th>
-                                                                        <th>Graduation Year</th>
-                                                                        <th>Transcript No</th>
-                                                                        <th>Department</th>
-                                                                        <th>Program</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    @php
-                                                                    $sno = 1;
-                                                                    @endphp
-                                                                    @foreach($users as $user)
-                                                                    <tr>
-                                                                        <td>{{ $sno++ }}</td> <!-- Serial number column -->
-                                                                        <td>{{ $user->name }}</td>
-                                                                        <td>{{ $user->graduation_year }}</td>
-                                                                        <td>{{ $user->transcript_no }}</td>
-                                                                        <td>
-                                                                            @if ($user->department)
-                                                                                {{ $user->department->department_name }}
-                                                                            @endif
-                                                                        </td>
-                                                                        <td>
-                                                                            {{ optional($user->department)->department_name }}
-                                                                        </td>
-                                                                        <td><a style="color:blue" href="{{url('/view-profile')}}">View Profile</a></td>
-                                                                    </tr>
-                                                                    @endforeach
-                                                                </tbody>
-                                                                
-                                                                
-                                                                
-
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /Default accordion -->
-                                                </div>
-
-
-
-                                                <div class="tab-pane fade " id="html" role="tabpanel"
-                                                    aria-labelledby="home-tab">
-                                                    <div class="card-body pt-0 p-0 code-area">
-
-                                                    </div>
-                                                </div>
-                                                <!--/tab-content-->
-                                            </div>
-
-
-                                        </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                            <div class="card-header flex-wrap">
+                                    <div>
+                                        <h4 class="card-title">Students</h4>
                                     </div>
-                                    <!-- Column ends -->
+                                    <div>
+
+
+                                    </div>
 
                                 </div>
+                                <div class="table-responsive active-projects style-1">
+                                   
+                                    <table id="empoloyees-tblwrapper" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>Name</th>
+                                                <th>Graduation Year</th>
+                                                <th>Transcript No</th>
+                                                <th>Department</th>
+                                                <th>Program</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $sno = 1;
+                                            @endphp
+                                            @foreach($users as $user)
+                                                <tr>
+                                                    <td>{{ $sno++ }}</td> <!-- Serial number column -->
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->graduation_year }}</td>
+                                                    <td>{{ $user->transcript_no }}</td>
+                                                    <td>
+                                                        @if ($user->department)
+                                                            {{ $user->department->department_name }}
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        {{ optional($user->department)->department_name }}
+                                                    </td>
+                                                    <td><a style="color:blue" href="{{url('/view-profile')}}">View
+                                                            Profile</a></td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
 
+
+                                    </table>
+                                </div>
                             </div>
                         </div>
-
-
-
-
-
                     </div>
+                </div>
 
-                    <!-- Required vendors -->
-                    <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
+            </div>
 
-                    <!-- Dashboard 1 -->
-                    <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
-                    <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
+            <!-- Required vendors -->
+            <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
+            <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
+            <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+            <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
 
-
-                    <!-- tagify -->
-                    <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
-
-                    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
-                    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-
-                    <!-- Apex Chart -->
-
-                    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
-                    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+            <!-- Dashboard 1 -->
+            <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
+            <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
 
 
-                    <!-- Vectormap -->
-                    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
-                    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
-                    <script src="{{ url('assets/js/custom.js') }}"></script>
-                    <script src="{{ url('assets/js/deznav-init.js') }}"></script>
-                    <script src="{{ url('assets/js/demo.js') }}"></script>
-                    <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
+            <!-- tagify -->
+            <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
+
+            <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
+            <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
+            <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
+            <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
+
+            <!-- Apex Chart -->
+
+            <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
+            <script
+                src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
 
 
-                    <!-- Datatable -->
-                    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-                    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
+            <!-- Vectormap -->
+            <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
+            <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
+            <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
+            <script src="{{ url('assets/js/custom.js') }}"></script>
+            <script src="{{ url('assets/js/deznav-init.js') }}"></script>
+            <script src="{{ url('assets/js/demo.js') }}"></script>
+            <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
+
+
+            <!-- Datatable -->
+            <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
 
 
 

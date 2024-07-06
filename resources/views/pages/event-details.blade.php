@@ -9,7 +9,7 @@
     <meta name="description" content="Bitpro is a simple HTML5 Business Portfolio Template with a modern look. HTML files are well organized and named accordingly so its very easy to customize and update.">
     <meta name="keywords" content="ART,BUSINESS,DESIGN,GRAPHIC,FASHION,MODEL,PHOTOGRAPHY,WEB DESIGN">
     <meta name="author" content="bitspeck">
-    <title>Bit institute-events</title>
+    <title>Alumni-events</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/images/fav.png" />
     

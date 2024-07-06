@@ -14,7 +14,8 @@
     <meta name="author" content="bitspeck">
     <title>Alumni Portal</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/favi.png') }}">
+    <link rel="shortcut icon" type="image/png" 
+    href="{{url('theme/images/favi.png')}}">
     <!-- bootstrap.min - css -->
     <link type="text/css" href="{{ url('theme/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- font-awesome.min - css -->
@@ -35,8 +36,10 @@
     <link type="text/css" rel="stylesheet" href="{{ url('theme/css/main.css') }}">
     <!-- responsive - css -->
     <link type="text/css" rel="stylesheet" href="{{ url('theme/css/responsive.css') }}">
-
+    
+  
 </head>
+
 
 <body data-spy="scroll" data-target="#bs-example-navbar-collapse-1">
 
@@ -57,6 +60,7 @@
 
 @include('pages.header')
 
+
     
 
     <!-- Here is the banner part start -->
@@ -64,7 +68,8 @@
         <div class="slider stick-dots">
             <div class="slide">
                 <div class="slide__img">
-                    <img src="{{ url('theme/images/slider3.jpg') }}" alt="img" class="full-image animated"
+                    <img src="{{ url('theme/images/slider4.jpg') }}" 
+                     alt="img" class="full-image animated"
                         data-animation-in="zoomInImage" />
                     <div class="overlay"></div>
                 </div>
@@ -74,7 +79,8 @@
                             <span class="text-color">FUN & LEARNING </span>
                         </h2>
                         <div class="header-btn-group">
-                            <a href="#" class="slider-btn animated" data-animation-in="fadeInLeft"
+                            <a href="#" class="slider-btn animated" 
+                            data-animation-in="fadeInLeft"
                                 data-delay-in="0.3">
                                 Explore us
                             </a>
@@ -88,7 +94,8 @@
             </div>
             <div class="slide">
                 <div class="slide__img">
-                    <img src="{{ 'theme/images/slider2.jpg' }}" alt="img" class="full-image animated"
+                    <img src="{{ 'theme/images/slider2.jpg' }}"  alt="img" 
+                    class="full-image animated"
                         data-animation-in="zoomInImage" />
                     <div class="overlay"></div>
                 </div>
@@ -165,8 +172,9 @@
                 </div>
                 <div class="col-md-6">
 
-                    <div class="about-vedio">
-                        <img src="{{ 'theme/images/slider4.jpg' }}" alt="img"
+                    
+                        <img src="{{ 'theme/images/slider1.jpg' }}"
+                         alt="img"
                             class="img-responsive video-sec">
 
 
@@ -186,6 +194,8 @@
     <!-- Here is the About us part End -->
 
     
+    <!-- Latest News End -->
+
     <!-- Here is the achievements  part start -->
 
     <section id="counter">
@@ -279,15 +289,15 @@
                     <div class="col-sm-6 col-md-6">
                         <div class="event-wrapper">
                             <h5 class="title">
-                                <a href="event-details.html"> Edcare Autumn 2027</a>
+                                <a href="event-details.html"> Sports Week 2023</a>
                             </h5>
                             <div class="meta">
                                 <div class="time">
-                                    <i class="fa fa-clock-o"></i> 8.00am - 5.00pm
+                                    <i class="fa fa-clock-o"></i> 9.00am - 2.00pm
                                 </div>
-                                <div class="location">
+                                <!-- <div class="location">
                                     <i class="fa fa-map-marker"></i> Venice, Italy
-                                </div>
+                                </div> -->
                             </div>
                             <div class="description">
                                 <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed
@@ -296,29 +306,29 @@
                         </div>
                     </div>
                     <div class="col-sm-3 col-md-3 event-image">
-                        <img src="{{ url('theme/images/courses-2.jpg') }}" alt="">
+                        <img src="{{ url('theme/images/bbsul/2.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="col-md-12 item-event">
                     <div class="col-sm-3 col-md-3">
                         <div class="time-from">
-                            <div class="date">25</div>
-                            <div class="month">july</div>
+                            <div class="date">09</div>
+                            <div class="month">Nov</div>
                         </div>
 
                     </div>
                     <div class="col-sm-6 col-md-6">
                         <div class="event-wrapper">
                             <h5 class="title">
-                                <a href="event-details.html"> Eduma Autumn 2027</a>
+                                <a href="event-details.html"> Iqbal Day 2022</a>
                             </h5>
                             <div class="meta">
                                 <div class="time">
                                     <i class="fa fa-clock-o"></i> 8.00am - 5.00pm
                                 </div>
-                                <div class="location">
+                                <!-- <div class="location">
                                     <i class="fa fa-map-marker"></i> Venice, Italy
-                                </div>
+                                </div> -->
                             </div>
                             <div class="description">
                                 <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed
@@ -327,21 +337,21 @@
                         </div>
                     </div>
                     <div class="col-sm-3 col-md-3 event-image">
-                        <img src="{{ url('theme/images/courses-4.jpg') }}" alt="">
+                        <img src="{{ url('theme/images/bbsul/19.jpg') }}" alt="">
                     </div>
 
                 </div>
                 <div class="col-md-12 item-event mblr-0">
                     <div class="col-sm-3 col-md-3">
                         <div class="time-from">
-                            <div class="date">04</div>
-                            <div class="month">sept</div>
+                            <div class="date">15</div>
+                            <div class="month">Dec</div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-6">
                         <div class="event-wrapper">
                             <h5 class="title">
-                                <a href="event-details.html"> Eduma summer 2027</a>
+                                <a href="event-details.html"> Aptitude Test 2023</a>
                             </h5>
                             <div class="meta">
                                 <div class="time">
@@ -359,7 +369,7 @@
 
                     </div>
                     <div class="col-sm-3 col-md-3 event-image">
-                        <img src="{{ url('theme/images/news1.jpg') }}" alt="">
+                        <img src="{{ url('theme/images/bbsul/34.jpg') }}" alt="">
                     </div>
 
                 </div>
@@ -370,578 +380,7 @@
     <!-- Here is the Event part End -->
 
     <!-- Here is the Gallery part Start -->
-    <section class="page-section black" id="gallery">
-        <div class="gallery">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-                        <div class="heading-border">
-                            <h3>Image Gallery</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-                        <!-- Wrapper for slides -->
-
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <div class="row">
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/slider6.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/slider10') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/slider7.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/slider8.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/slider8.png') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-168.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ 'theme/images/icon-57.png' }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-169.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="row">
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-164.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-165.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-166.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-167.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-168.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-169.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item ">
-                                <div class="row">
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-164.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-165.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-166.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-167.jpg') }}"" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-168.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 col-xs-12">
-                                        <div class="gallery-img">
-                                            <img src="{{ url('theme/images/img-169.jpg') }}" width="360"
-                                                height="350" alt="image">
-                                            <div class="hover">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-56.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-57.png') }}"
-                                                                width="16" height="17" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <img src="{{ url('theme/images/icon-58.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="hover-img">
-                                                            <img src="{{ url('theme/images/icon-59.png') }}"
-                                                                width="16" height="16" alt="image"
-                                                                class="normal">
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    
                             <!-- Controls -->
 
                         </div>
@@ -955,7 +394,7 @@
     <!-- Here is the Gallery part End -->
 
     <!-- testimonial part start -->
-    <section id="testimonial">
+    <!-- <section id="testimonial">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
@@ -979,7 +418,7 @@
                                             standard dummy text ever since the 1500s.
                                         </p>
                                         <div class="fdbck_name">
-                                            <h4>Al Razy</h4>
+                                            <h4>Dr Shafique Awan</h4>
                                             <span>Professor</span>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -989,24 +428,24 @@
                                         </div>
                                     </div>
                                     <!-- feedback_txt -->
-                                    <div class="feedback_txt">
+                                    <!-- <div class="feedback_txt">
                                         <p>
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             Lorem Ipsum has been the industry's standard. The printing and typesetting
                                             industry the printing and typesetting industry.
                                         </p>
                                         <div class="fdbck_name">
-                                            <h4> Ravi dev </h4>
-                                            <span>Asst. Professor</span>
+                                            <h4> Dr Mazhar Dotio </h4>
+                                            <span>Professor</span>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-empty"></i>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- feedback_txt -->
-                                    <div class="feedback_txt">
+                                    <!-- <div class="feedback_txt">
                                         <p>
                                             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             orem Ipsum has been the industry's standard dummy text ever since the
@@ -1014,17 +453,17 @@
                                             tortor, a sagittis nisl arcu ac nisi. Mauris egestas dignissim sollicitudin.
                                         </p>
                                         <div class="fdbck_name">
-                                            <h4>Ahsan Habib</h4>
-                                            <span>Senior Lecturer</span>
+                                            <h4>Dr Asad Abbasi</h4>
+                                            <span>Professor</span>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star-half-empty"></i>
                                             <i class="fa fa-star-half-empty"></i>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- feedback_txt -->
-                                    <div class="feedback_txt">
+                                    <!-- <div class="feedback_txt">
                                         <p>
                                             Quisque convallis, felis ac pulvinar efficitur, ante nunc ultricies tortor,
                                             a sagittis nisl arcu ac nisi. Mauris egestas dignissim sollicitudin.Lorem
@@ -1032,8 +471,8 @@
                                             Ipsum has been the industry's standard dummy text ever since the 1500s.
                                         </p>
                                         <div class="fdbck_name">
-                                            <h4>Areeba Arefin</h4>
-                                            <span>Lecturer</span>
+                                            <h4>Dr Amjad Siraj Memon</h4>
+                                            <span>Professor</span>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -1042,30 +481,30 @@
                                         </div>
                                     </div>
                                     <!-- feedback_txt -->
-                                </div>
+                                <!-- </div>
                             </div>
                             <div class="client">
                                 <div class="client_main_img">
                                     <div class="client_img">
-                                        <img src="{{ url('theme/images/team1.png') }}"class="img-responsive"
+                                        <img src="{{ url('theme/images/team1.jpg') }}"class="img-responsive"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="client_main_img">
                                     <div class="client_img">
-                                        <img src="{{ url('theme/images/team2.png') }}" class="img-responsive"
+                                        <img src="{{ url('theme/images/team6.jpg') }}" class="img-responsive"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="client_main_img">
                                     <div class="client_img">
-                                        <img src="{{ url('theme/images/team_3.jpg') }}" class="img-responsive"
+                                        <img src="{{ url('theme/images/team3.jpg') }}" class="img-responsive"
                                             alt="">
                                     </div>
                                 </div>
                                 <div class="client_main_img">
                                     <div class="client_img">
-                                        <img src="{{ url('theme/images/team_2.jpg') }}" class="img-responsive"
+                                        <img src="{{ url('theme/images/team4.jpg') }}" class="img-responsive"
                                             alt="">
                                     </div>
                                 </div>
@@ -1086,8 +525,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </div> 
+    </section>  -->
     <!-- testimonial part End -->
     <!-- Here is the Team part Start -->
 
@@ -1096,7 +535,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
                     <div class="heading-border">
-                        <h3>our team</h3>
+                        <h3>Our Teachers</h3>
                     </div>
                 </div>
             </div>
@@ -1105,7 +544,7 @@
                     <div class="col-md-4 col-sm-4 team-wrap">
                         <div class="team-member text-center">
                             <div class="team-img">
-                                <img src="{{ url('theme/images/team_1.jpg') }}" alt="">
+                                <img src="{{ url('theme/images/abdullah.png') }}" alt="" height="360px">
                                 <div class="overlay-team">
                                     <div class="team-details text-center">
                                         <div class="socials mt-20">
@@ -1117,8 +556,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <h6 class="team-title">Mustakim parvez</h6>
-                            <span>Founder</span>
+                            <h6 class="team-title">Sir Abdullah</h6>
+                            <span>professor</span>
                         </div>
                     </div>
                     <!-- end team member -->
@@ -1126,7 +565,7 @@
                     <div class="col-md-4 col-sm-4 team-wrap">
                         <div class="team-member text-center">
                             <div class="team-img">
-                                <img src="{{ url('theme/images/team_2.jpg') }}" alt="">
+                                <img src="{{ url('theme/images/drS.jpg') }}" alt="" height="360px">
                                 <div class="overlay-team">
                                     <div class="team-details text-center">
                                         <div class="socials mt-20">
@@ -1138,8 +577,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <h6 class="team-title">Al Razy</h6>
-                            <span>Professor</span>
+                            <h6 class="team-title">Dr Shafique Awan </h6>
+                            <span>HOD</span>
                         </div>
                     </div>
                     <!-- end team member -->
@@ -1147,7 +586,7 @@
                     <div class="col-md-4 col-sm-4 team-wrap">
                         <div class="team-member last text-center">
                             <div class="team-img">
-                                <img src="{{ url('theme/images/team_3.jpg') }}" alt="">
+                                <img src="{{ url('theme/images/maz.PNG') }}" alt="" height="360px">
                                 <div class="overlay-team">
                                     <div class="team-details text-center">
                                         <div class="socials mt-20">
@@ -1159,7 +598,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h6 class="team-title">Jahir Alam</h6>
+                            <h6 class="team-title">Dr Mazhar Dotio</h6>
                             <span>Finance Advisor</span>
                         </div>
                     </div>
@@ -1173,141 +612,18 @@
 
 
 
-    <!-- Here is the Blog part start -->
-    <section id="blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="heading-border">
-                        <h3>Our blogs</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="latest-news post yellow">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="blog-container">
-                            <div class="img-holder">
-                                <img src="{{ url('theme/images/img-68.jpg') }}" class="img-responsive"
-                                    alt="image">
-                                <span class="date">
-                                    July 26, 2027
-                                </span>
-                            </div>
-                            <div class="news-text">
-                                <span class="title">Letter Match Class</span>
-                                <ul class="admin-list">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-user" aria-hidden="true"></i>by Admin
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-commenting-o" aria-hidden="true"></i>08 Comments
-                                        </a>
-                                    </li>
-                                </ul>
-                                <p>The pie and we know flipper lives flying there under in a old full of wonder under
-                                    the sweeping the flying there under clouds.</p>
-                                <a class="more" href="blog-details-page.html">read more
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="blog-container">
-                            <div class="img-holder">
-                                <img src="{{ url('theme/images/img-69.jpg') }}" class="img-responsive"
-                                    alt="image">
-                                <span class="date">
-                                    June 09, 2027
-                                </span>
-                            </div>
-                            <div class="news-text">
-                                <span class="title">Alphabet Match Class</span>
-                                <ul class="admin-list">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-user" aria-hidden="true"></i>by Admin
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-commenting-o" aria-hidden="true"></i>17 Comments
-                                        </a>
-                                    </li>
-                                </ul>
-                                <p>The pie and we know flipper lives flying there under in a old full of wonder under
-                                    the sweeping the flying there under clouds.</p>
-                                <a class="more" href="blog-details-page.html">read more
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="blog-container">
-                            <div class="img-holder">
-                                <img src="{{ url('theme/images/img-70.jpg') }}" class="img-responsive"
-                                    alt="image">
-                                <span class="date">
-                                    May 12, 2027
-                                </span>
-                            </div>
-                            <div class="news-text">
-                                <span class="title">Beautiful Math Class</span>
-                                <ul class="admin-list">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-user" aria-hidden="true"></i>by Admin
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-commenting-o" aria-hidden="true"></i>22 Comments
-                                        </a>
-                                    </li>
-                                </ul>
-                                <p>The pie and we know flipper lives flying there under in a old full of wonder under
-                                    the sweeping the flying there under clouds.</p>
-                                <a class="more" href="blog-details-page.html">read more
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <!-- Here is the Blog part End -->
 
 
-    <!-- Here is Newsletter part Start -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="email-subscription">
-                        <h2>Subscribe to our Newsletter</h2>
-                        <div class="input-group">
-                            <input type="email" class="form-control email-subs" placeholder="Enter your email">
-                            <button class="btn btn-subscribe" type="submit">Subscribe</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+   
     <!-- Here is Newsletter part Start -->
 
 
     <!-- Here is Contact part Start -->
-    <section id="contact">
+    @include('pages.footer')
+    <!-- <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
@@ -1341,15 +657,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Here is Contact part End -->
 
     <!-- Footer Start -->
-    <footer id="rs-footer" class="bg3 rs-footer">
+    <!-- <footer id="rs-footer" class="bg3 rs-footer">
         <div class="container">
-            <!-- Footer Address -->
-            <div>
+             Footer Address -->
+            <!-- <div>
                 <div class="row footer-contact-desc">
                     <div class="col-md-4">
                         <div class="contact-inner">
@@ -1376,22 +692,22 @@
                             <i class="fa fa-map-marker"></i>
                             <h4 class="contact-title">Email Address</h4>
                             <p class="contact-desc">
-                                infoname@gmail.com
+                                bbsul@gmail.com
                                 <br> www.yourname.com
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Footer Top -->
-        <div class="footer-top">
+        <!-- <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-3">
                         <div class="about-widget">
-                            <h4><i class="fa fa-fa fa-graduation-cap ftr-cap"></i> Bit University
+                            <h4><i class="fa fa-fa fa-graduation-cap ftr-cap"></i> BBSUL
                             </h4>
                             <p>We create Premium Html Themes for more than three years. Our team goal is to reunite the
                                 elegance of unique.</p>
@@ -1441,20 +757,13 @@
                             </li>
                             <li><a href="event-details.html"><i class="fa fa-angle-right"
                                         aria-hidden="true"></i>Events Details</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Blog</a>
-                            </li>
-                            <li><a href="blog-details-page.html"><i class="fa fa-angle-right"
-                                        aria-hidden="true"></i>Blog Details</a>
-                            </li>
+                            
                             <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Teachers</a>
                             </li>
                             <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Teachers
                                     Details</a></li>
                             <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Error
-                                    404</a>
-                            </li>
+                            
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-3">
@@ -1478,17 +787,17 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Footer Bottom -->
-        <div class="footer-bottom">
+        <!-- <div class="footer-bottom">
             <div class="container">
                 <div class="copyright">
-                    <p>© 2027 <a href="#">Bit institute</a>. All Rights Reserved.</p>
+                    <p>© 2027 <a href="#">BBSUL</a>. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <!-- Footer End -->
 
     <!-- jquery-1.12.4.min - js -->

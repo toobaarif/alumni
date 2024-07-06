@@ -73,7 +73,7 @@
                         <div class="col-sm-2 pl-0">
                             <div class="navbar-header">
                                 <a href="/" class="logo">
-                                    <img src="{{ url('theme/images/alumnilogo.png') }}" class="img-responsive"
+                                    <img src="{{ url('theme/images/logoo.png') }}" class="img-responsive"
                                         alt="">
                                 </a>
                             </div>

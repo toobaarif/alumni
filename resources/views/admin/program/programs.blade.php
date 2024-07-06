@@ -19,8 +19,9 @@
 
     <!-- PAGE TITLE HERE -->
     <title>Alumni | Programs</title>
-    <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="{{ url('assets/images/favicon.png') }}">
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/png" 
+    href="{{url('theme/images/favi.png')}}">
 
     <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/swiper/css/swiper-bundle.min.css') }}" rel="stylesheet">
@@ -76,13 +77,13 @@
                                     <div class="card dz-card" id="accordion-one">
                                         {{-- success alert --}}
                                         @if (session()->has('message'))
-                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <div class="alert alert-success">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-hidden="true"></button>
                                                 {{ session()->get('message') }}
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                             </div>
                                         @endif
-                                    </div>
-                                    
+                                        <div>
                                             <h3 class="card-title">Program</h3>
                                         </div>
                                         <form action="{{ route('add.program') }}" method="post"
@@ -111,228 +112,222 @@
                                             <div>
 
 
-                                            </div>
-
-                                        </div>
-
-                                        <!--tab-content-->
-                                        <div class="tab-content" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="Preview" role="tabpanel"
-                                                aria-labelledby="home-tab">
-                                                <div class="card-body pt-0">
-                                                    <div class="table-responsive">
-
-                                                        <table id="example" class="display table"
-                                                            style="min-width: 845px">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>S.No</th>
-                                                                    <th>Program Name</th>
-                                                                    <th>Department Name</th>
-                                                                    <th>Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                @php
-                                                                    $sno = 1;
-                                                                @endphp
-                                                                @foreach ($programs as $program)
-                                                                    <tr>
-                                                                        <td>{{ $sno++ }}</td>
-                                                                        <td>{{ $program->program_name }}</td>
-                                                                        <td>{{ $program->department->department_name }}
-                                                                        </td>
-                                                                        <!-- Access the department name through the relationship -->
-                                                                        <td>
-                                                                            <!-- ye btn hai edit wala  -->
-                                                                            <button type="button"
-                                                                                class="btn btn-primary edit-btn"
-                                                                                data-program-id="{{ $program->id }}"
-                                                                                data-program-name="{{ $program->program_name }}">Edit</button>
-
-                                                                            <form
-                                                                                action="{{ route('programs.delete', $program->id) }}"
-                                                                                method="POST">
-                                                                                @csrf
-                                                                                <button type="submit" class="btn btn-danger"
-                                                                                    onclick="return confirm('Are you sure you want to delete?')">Delete</button>
-                                                                            </form>
-
-                                                                        </td>
-                                                                    </tr>
-                                                                @endforeach
-                                                            </tbody>
-                                                        </table>
-
-
-
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-
-
-                                            <div class="tab-pane fade " id="html" role="tabpanel"
-                                                aria-labelledby="home-tab">
-                                                <div class="card-body pt-0 p-0 code-area">
-
-                                                </div>
-                                            </div>
-                                            <!--/tab-content-->
-                                        </div>
-
-
                                     </div>
+
                                 </div>
-                                <!-- Column ends -->
+                                <div class="table-responsive active-projects style-1">
 
-                            </div>
+                                    <table id="empoloyees-tblwrapper" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>Program Name</th>
+                                                <th>Department Name</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php
+                                                $sno = 1;
+                                            @endphp
+                                            @foreach ($programs as $program)
+                                                <tr>
+                                                    <td>{{ $sno++ }}</td>
+                                                    <td>{{ $program->program_name }}</td>
+                                                    <td>{{ $program->department->department_name }}
+                                                    </td>
+                                                    <!-- Access the department name through the relationship -->
+                                                    <td>
+                                                        <!-- ye btn hai edit wala  -->
+                                                        <div
+                                                            style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+                                                            <button type="button" class="btn btn-primary edit-btn"
+                                                                data-program-id="{{ $program->id }}"
+                                                                data-program-name="{{ $program->program_name }}"
+                                                                style="border-radius: 5px;">Edit</button>
 
-                        </div>
-                    </div>
+                                                            <form action="{{ route('programs.delete', $program->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-danger"
+                                                                    style="border-radius: 5px;"
+                                                                    onclick="return confirm('Are you sure you want to delete?')">Delete</button>
+                                                            </form>
 
-                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editProgramModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editProgramModalLabel">Edit Program</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Your form for editing programs -->
-                <form id="editForm">
-                    <!-- Program name input -->
-                    <div class="mb-3">
-                        <label for="programName" class="form-label">Program Name</label>
-                        <input type="text" class="form-control" id="programName" name="programName" required>
-                    </div>
-                    <!-- Department selection -->
-                    <div class="mb-3">
-                        <label for="departmentSelect" class="form-label">Department</label>
-                        <select class="form-select" id="departmentSelect" name="departmentId" required>
-                            <!-- Blade syntax to dynamically populate options with department names -->
-                            <option value="">Select Department</option>
-                            @foreach ($departments as $department)
-                                <option value="{{ $department->id }}">{{ $department->department_name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <!-- Hidden input for program ID -->
-                    <input type="hidden" id="programId" name="programId">
-                    <button type="submit" class="btn btn-primary">Update</button>
-                </form>
-            </div>
-        </div>
-    </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </table>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+
+
+<div class="tab-pane fade " id="html" role="tabpanel"
+aria-labelledby="home-tab">
+<div class="card-body pt-0 p-0 code-area">
+
+</div>
+</div>
+<!--/tab-content-->
+</div>
+
+
+</div>
+</div>
+<!-- Column ends -->
+
+</div>
+
+</div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editProgramModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="editProgramModalLabel">Edit Program</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<!-- Your form for editing programs -->
+<form id="editForm">
+<!-- Program name input -->
+<div class="mb-3">
+<label for="programName" class="form-label">Program Name</label>
+<input type="text" class="form-control" id="programName" name="programName" required>
+</div>
+<!-- Department selection -->
+<div class="mb-3">
+<label for="departmentSelect" class="form-label">Department</label>
+<select class="form-select" id="departmentSelect" name="departmentId" required>
+<!-- Blade syntax to dynamically populate options with department names -->
+<option value="">Select Department</option>
+@foreach ($departments as $department)
+<option value="{{ $department->id }}">{{ $department->department_name }}</option>
+@endforeach
+</select>
+</div>
+<!-- Hidden input for program ID -->
+<input type="hidden" id="programId" name="programId">
+<button type="submit" class="btn btn-primary">Update</button>
+</form>
+</div>
+</div>
+</div>
 </div>
 
 
 
 
 
-                </div>
+</div>
 
-                <!-- Required vendors -->
-                <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
-                <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-                <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-                <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
+<!-- Required vendors -->
+<script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
+<script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
+<script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
 
-                <!-- Dashboard 1 -->
-                <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
-                <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
-
-
-                <!-- tagify -->
-                <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
-
-                <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-                <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
-                <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
-                <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
-                <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-
-                <!-- Apex Chart -->
-
-                <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
-                <script
-                    src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+<!-- Dashboard 1 -->
+<script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
+<script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
 
 
-                <!-- Vectormap -->
-                <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
-                <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
-                <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
-                <script src="{{ url('assets/js/custom.js') }}"></script>
-                <script src="{{ url('assets/js/deznav-init.js') }}"></script>
-                <script src="{{ url('assets/js/demo.js') }}"></script>
-                <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
+<!-- tagify -->
+<script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
+
+<script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
+<script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
+<script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
+
+<!-- Apex Chart -->
+
+<script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
+<script
+src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
 
 
-                <!-- Datatable -->
-                <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-                <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
+<!-- Vectormap -->
+<script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
+<script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
+<script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
+<script src="{{ url('assets/js/custom.js') }}"></script>
+<script src="{{ url('assets/js/deznav-init.js') }}"></script>
+<script src="{{ url('assets/js/demo.js') }}"></script>
+<script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
 
 
-                <!-- ye dekhna hai wo nhi program ka  -->
-                <!-- Your existing JavaScript code -->
-      
+<!-- Datatable -->
+<script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
+
+
+<!-- ye dekhna hai wo nhi program ka  -->
+<!-- Your existing JavaScript code -->
+
 
 <script>
-       $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
+$.ajaxSetup({
+headers: {
+'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+}
+});
 $(document).ready(function () {
-    // Add event listener to form submission
-    $('#editForm').submit(function (event) {
-        // Prevent default form submission behavior
-        event.preventDefault();
+// Add event listener to form submission
+$('#editForm').submit(function (event) {
+// Prevent default form submission behavior
+event.preventDefault();
 
-        // Serialize form data
-        var formData = $(this).serialize();
+// Serialize form data
+var formData = $(this).serialize();
 
-        // Send AJAX request to update data
-        $.ajax({
-            url: '{{ route('update.program') }}', // Use named route instead of URL
-            type: 'POST',
-            data: formData,
-            success: function (response) {
-                // Log response for debugging
-                console.log('AJAX request successful');
-                console.log('Response:', response);
+// Send AJAX request to update data
+$.ajax({
+url: '{{ route('update.program') }}', // Use named route instead of URL
+type: 'POST',
+data: formData,
+success: function (response) {
+// Log response for debugging
+console.log('AJAX request successful');
+console.log('Response:', response);
 
-                // Hide the modal after successful update
-                $('#editModal').modal('hide');
+// Hide the modal after successful update
+$('#editModal').modal('hide');
 
-                // Assuming you have a function to update the UI with the updated program data
-                updateProgramUI(response);
-            },
-            error: function (xhr, status, error) {
-                // Handle error response
-                console.error(xhr.responseText); // Log detailed error message
-                alert('An error occurred while updating the program. Please try again.'); // Show generic error message
-            }
-        });
-    });
+// Assuming you have a function to update the UI with the updated program data
+updateProgramUI(response);
+},
+error: function (xhr, status, error) {
+// Handle error response
+console.error(xhr.responseText); // Log detailed error message
+alert('An error occurred while updating the program. Please try again.'); // Show generic error message
+}
+});
+});
 
-    $('.edit-btn').click(function () {
-        // Get program ID, name, and department ID from data attributes
-        var programId = $(this).data('program-id');
-        var programName = $(this).data('program-name');
-        var departmentId = $(this).data('department-id');
+$('.edit-btn').click(function () {
+// Get program ID, name, and department ID from data attributes
+var programId = $(this).data('program-id');
+var programName = $(this).data('program-name');
+var departmentId = $(this).data('department-id');
 
-        // Populate the modal with program details
-        $('#programId').val(programId);
-        $('#programName').val(programName);
-        $('#departmentSelect').val(departmentId); // Select the department in the dropdown
+// Populate the modal with program details
+$('#programId').val(programId);
+$('#programName').val(programName);
+$('#departmentSelect').val(departmentId); // Select the department in the dropdown
 
-        // Show the modal
-        $('#editModal').modal('show');
-    });
+// Show the modal
+$('#editModal').modal('show');
+});
 });
 
 </script>
