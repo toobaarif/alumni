@@ -24,6 +24,7 @@
     <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    
     <style>
         .section {
             background: #fff;
@@ -170,6 +171,11 @@
                     @else
                         <p>No work experience available.</p>
                     @endif
+                    <div style="margin-top: 20px; text-align: right;">
+        <a href="/work-experience" style="margin-left: 10px;" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add More Experience
+        </a>
+    </div>
                 </div>
 
                 <!-- Education Details Section -->
@@ -204,9 +210,16 @@
                     @else
                         <p>No education details available.</p>
                     @endif
+
+                    <div style="margin-top: 20px; text-align: right;">
+        <a href="/education" style="margin-left: 10px;" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Add More Experience
+        </a>
+    </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Required vendors -->
         <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
