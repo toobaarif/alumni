@@ -63,7 +63,7 @@
 @include('admin.layout.sidebar')
 
 <div class="container">
-   
+   <h1>event</h1>
 
 
         <!-- Required vendors -->

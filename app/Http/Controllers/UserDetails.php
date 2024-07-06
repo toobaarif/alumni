@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\BasicInfo;
 use App\Models\WorkExperience;
 use App\Models\EducationDetail;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -145,17 +146,17 @@ class UserDetails extends Controller
         return redirect('/student/dashboard')->with('success', 'Education details added successfully!');
     }
     
-
     public function showUserDetails()
     {
         $user = auth()->user(); // assuming the user is logged in
         $basicInfo = BasicInfo::where('user_id', $user->id)->first();
-        $workExperience = WorkExperience::where('user_id', $user->id)->first();
-        $educationDetails = EducationDetail::where('user_id', $user->id)->first();
-
-        return view('students.profile', compact('user', 'basicInfo', 'workExperience', 'educationDetails'));
+        $workExperiences = WorkExperience::where('user_id', $user->id)->get(); // fetch all work experiences
+        $educationDetails = EducationDetail::where('user_id', $user->id)->get(); // fetch all education details
+        
+        return view('students.profile', compact('user', 'basicInfo', 'workExperiences', 'educationDetails'));
     }
-
+    
+    
 
 
 
@@ -210,6 +211,74 @@ public function updateEducationDetails(Request $request, $id)
     $educationDetails->update($request->all());
     return redirect('/profile')->with('success', 'Education details updated successfully.');
 }
+
+
+
+
+public function experiencePrifile(Request $request)
+{
+    $data = $request->validate([
+        'job_title.*' => 'required|string|max:255',
+        'company.*' => 'required|string|max:255',
+        'start_date.*' => 'required|date',
+        'end_date.*' => 'nullable|date|after_or_equal:start_date.*',
+        'job_description.*' => 'required|string',
+    ]);
+
+    $user_id = auth()->user()->id;
+
+    foreach ($data['job_title'] as $key => $value) {
+        WorkExperience::create([
+            'user_id' => $user_id,
+            'job_title' => $data['job_title'][$key],
+            'company' => $data['company'][$key],
+            'start_date' => $data['start_date'][$key],
+            'end_date' => $data['end_date'][$key] ?? null,
+            'job_description' => $data['job_description'][$key],
+        ]);
+    }
+
+    return redirect()->back()->with('success', 'Work experience added successfully!');
+}
+
+
+
+
+
+
+
+
+public function educationProfile(Request $request)
+{
+    // Validate input
+    $validatedData = $request->validate([
+        'institution.*' => 'required',
+        'degree.*' => 'required',
+        'field_of_study.*' => 'required',
+        'graduation_year.*' => 'required',
+        'gpa.*' => 'required',
+    ]);
+
+    // Get the authenticated user
+    $user = Auth::user();
+
+    // Store education details
+    foreach ($request->institution as $key => $value) {
+        $education = new EducationDetail();
+        $education->user_id = $user->id; // Assigning the user_id
+        $education->institution = $request->institution[$key];
+        $education->degree = $request->degree[$key];
+        $education->field_of_study = $request->field_of_study[$key];
+        $education->graduation_year = $request->graduation_year[$key];
+        $education->gpa = $request->gpa[$key];
+        $education->save();
+    }
+
+    // Optionally, redirect to a success page or return a response
+    return redirect()->back()->with('success', 'Education details added successfully!');
+}
+
+
 
 
 }

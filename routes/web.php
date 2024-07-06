@@ -1,11 +1,11 @@
 <?php
-
 use App\Http\Controllers\UserDetails;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\AlumnisController;
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\EveController;
 use App\Http\Controllers\ProfileController;
 
 
@@ -91,7 +91,7 @@ Route::post('/update-program', [ProgramController::class, 'update'])->name('upda
 
 
 
-
+ 
 
 
 // add data 
@@ -111,8 +111,11 @@ Route::get('/profile', [UserDetails::class, 'showUserDetails'])->name('user.deta
 Route::get('basicInfo/{id}/edit', [UserDetails::class, 'editBasicInfo'])->name('basicInfo.edit');
 
 Route::get('workExperience/{id}/edit', [UserDetails::class, 'editWorkExperience'])->name('workExperience.edit');
+Route::post('/experience/store', [UserDetails::class, 'experiencePrifile'])->name('experience.store');
 
 Route::get('educationDetails/{id}/edit', [UserDetails::class, 'editEducationDetails'])->name('educationDetails.edit');
+
+Route::post('/education/store', [UserDetails::class, 'educationProfile'])->name('education.store');
 
 
 // update 
@@ -120,3 +123,9 @@ Route::get('educationDetails/{id}/edit', [UserDetails::class, 'editEducationDeta
 Route::post('/basic-info/{id}', [UserDetails::class, 'updateBasicInfo'])->name('basicInfo.update');
 Route::post('workExperience/{id}', [UserDetails::class, 'updateWorkExperience'])->name('workExperience.update');
 Route::post('educationDetails/{id}', [UserDetails::class, 'updateEducationDetails'])->name('educationDetails.update');
+
+
+
+
+// event route 
+Route::get('/event-form', [EveController::class, 'index']);

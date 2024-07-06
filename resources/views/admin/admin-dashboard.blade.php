@@ -17,19 +17,18 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- PAGE TITLE HERE -->
-    <title>Alumni portal</title>
-    <!-- FAVICONS ICON -->
-     <!-- Favicon -->
-     <link rel="shortcut icon" type="image/png" 
+    <title>Admin | dashboard</title>
+  <!-- Favicon -->
+<link rel="shortcut icon" type="image/png" 
     href="{{url('theme/images/favi.png')}}">
 
     <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/swiper/css/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/css/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('assets/ajax/libs/noUiSlider/14.6.4/nouislider.min.css') }}">
     <link href="{{ url('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/jvmap/jquery-jvectormap.css') }}" rel="stylesheet">
-    <link href="{{ url('assets//buttons/1.6.4/css/buttons.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/css/buttons.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"
         rel="stylesheet">
 
@@ -63,7 +62,7 @@
 @include('admin.layout.sidebar')
 
 <div class="container">
-    <h1>Student Welcome, {{ Auth::user()->name }}</h1>
+    <h1>Admin Welcome, {{ Auth::user()->name }}</h1>
 
 </div>
 
@@ -83,7 +82,7 @@
         <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
         <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
         <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-        {{-- <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script> --}}
+        <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
 
         <!-- Dashboard 1 -->
         <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
@@ -106,9 +105,9 @@
 
 
         <!-- Vectormap -->
-        {{-- <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script> --}}
-        {{-- <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script> --}}
-        {{-- <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script> --}}
+        <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
+        <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
+        <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
         <script src="{{ url('assets/js/custom.js') }}"></script>
         <script src="{{ url('assets/js/deznav-init.js') }}"></script>
         <script src="{{ url('assets/js/demo.js') }}"></script>
@@ -123,51 +122,3 @@
 <!-- Mirrored from w3crm.dexignzone.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 14 Feb 2024 14:29:04 GMT -->
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

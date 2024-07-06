@@ -48,7 +48,6 @@
             </div>
         </div>
     </div>
-    <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
     <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ url('assets/js/deznav-init.js') }}"></script>
     <script src="{{ url('assets/js/demo.js') }}"></script>

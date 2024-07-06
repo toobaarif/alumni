@@ -146,13 +146,12 @@
                                                                 data-program-name="{{ $program->program_name }}"
                                                                 style="border-radius: 5px;">Edit</button>
 
-                                                            <form action="{{ route('programs.delete', $program->id) }}"
-                                                                method="POST">
-                                                                @csrf
-                                                                <button type="submit" class="btn btn-danger"
-                                                                    style="border-radius: 5px;"
-                                                                    onclick="return confirm('Are you sure you want to delete?')">Delete</button>
-                                                            </form>
+                                                                <form action="{{ route('programs.delete', $program->id) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('POST') <!-- Add this line -->
+                                                                    <button type="submit" class="btn btn-danger" style="border-radius: 5px;" onclick="return confirm('Are you sure you want to delete?')">Delete</button>
+                                                                </form>
+                                                                
 
                                                     </td>
                                                 </tr>
@@ -230,7 +229,6 @@ aria-labelledby="home-tab">
 </div>
 
 <!-- Required vendors -->
-<script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
 <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
 <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
 <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>

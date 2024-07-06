@@ -49,41 +49,37 @@
 
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
-
+                        
                             <div class="mb-4">
-                                <label class="mb-1 text-dark" for="name">Name</label>
-                                <input class="form-control form-control" type="text" name="name" id="name"
-                                    placeholder="Enter Name" value="{{ old('name') }}" autofocus>
+                                <label class="mb-1 text-dark" for="name">Name <span style="color: red">*</span></label>
+                                <input class="form-control" type="text" name="name" id="name" placeholder="Enter Name" value="{{ old('name') }}" autofocus required>
                                 @error('name')
                                     <span style="color: red" class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
+                        
                             <div class="mb-4">
-                                <label class="mb-1 text-dark" for="email">Email</label>
-                                <input class="form-control form-control" placeholder="example@gmail.com" type="email"
-                                    name="email" id="email" value="{{ old('email') }}">
+                                <label class="mb-1 text-dark" for="email">Email <span style="color: red">*</span></label>
+                                <input class="form-control" placeholder="example@gmail.com" type="email" name="email" id="email" value="{{ old('email') }}" required>
                                 @error('email')
                                     <span style="color: red" class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
+                        
                             <div class="mb-4">
-                                <label class="mb-1 text-dark" for="password_display">Password </label>
-                                <input class="form-control" type="text" placeholder="Enter Password" id="password_display">
-                                <input class="hidden-input" type="password" name="password" id="password">
+                                <label class="mb-1 text-dark" for="password_display">Password <span style="color: red">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Password" id="password_display" required>
+                                <input class="hidden-input" type="password" name="password" id="password" required>
                                 <span style="color: red" class="text-danger" id="password_error"></span>
                             </div>
                         
                             <div class="mb-4">
-                                <label class="mb-1 text-dark" for="password_confirmation_display">Confirm Password </label>
-                                <input class="form-control" type="text" placeholder="Confirm Password" id="password_confirmation_display">
-                                <input class="hidden-input" type="password" name="password_confirmation" id="password_confirmation">
+                                <label class="mb-1 text-dark" for="password_confirmation_display">Confirm Password <span style="color: red">*</span></label>
+                                <input class="form-control" type="text" placeholder="Confirm Password" id="password_confirmation_display" required>
+                                <input class="hidden-input" type="password" name="password_confirmation" id="password_confirmation" required>
                                 <span style="color: red" class="text-danger" id="password_confirmation_error"></span>
                             </div>
-                            
-                            
-                            
+                        
                             <script>
                                 function syncPassword(input, hiddenInput) {
                                     const value = input.value;
@@ -99,54 +95,51 @@
                                     syncPassword(this, document.getElementById('password_confirmation'));
                                 });
                             </script>
-
+                        
                             <div class="mb-4">
-                                <label class="mb-1 text-dark" for="graduation_year">Graduation Year</label>
-                                <input class="form-control form-control" type="date" name="graduation_year"
-                                    id="graduation_year" min="1900">
+                                <label class="mb-1 text-dark" for="graduation_year">Graduation Year <span style="color: red">*</span></label>
+                                <input class="form-control" type="date" name="graduation_year" id="graduation_year" min="1900" required>
                                 @error('graduation_year')
                                     <span style="color: red" class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+                        
                             <div class="mb-4">
-                                <label class="mb-1 text-dark" for="department">Department</label>
-                                <select class="form-control" name="department" id="department">
+                                <label class="mb-1 text-dark" for="department">Department <span style="color: red">*</span></label>
+                                <select class="form-control" name="department" id="department" required>
                                     <option value="">Select Department</option>
                                     @foreach ($departments as $department)
-                                        <option value="{{ $department->id }}">{{ $department->department_name }}
-                                        </option>
+                                        <option value="{{ $department->id }}">{{ $department->department_name }}</option>
                                     @endforeach
                                 </select>
                                 @error('department')
                                     <span style="color: red" class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
+                        
                             <div class="mb-4">
-                                <label class="mb-1 text-dark" for="program">Program</label>
-                                <select class="form-control" name="program" id="program">
+                                <label class="mb-1 text-dark" for="program">Program <span style="color: red">*</span></label>
+                                <select class="form-control" name="program" id="program" required>
                                     <option value="">Select Program</option>
                                 </select>
                                 @error('program')
                                     <span style="color: red" class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
-
-
+                        
                             <div class="mb-4">
-                                <label class="mb-1 text-dark" for="profile_picture">Profile Picture</label>
-                                <input class="form-control form-control" type="file" name="profile_picture"
-                                    id="profile_picture">
+                                <label class="mb-1 text-dark" for="profile_picture">Profile Picture </label>
+                                <input class="form-control" type="file" name="profile_picture" id="profile_picture" required>
                                 @error('profile_picture')
                                     <span style="color: red" class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
+                        
                             <div class="text-center mb-4">
                                 <button class="btn btn-primary btn-block" type="submit">Register</button>
                             </div>
                         </form>
+                        
 
 
 
@@ -205,7 +198,6 @@
 
 
     {{-- <a href="{{ route('password.request') }}">Forgot your password?</a> --}}
-    <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
     <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ url('assets/js/deznav-init.js') }}"></script>
     <script src="{{ url('assets/js/demo.js') }}"></script>
