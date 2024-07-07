@@ -622,7 +622,7 @@
 
 
     <!-- Here is Contact part Start -->
-    @include('pages.footer')
+    <!-- @include('pages.footer') -->
     <!-- <section id="contact">
         <div class="container">
             <div class="row">
