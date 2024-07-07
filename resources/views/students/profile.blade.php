@@ -101,7 +101,8 @@
                 </div>
 
                 <!-- Work Experience Section -->
-                <div class="section">
+                 <!-- Work Experience Section -->
+                 <div class="section">
                     <div class="d-flex justify-content-between align-items-center">
                         <h3>Work Experience</h3>
                         <!-- Edit Icon and Link -->
@@ -160,59 +161,100 @@
 
                 <!-- Education Details Section -->
               <!-- Assuming this is part of your existing Blade template for managing user details -->
+<!-- Education Details Section -->
+<!-- Education Details Section -->
 <div class="section">
     <div class="d-flex justify-content-between align-items-center">
         <h3>Education Details</h3>
     </div>
     <form id="education-form" action="{{ route('education.store') }}" method="POST">
         @csrf
-        <!-- Education entries -->
         <div id="education-container">
-            <!-- Display only the first education entry -->
             @if ($educationDetails->isNotEmpty())
-                <div class="education-entry">
-                    <table>
-                        <tr>
-                            <th>Institution</th>
-                            <td>{{ $educationDetails->first()->institution }}</td>
-                        </tr>
-                        <tr>
-                            <th>Degree</th>
-                            <td>{{ $educationDetails->first()->degree }}</td>
-                        </tr>
-                        <tr>
-                            <th>Field of Study</th>
-                            <td>{{ $educationDetails->first()->field_of_study }}</td>
-                        </tr>
-                        <tr>
-                            <th>Graduation Year</th>
-                            <td>{{ $educationDetails->first()->graduation_year }}</td>
-                        </tr>
-                        <tr>
-                            <th>GPA</th>
-                            <td>{{ $educationDetails->first()->gpa }}</td>
-                        </tr>
-                    </table>
-                    <div style="margin-top: 10px; text-align: right;">
-                        <a href="{{ route('educationDetails.edit', $educationDetails->first()->id) }}" class="edit-icon">
-                            <i class="fas fa-edit"></i>
-                        </a>
+                @foreach ($educationDetails as $key => $education)
+                    <div class="education-entry">
+                        <h4>Education Experience #{{ $key + 1 }}</h4>
+                        <table>
+                            <tr>
+                                <th>Institution</th>
+                                <td>{{ $education->institution }}</td>
+                            </tr>
+                            <tr>
+                                <th>Degree</th>
+                                <td>{{ $education->degree }}</td>
+                            </tr>
+                            <tr>
+                                <th>Field of Study</th>
+                                <td>{{ $education->field_of_study }}</td>
+                            </tr>
+                            <tr>
+                                <th>Graduation Year</th>
+                                <td>{{ $education->graduation_year }}</td>
+                            </tr>
+                            <tr>
+                                <th>GPA</th>
+                                <td>{{ $education->gpa }}</td>
+                            </tr>
+                        </table>
+                        <div style="margin-top: 10px; text-align: right;">
+                            <a href="{{ route('educationDetails.edit', $education->id) }}" class="edit-icon">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             @else
                 <p>No education details available.</p>
             @endif
         </div>
-        
 
-        <!-- Buttons for adding more and submitting -->
         <div style="margin-top: 20px; text-align: right;">
             <button type="button" id="add-education-btn" class="btn btn-primary">
                 <i class="fas fa-plus"></i> Add More Education
             </button>
         </div>
+        <div style="margin-top: 20px; text-align: right;">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
     </form>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('add-education-btn').addEventListener('click', function() {
+            var educationContainer = document.getElementById('education-container');
+            var newEntry = document.createElement('div');
+            newEntry.className = 'education-entry';
+            newEntry.innerHTML = `
+                <h4>New Education Entry</h4>
+                <table>
+                    <tr>
+                        <th>Institution</th>
+                        <td><input type="text" name="institution[]" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <th>Degree</th>
+                        <td><input type="text" name="degree[]" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <th>Field of Study</th>
+                        <td><input type="text" name="field_of_study[]" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <th>Graduation Year</th>
+                        <td><input type="number" name="graduation_year[]" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <th>GPA</th>
+                        <td><input type="text" name="gpa[]" class="form-control" required></td>
+                    </tr>
+                </table>
+            `;
+            educationContainer.appendChild(newEntry);
+        });
+    });
+</script>
+
 
                 
 

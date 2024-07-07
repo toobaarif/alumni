@@ -114,7 +114,6 @@ Route::get('workExperience/{id}/edit', [UserDetails::class, 'editWorkExperience'
 Route::post('/experience/store', [UserDetails::class, 'experiencePrifile'])->name('experience.store');
 
 Route::get('educationDetails/{id}/edit', [UserDetails::class, 'editEducationDetails'])->name('educationDetails.edit');
-
 Route::post('/education/store', [UserDetails::class, 'educationProfile'])->name('education.store');
 
 
