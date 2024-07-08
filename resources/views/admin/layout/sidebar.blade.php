@@ -131,8 +131,42 @@
 						<span class="nav-text">Profile</span>
 					</a>
 				</li>
-
-
+				<li>
+					<a href="{{ url('/profile') }}" class="" aria-expanded="false">
+						<div class="menu-icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd"
+									d="M14.7366 2.76193H8.08455C6.00455 2.75393 4.29955 4.41093 4.25055 6.49093V17.3399C4.21555 19.3899 5.84855 21.0809 7.89955 21.1169C7.96055 21.1169 8.02255 21.1169 8.08455 21.1149H16.0726C18.1416 21.0939 19.8056 19.4089 19.8026 17.3399V8.03993L14.7366 2.76193Z"
+									stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M14.4741 2.75012V5.65912C14.4741 7.07912 15.6231 8.23012 17.0431 8.23412H19.7971"
+									stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M14.2936 12.9142H9.39355" stroke="#130F26" stroke-width="1.5"
+									stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M11.8442 15.3639V10.4639" stroke="#130F26" stroke-width="1.5"
+									stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</div>
+						<span class="nav-text">Jobs</span>
+					</a>
+				</li>
+				<li>
+					<a href="{{ url('/profile') }}" class="" aria-expanded="false">
+						<div class="menu-icon">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M13.8496 4.25031V6.67031" stroke="#130F26" stroke-width="1.5"
+									stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M13.8496 17.7601V19.7841" stroke="#130F26" stroke-width="1.5"
+									stroke-linecap="round" stroke-linejoin="round" />
+								<path d="M13.8496 14.3246V9.5036" stroke="#130F26" stroke-width="1.5" stroke-linecap="round"
+									stroke-linejoin="round" />
+								<path fill-rule="evenodd" clip-rule="evenodd"
+									d="M18.7021 20C20.5242 20 22 18.5426 22 16.7431V14.1506C20.7943 14.1506 19.8233 13.1917 19.8233 12.001C19.8233 10.8104 20.7943 9.85039 22 9.85039L21.999 7.25686C21.999 5.45745 20.5221 4 18.7011 4H5.29892C3.47789 4 2.00104 5.45745 2.00104 7.25686L2 9.93485C3.20567 9.93485 4.17668 10.8104 4.17668 12.001C4.17668 13.1917 3.20567 14.1506 2 14.1506V16.7431C2 18.5426 3.4758 20 5.29787 20H18.7021Z"
+									stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+							</svg>
+						</div>
+						<span class="nav-text">Donation</span>
+					</a>
+				</li>
 			@endif
 		</ul>
 
