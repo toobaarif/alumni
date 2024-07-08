@@ -4,30 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta name="robots" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
-    <meta property="og:title" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
-    <meta property="og:description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
-    <meta property="og:image" content="social-image.png">
-    <meta name="format-detection" content="telephone=no">
-
     <title>Events | Admin</title>
-
     <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/favi.png') }}">
     <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/swiper/css/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('assets/ajax/libs/noUiSlider/14.6.4/nouislider.min.css') }}">
-    <link href="{{ url('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/jvmap/jquery-jvectormap.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/buttons/1.6.4/css/buttons.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/tagify/dist/tagify.css') }}" rel="stylesheet">
     <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
-
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -101,87 +83,16 @@
             background-color: #0056b3;
         }
 
-        .radio-group {
-            display: flex;
-            align-items: center;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-
-        .radio-option input {
-            margin-right: 5px;
-        }
-
         .alert-success {
             color: green;
             text-align: center;
             margin-bottom: 20px;
         }
-
-        #preloader {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            background-color: #fff;
-            z-index: 9999;
-        }
-
-        .lds-ripple {
-            display: inline-block;
-            position: relative;
-            width: 64px;
-            height: 64px;
-        }
-
-        .lds-ripple div {
-            position: absolute;
-            border: 4px solid #007bff;
-            opacity: 1;
-            border-radius: 50%;
-            animation: lds-ripple 1.0s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-        }
-
-        .lds-ripple div:nth-child(2) {
-            animation-delay: -0.5s;
-        }
-
-        @keyframes lds-ripple {
-            0% {
-                top: 28px;
-                left: 28px;
-                width: 0;
-                height: 0;
-                opacity: 1;
-            }
-
-            100% {
-                top: -1px;
-                left: -1px;
-                width: 58px;
-                height: 58px;
-                opacity: 0;
-            }
-        }
     </style>
 </head>
 
-<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
+<body>
     <div id="main-wrapper">
-        <!-- Preloader start -->
-        <div id="preloader">
-            <div class="lds-ripple">
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <!-- Preloader end -->
-
         @include('admin.layout.header')
         @include('admin.layout.sidebar')
 
@@ -192,12 +103,9 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <form id="eventForm">
+            <form id="eventForm" action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group">
-                    <label for="eventId">Event ID:</label>
-                    <input type="text" id="eventId" name="eventId" required>
-                </div>
+          
                 <div class="form-group">
                     <label for="name">Event Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -242,53 +150,8 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('eventForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const eventId = document.getElementById('eventId').value;
-            const name = document.getElementById('name').value;
-            const description = document.getElementById('description').value;
-            const picture = document.getElementById('picture').files[0];
-            const eventDate = document.getElementById('eventDate').value;
-            const eventLocation = document.getElementById('eventLocation').value;
-            const eventType = document.getElementById('eventType').value;
-            const eventStatus = document.getElementById('eventStatus').value;
-
-            console.log({
-                eventId,
-                name,
-                description,
-                picture,
-                eventDate,
-                eventLocation,
-                eventType,
-                eventStatus
-            });
-
-            alert('Event created successfully!');
-
-            document.getElementById('eventForm').reset();
-        });
-    </script>
-
     <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
-    <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-    <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
-    <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
-    <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
-    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
-    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
-    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ url('assets/js/custom.js') }}"></script>
-    <script src="{{ url('assets/js/deznav-init.js') }}"></script>
-    <script src="{{ url('assets/js/demo.js') }}"></script>
-    <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
 </body>
 
 </html>

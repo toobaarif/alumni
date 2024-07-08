@@ -6,6 +6,8 @@ use App\Http\Controllers\AlumnisController;
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\EveController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\ProfileController;
 
 
@@ -128,3 +130,14 @@ Route::post('educationDetails/{id}', [UserDetails::class, 'updateEducationDetail
 
 // event route 
 Route::get('/event-form', [EveController::class, 'index']);
+Route::post('/events', [EveController::class, 'store'])->name('events.store');
+Route::get('/events/{id}', [EveController::class, 'show'])->name('events.show');
+Route::delete('/events/{id}', [EveController::class, 'destroy'])->name('events.destroy');
+
+
+// donation route
+Route::get('/donation', [DonationController::class, 'index']);
+
+
+// jobs route
+Route::get('/jobs', [JobsController::class, 'index']);
