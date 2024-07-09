@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- PAGE TITLE HERE -->
-    <title>Alumni|Donations</title>
+    <title>Alumni | Events</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{url('theme/images/favi.png')}}">
 
@@ -34,9 +34,9 @@
     <!-- tagify-css -->
     <link href="{{ url('assets/vendor/tagify/dist/tagify.css') }}" rel="stylesheet">
 
-  <!-- datteeeeeee -->
-   <!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <!-- datteeeeeee -->
+    <!-- FAVICONS ICON -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <!-- Daterange picker -->
     <link href="vendor/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Clockpicker -->
@@ -45,15 +45,15 @@
     <link href="vendor/jquery-asColorPicker/css/asColorPicker.min.css" rel="stylesheet">
     <!-- Material color picker -->
     <link href="vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
-	
+
     <!-- Pick date -->
     <link rel="stylesheet" href="vendor/pickadate/themes/default.css">
     <link rel="stylesheet" href="vendor/pickadate/themes/default.date.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Custom Stylesheet -->
-	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-   <link href="css/style.css" rel="stylesheet">
-<!-- end -->
+    <link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- end -->
     <!-- Style css -->
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
@@ -92,38 +92,63 @@
                     <div class="col-xl-9 col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h2>DONATION</h2>
+                                <h2>Create Event</h2>
                             </div>
+                            @if (session('success'))
+                                <div class="alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                             <div class="card-body">
-                                <div class="basic-form">
-                                    <form>
+                            @csrf
+                                <div class="basic-form" >
 
-                                        <!-- <div class="row">
+                                    <form  action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+
+                                        <div class="row">
                                             <div class="mb-3 col-md-12">
-                                                <label class="form-label">User ID:</label>
-                                                <input type="number" class="form-control" placeholder="User ID">
+                                                <label class="form-label">Event ID:</label>
+                                                <input type="number" class="form-control" placeholder="Event ID" :>
                                             </div>
                                             <div class="mb-3 col-md-12">
-                                                <label class="form-label">Donation ID:</label>
-                                                <input type="number" class="form-control" placeholder="Donation ID">
-                                            </div> -->
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Amount:</label>
-                                                <input type="number" class="form-control" placeholder="Amount">
+                                                <label class="form-label">Event Name:</label>
+                                                <input type="number" class="form-control" placeholder="Event Name:">
                                             </div>
-                                         
                                             <div class="mb-3 col-md-12">
-                                                <label class="form-label">Date:</label>
-                                                <input type="date" class="form-control" >
+                                                <label class="form-label">Event Type:</label>
+                                                <select class="default-select  form-control wide">
+                                                    <option value="1">Conference</option>
+                                                    <option value="2">Workshop</option>
+                                                    <option value="3">Meetup</option>
+                                                    <option value="4">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Event Status:</label>
+                                                <select class="default-select  form-control wide">
+                                                    <option value="planned">Planned</option>
+                                                    <option value="ongoing">Ongoing</option>
+                                                    <option value="completed">Completed</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Event Location:</label>
+                                                <input type="text" class="form-control" placeholder="Event Location:">
+                                            </div>
+
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Event Date:</label>
+                                                <input type="date" class="form-control">
                                             </div>
 
                                             <div class="mb-3 col-md-">
-                                                <label for="formFile" class="form-label">transaction Picture</label>
+                                                <label for="formFile" class="form-label">Picture:</label>
                                                 <input class="form-control" type="file" id="formFile">
                                             </div>
                                             <div class="mb-3 col-md-12">
-                                                <label class="form-label">Purpose:</label>
-                                                <input type="text" class="form-control" placeholder="Purpose">
+                                                <label class="form-label">Event description:</label>
+                                                <textarea class="form-control" rows="5"
+                                                    placeholder="Type your message..."></textarea>
                                             </div>
 
                                         </div>
@@ -162,51 +187,51 @@
         <script src="{{ url('assets/js/demo.js') }}"></script>
         <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
 
-<!-- dateee -->
-<script src="vendor/global/global.min.js"></script>
-	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="vendor/chart.js/Chart.bundle.min.js"></script>
-	<!-- Apex Chart -->
-	<script src="vendor/apexchart/apexchart.js"></script>
-    
-
-
-    <!-- Daterangepicker -->
-    <!-- momment js is must -->
-    <script src="vendor/moment/moment.min.js"></script>
-    <script src="vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- clockpicker -->
-    <script src="vendor/clockpicker/js/bootstrap-clockpicker.min.js"></script>
-    <!-- asColorPicker -->
-    <script src="vendor/jquery-asColor/jquery-asColor.min.js"></script>
-    <script src="vendor/jquery-asGradient/jquery-asGradient.min.js"></script>
-    <script src="vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js"></script>
-    <!-- Material color picker -->
-    <script src="vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
-    <!-- pickdate -->
-    <script src="vendor/pickadate/picker.js"></script>
-    <script src="vendor/pickadate/picker.time.js"></script>
-    <script src="vendor/pickadate/picker.date.js"></script>
+        <!-- dateee -->
+        <script src="vendor/global/global.min.js"></script>
+        <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+        <script src="vendor/chart.js/Chart.bundle.min.js"></script>
+        <!-- Apex Chart -->
+        <script src="vendor/apexchart/apexchart.js"></script>
 
 
 
-    <!-- Daterangepicker -->
-    <script src="js/plugins-init/bs-daterange-picker-init.js"></script>
-    <!-- Clockpicker init -->
-    <script src="js/plugins-init/clock-picker-init.js"></script>
-    <!-- asColorPicker init -->
-    <script src="js/plugins-init/jquery-asColorPicker.init.js"></script>
-    <!-- Material color picker init -->
-    <script src="js/plugins-init/material-date-picker-init.js"></script>
-    <!-- Pickdate -->
-    <script src="js/plugins-init/pickadate-init.js"></script>
+        <!-- Daterangepicker -->
+        <!-- momment js is must -->
+        <script src="vendor/moment/moment.min.js"></script>
+        <script src="vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <!-- clockpicker -->
+        <script src="vendor/clockpicker/js/bootstrap-clockpicker.min.js"></script>
+        <!-- asColorPicker -->
+        <script src="vendor/jquery-asColor/jquery-asColor.min.js"></script>
+        <script src="vendor/jquery-asGradient/jquery-asGradient.min.js"></script>
+        <script src="vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js"></script>
+        <!-- Material color picker -->
+        <script src="vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+        <!-- pickdate -->
+        <script src="vendor/pickadate/picker.js"></script>
+        <script src="vendor/pickadate/picker.time.js"></script>
+        <script src="vendor/pickadate/picker.date.js"></script>
 
-	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
-     <script src="js/custom.js"></script>
-	<script src="js/deznav-init.js"></script>
-	<script src="js/demo.js"></script>
-    <script src="js/styleSwitcher.js"></script>      
+
+        <!-- Daterangepicker -->
+        <script src="js/plugins-init/bs-daterange-picker-init.js"></script>
+        <!-- Clockpicker init -->
+        <script src="js/plugins-init/clock-picker-init.js"></script>
+        <!-- asColorPicker init -->
+        <script src="js/plugins-init/jquery-asColorPicker.init.js"></script>
+        <!-- Material color picker init -->
+        <script src="js/plugins-init/material-date-picker-init.js"></script>
+        <!-- Pickdate -->
+        <script src="js/plugins-init/pickadate-init.js"></script>
+
+        <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+        <script src="js/custom.js"></script>
+        <script src="js/deznav-init.js"></script>
+        <script src="js/demo.js"></script>
+        <script src="js/styleSwitcher.js"></script>
 
     </div>
 </body>

@@ -132,7 +132,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="{{ url('/profile') }}" class="" aria-expanded="false">
+					<a href="{{ url('/jobs') }}" class="" aria-expanded="false">
 						<div class="menu-icon">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd" clip-rule="evenodd"
@@ -150,7 +150,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="{{ url('/profile') }}" class="" aria-expanded="false">
+					<a href="{{ url('/donation') }}" class="" aria-expanded="false">
 						<div class="menu-icon">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M13.8496 4.25031V6.67031" stroke="#130F26" stroke-width="1.5"
