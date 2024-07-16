@@ -118,7 +118,7 @@
                                                 @php
                                                     $sno = 1;
                                                 @endphp
-                                                @foreach ($events as $event)
+                                                @foreach ($event as $event)
                                                     <tr>
                                                         <td>{{ $sno++ }}</td>
                                                         <td>{{ $event->name}}</td>

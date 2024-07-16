@@ -19,8 +19,7 @@
     <!-- PAGE TITLE HERE -->
     <title>Alumni|jobs</title>
     <!-- Favicon -->
-   <link rel="shortcut icon" type="image/png" 
-    href="{{url('theme/images/favi.png')}}">
+    <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/favi.png') }}">
 
     <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/css/swiper-bundle.min.css') }}" rel="stylesheet">
@@ -63,15 +62,15 @@
         @include('admin.layout.sidebar')
 
 
-<!-- form -->
-<div class="content-body ">
-			
+        <!-- form -->
+        <div class="content-body ">
+
             <div class="container-fluid">
-				
+
                 <!-- row -->
                 <div class="row">
-                    
-					<div class="col-xl-9 col-lg-12">
+
+                    <div class="col-xl-9 col-lg-12">
                         <div class="card">
                             <div class="card-header">
                                 <h2>CREATE JOB</h2>
@@ -79,97 +78,94 @@
                             <div class="card-body">
                                 <div class="basic-form">
                                     <form>
-
-                                        <!-- <div class="row">
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Job ID:</label>
-                                                <input type="text" class="form-control" placeholder="Job ID:">
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">User ID:</label>
-                                                <input type="text" class="form-control" placeholder="User ID:">
-                                            </div> -->
-                                           
-                                            
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Job Title:</label>
-                                                <input type="text" class="form-control" placeholder="Job Title:">
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Company Name:</label>
-                                                <input type="text" class="form-control" placeholder="Company Name:">
-                                            </div>
-                                            
-                                            <div class="row">
+                                        @csrf
+                                    
+                                        <div class="mb-3 col-md-12">
+                                            <label class="form-label">Job Title:</label>
+                                            <input type="text" name="job_title" class="form-control @error('job_title') is-invalid @enderror" placeholder="Job Title">
+                                            @error('job_title')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    
+                                        <div class="mb-3 col-md-12">
+                                            <label class="form-label">Company Name:</label>
+                                            <input type="text" name="company_name" class="form-control @error('company_name') is-invalid @enderror" placeholder="Company Name">
+                                            @error('company_name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    
+                                        <div class="row">
                                             <div class="mb-3 col-md-9">
                                                 <label class="form-label">Job Location:</label>
-                                                <input type="text" class="form-control" placeholder="Job Location:">
+                                                <input type="text" name="job_location" class="form-control @error('job_location') is-invalid @enderror" placeholder="Job Location">
+                                                @error('job_location')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="mb-3 col-md-2">
                                                 <label class="form-label">Zip</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" name="zip_code" class="form-control @error('zip_code') is-invalid @enderror">
+                                                @error('zip_code')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
                                             </div>
-                                            </div>
-                                            <div class="row">
-                                            <div class="mb-3 col-md-9">
-                                                <label class="form-label">User Type</label>
-                                                <select id="inputState" class="default-select form-control wide">
-                                                    <option selected>Choose...</option>
-                                                    <option>Alumni</option>
-                                                    <option>Admin</option>
-                                                    
-                                                </select>
-                                            </div>
-                                            
                                         </div>
-                                            <div class="mb-3 col-md-">
+                                    
+                                        <div class="mb-3 col-md-">
                                             <label for="formFile" class="form-label">Job Picture</label>
-                                            <input class="form-control" type="file" id="formFile">
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Job description:</label>
-                                                <textarea class="form-control"rows="5" placeholder="Type your message..."></textarea>
-                                            </div>
-                                           
-                                           
+                                            <input name="job_picture" class="form-control @error('job_picture') is-invalid @enderror" type="file" id="formFile">
+                                            @error('job_picture')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
-                                      
+                                    
+                                        <div class="mb-3 col-md-12">
+                                            <label class="form-label">Job description:</label>
+                                            <textarea name="job_description" class="form-control @error('job_description') is-invalid @enderror" rows="5" placeholder="Type your message..."></textarea>
+                                            @error('job_description')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
-                                </div>
+                                    
                             </div>
                         </div>
-					</div>
-					
+                    </div>
                 </div>
+
             </div>
         </div>
- <!-- form ends -->
-
-                    
-                    <!-- Required vendors -->
-                    <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
-
-                    <!-- Dashboard 1 -->
-                    <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
-                    <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
-
-                    <!-- Vectormap -->
-                    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
-                    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
-                    <script src="{{ url('assets/js/custom.js') }}"></script>
-                    <script src="{{ url('assets/js/deznav-init.js') }}"></script>
-                    <script src="{{ url('assets/js/demo.js') }}"></script>
-                    <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
+    </div>
+    <!-- form ends -->
 
 
+    <!-- Required vendors -->
+    <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
+
+    <!-- Dashboard 1 -->
+    <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
+    <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
+
+    <!-- Vectormap -->
+    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
+    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
+    <script src="{{ url('assets/js/custom.js') }}"></script>
+    <script src="{{ url('assets/js/deznav-init.js') }}"></script>
+    <script src="{{ url('assets/js/demo.js') }}"></script>
+    <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
 
 
-                </div>
+
+
+    </div>
 </body>
 
 <!-- Mirrored from w3crm.dexignzone.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 14 Feb 2024 14:29:04 GMT -->

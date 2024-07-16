@@ -96,40 +96,33 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
-                                    <form>
-
-                                        <!-- <div class="row">
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">User ID:</label>
-                                                <input type="number" class="form-control" placeholder="User ID">
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Donation ID:</label>
-                                                <input type="number" class="form-control" placeholder="Donation ID">
-                                            </div> -->
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Amount:</label>
-                                                <input type="number" class="form-control" placeholder="Amount">
-                                            </div>
-                                         
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Date:</label>
-                                                <input type="date" class="form-control" >
-                                            </div>
-
-                                            <div class="mb-3 col-md-">
-                                                <label for="formFile" class="form-label">transaction Picture</label>
-                                                <input class="form-control" type="file" id="formFile">
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Purpose:</label>
-                                                <input type="text" class="form-control" placeholder="Purpose">
-                                            </div>
-
+                                    <form method="POST" action="{{ route('donations.store') }}" enctype="multipart/form-data">
+                                        @csrf
+                                    
+                                        <div class="mb-3 col-md-12">
+                                            <label class="form-label">Amount:</label>
+                                            <input type="number" name="amount" class="form-control" placeholder="Amount">
                                         </div>
-
+                                    
+                                        <div class="mb-3 col-md-12">
+                                            <label class="form-label">Date:</label>
+                                            <input type="date" name="date" class="form-control">
+                                        </div>
+                                    
+                                        <div class="mb-3 col-md-">
+                                            <label for="formFile" class="form-label">Transaction Picture:</label>
+                                            <input name="transaction_picture" class="form-control" type="file" id="formFile">
+                                        </div>
+                                    
+                                        <div class="mb-3 col-md-12">
+                                            <label class="form-label">Purpose:</label>
+                                            <input type="text" name="purpose" class="form-control" placeholder="Purpose">
+                                        </div>
+                                    
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
