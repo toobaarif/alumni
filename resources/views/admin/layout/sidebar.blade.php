@@ -9,13 +9,13 @@
 				<li>
 					<a class="has-arrow" href="{{ route('admin.dashboard') }}" aria-expanded="false">
 						<div class="menu-icon">
-							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M2.5 7.49999L10 1.66666L17.5 7.49999V16.6667C17.5 17.1087 17.3244 17.5326 17.0118 17.8452C16.6993 18.1577 16.2754 18.3333 15.8333 18.3333H4.16667C3.72464 18.3333 3.30072 18.1577 2.98816 17.8452C2.67559 17.5326 2.5 17.1087 2.5 16.6667V7.49999Z"
-									stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M7.5 18.3333V10H12.5V18.3333" stroke="#888888" stroke-linecap="round"
-									stroke-linejoin="round" />
-							</svg>
+						<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2.5 7.49999L10 1.66666L17.5 7.49999V16.6667C17.5 17.1087 17.3244 17.5326 17.0118 17.8452C16.6993 18.1577 16.2754 18.3333 15.8333 18.3333H4.16667C3.72464 18.3333 3.30072 18.1577 2.98816 17.8452C2.67559 17.5326 2.5 17.1087 2.5 16.6667V7.49999Z"
+                                    stroke="#888888" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M7.5 18.3333V10H12.5V18.3333" stroke="#888888" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
 						</div>
 						<span class="nav-text">Dashboard</span>
 					</a>
@@ -69,31 +69,21 @@
 					</a>
 				</li>
 				<li>
-					<a href="{{ url('/event-form') }}" class="" aria-expanded="false">
+					<a href="{{ url('/events') }}" class="" aria-expanded="false">
 						<div class="menu-icon">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M3.09277 9.40427H20.9167" stroke="#130F26" stroke-width="1.5"
-									stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M16.442 13.3097H16.4512" stroke="#130F26" stroke-width="1.5" stroke-linecap="round"
-									stroke-linejoin="round" />
-								<path d="M12.0045 13.3097H12.0137" stroke="#130F26" stroke-width="1.5"
-									stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M7.55769 13.3097H7.56695" stroke="#130F26" stroke-width="1.5"
-									stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M16.442 17.1962H16.4512" stroke="#130F26" stroke-width="1.5" stroke-linecap="round"
-									stroke-linejoin="round" />
-								<path d="M12.0045 17.1962H12.0137" stroke="#130F26" stroke-width="1.5"
-									stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M7.55769 17.1962H7.56695" stroke="#130F26" stroke-width="1.5"
-									stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M16.0438 2V5.29078" stroke="#130F26" stroke-width="1.5" stroke-linecap="round"
-									stroke-linejoin="round" />
-								<path d="M7.96564 2V5.29078" stroke="#130F26" stroke-width="1.5" stroke-linecap="round"
-									stroke-linejoin="round" />
-								<path fill-rule="evenodd" clip-rule="evenodd"
-									d="M16.2383 3.57922H7.77096C4.83427 3.57922 3 5.21516 3 8.22225V17.2719C3 20.3263 4.83427 22 7.77096 22H16.229C19.175 22 21 20.3546 21 17.3475V8.22225C21.0092 5.21516 19.1842 3.57922 16.2383 3.57922Z"
-									stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path d="M3.09277 9.40427H20.9167" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M16.442 13.3097H16.4512" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M12.0045 13.3097H12.0137" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M7.55769 13.3097H7.56695" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M16.442 17.1962H16.4512" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M12.0045 17.1962H12.0137" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M7.55769 17.1962H7.56695" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M16.0438 2V5.29078" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path d="M7.96564 2V5.29078" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path fill-rule="evenodd" clip-rule="evenodd" d="M16.2383 3.57922H7.77096C4.83427 3.57922 3 5.21516 3 8.22225V17.2719C3 20.3263 4.83427 22 7.77096 22H16.229C19.175 22 21 20.3546 21 17.3475V8.22225C21.0092 5.21516 19.1842 3.57922 16.2383 3.57922Z" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+
 						</div>
 						<span class="nav-text">Events</span>
 					</a>
@@ -133,37 +123,39 @@
 				</li>
 				<li>
 					<a href="{{ url('/jobs') }}" class="" aria-expanded="false">
-						<div class="menu-icon">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path fill-rule="evenodd" clip-rule="evenodd"
-									d="M14.7366 2.76193H8.08455C6.00455 2.75393 4.29955 4.41093 4.25055 6.49093V17.3399C4.21555 19.3899 5.84855 21.0809 7.89955 21.1169C7.96055 21.1169 8.02255 21.1169 8.08455 21.1149H16.0726C18.1416 21.0939 19.8056 19.4089 19.8026 17.3399V8.03993L14.7366 2.76193Z"
-									stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M14.4741 2.75012V5.65912C14.4741 7.07912 15.6231 8.23012 17.0431 8.23412H19.7971"
-									stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M14.2936 12.9142H9.39355" stroke="#130F26" stroke-width="1.5"
-									stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M11.8442 15.3639V10.4639" stroke="#130F26" stroke-width="1.5"
-									stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
-						</div>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path d="M11.9951 16.6768V14.1398" stroke="#888888" stroke-width="1.5" stroke-linecap="round"
+		stroke-linejoin="round" />
+	<path fill-rule="evenodd" clip-rule="evenodd"
+		d="M18.19 5.3302C19.88 5.3302 21.24 6.7002 21.24 8.3902V11.8302C18.78 13.2702 15.53 14.1402 11.99 14.1402C8.45 14.1402 5.21 13.2702 2.75 11.8302V8.3802C2.75 6.6902 4.12 5.3302 5.81 5.3302H18.19Z"
+		stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path
+		d="M15.4951 5.32582V4.95982C15.4951 3.73982 14.5051 2.74982 13.2851 2.74982H10.7051C9.48512 2.74982 8.49512 3.73982 8.49512 4.95982V5.32582"
+		stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	<path
+		d="M2.77441 15.483L2.96341 17.992C3.09141 19.683 4.50041 20.99 6.19541 20.99H17.7944C19.4894 20.99 20.8984 19.683 21.0264 17.992L21.2154 15.483"
+		stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+
 						<span class="nav-text">Jobs</span>
 					</a>
 				</li>
 				<li>
 					<a href="{{ url('/donation') }}" class="" aria-expanded="false">
-						<div class="menu-icon">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M13.8496 4.25031V6.67031" stroke="#130F26" stroke-width="1.5"
-									stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M13.8496 17.7601V19.7841" stroke="#130F26" stroke-width="1.5"
-									stroke-linecap="round" stroke-linejoin="round" />
-								<path d="M13.8496 14.3246V9.5036" stroke="#130F26" stroke-width="1.5" stroke-linecap="round"
-									stroke-linejoin="round" />
-								<path fill-rule="evenodd" clip-rule="evenodd"
-									d="M18.7021 20C20.5242 20 22 18.5426 22 16.7431V14.1506C20.7943 14.1506 19.8233 13.1917 19.8233 12.001C19.8233 10.8104 20.7943 9.85039 22 9.85039L21.999 7.25686C21.999 5.45745 20.5221 4 18.7011 4H5.29892C3.47789 4 2.00104 5.45745 2.00104 7.25686L2 9.93485C3.20567 9.93485 4.17668 10.8104 4.17668 12.001C4.17668 13.1917 3.20567 14.1506 2 14.1506V16.7431C2 18.5426 3.4758 20 5.29787 20H18.7021Z"
-									stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
-						</div>
+					<div class="menu-icon">
+	<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M13.8496 4.25031V6.67031" stroke="#888888" stroke-width="1.5"
+			stroke-linecap="round" stroke-linejoin="round" />
+		<path d="M13.8496 17.7601V19.7841" stroke="#888888" stroke-width="1.5"
+			stroke-linecap="round" stroke-linejoin="round" />
+		<path d="M13.8496 14.3246V9.5036" stroke="#888888" stroke-width="1.5" stroke-linecap="round"
+			stroke-linejoin="round" />
+		<path fill-rule="evenodd" clip-rule="evenodd"
+			d="M18.7021 20C20.5242 20 22 18.5426 22 16.7431V14.1506C20.7943 14.1506 19.8233 13.1917 19.8233 12.001C19.8233 10.8104 20.7943 9.85039 22 9.85039L21.999 7.25686C21.999 5.45745 20.5221 4 18.7011 4H5.29892C3.47789 4 2.00104 5.45745 2.00104 7.25686L2 9.93485C3.20567 9.93485 4.17668 10.8104 4.17668 12.001C4.17668 13.1917 3.20567 14.1506 2 14.1506V16.7431C2 18.5426 3.4758 20 5.29787 20H18.7021Z"
+			stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+	</svg>
+</div>
+
 						<span class="nav-text">Donation</span>
 					</a>
 				</li>

@@ -17,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- PAGE TITLE HERE -->
-    <title>Alumni|Donations</title>
+    <title>Alumni | Donations</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{url('theme/images/favi.png')}}">
 
