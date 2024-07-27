@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Department;
+use App\Models\Program;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\PasswordReset;
@@ -37,7 +38,8 @@ class CustomAuthController extends Controller
     public function showRegistrationForm()
     {
         $departments = Department::all();
-        return view('auth.registration', compact('departments'));
+        $programs = Program::all(); // Fetch all programs from the database
+        return view('auth.registration', compact('departments', 'programs'));
     }
 
 
@@ -77,32 +79,35 @@ class CustomAuthController extends Controller
         return redirect('/basic-information')->with('success', 'Registration successful! Welcome to our platform.');
     }
     
-public function login(Request $request)
-{
-    // Validate the form data
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
-
-    // Attempt to authenticate the user
-    if (Auth::attempt($credentials)) {
-        // Authentication successful
-        $user = Auth::user();
-        if ($user->user_role == 1) {
-            // Redirect to admin dashboard
-            return redirect()->route('admin.dashboard');
-        } elseif ($user->user_role == 0) {
-            // Redirect to student dashboard
-            return redirect()->route('student.dashboard');
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+    
+        // Debugging credentials
+        \Log::info('Login attempt', ['email' => $request->email]);
+    
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            \Log::info('Login successful', ['user_id' => $user->id, 'user_role' => $user->user_role]);
+    
+            if ($user->user_role == 1) {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->user_role == 0) {
+                return redirect()->route('student.dashboard');
+            }
+        } else {
+            \Log::info('Login failed', ['credentials' => $credentials]);
         }
+    
+        return redirect()->back()->withInput($request->only('email'))->withErrors([
+            'email' => 'These credentials do not match our records.',
+        ]);
     }
-
-    // Authentication failed
-    return redirect()->back()->withInput($request->only('email'))->withErrors([
-        'email' => 'These credentials do not match our records.',
-    ]);
-}
+    
+    
 
  
 public function logout()
