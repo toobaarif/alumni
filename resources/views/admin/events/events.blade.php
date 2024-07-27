@@ -102,7 +102,7 @@
                                             @php
                                             $sno = 1;
                                             @endphp
-                                            @foreach ($event as $event) <!-- Corrected from $event to $events -->
+                                             @foreach ($event as $event) <!-- Corrected from $event to $events -->
                                             <tr>
                                                 <td>{{ $sno++ }}</td>
                                                 <td>{{ $event->name }}</td>
@@ -143,7 +143,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                            @endforeach -->
                                         </tbody>
                                     </table>
 
@@ -181,7 +181,7 @@
                                     <option value="Conference">Conference</option>
                                     <option value="Workshop">Workshop</option>
                                     <option value="Meetup">Meetup</option>
-                                    <option value="Other">Other</option>
+                                    <option value="Other">Other</option>#edit-description
                                 </select>
                             </div>
                             <div class="mb-3">

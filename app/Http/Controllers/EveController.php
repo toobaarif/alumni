@@ -18,39 +18,39 @@ class EveController extends Controller
         return view('admin.events.eventform');
     }
 
-    public function store(Request $request)
-    {
-        // Validate the request data
-        $request->validate([
-            'event_name' => 'required|string|max:255',
-            'event_description' => 'required|string',
-            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'event_date' => 'required|date',
-            'event_location' => 'required|string|max:255',
-            'event_type' => 'required|in:Conference,Workshop,Meetup,Other',
-            'event_status' => 'required|in:planned,ongoing,completed',
-        ]);
+    // public function store(Request $request)
+    // {
+    //     // Validate the request data
+    //     $request->validate([
+    //         'event_name' => 'required|string|max:255',
+    //         'event_description' => 'required|string',
+    //         'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    //         'event_date' => 'required|date',
+    //         'event_location' => 'required|string|max:255',
+    //         'event_type' => 'required|in:Conference,Workshop,Meetup,Other',
+    //         'event_status' => 'required|in:planned,ongoing,completed',
+    //     ]);
     
-        // Handle file upload
-        if ($request->hasFile('picture')) {
-            $fileName = time().'.'.$request->picture->extension();  
-            $request->picture->move(public_path('uploads'), $fileName);
-        }  
+    //     // Handle file upload
+    //     if ($request->hasFile('picture')) {
+    //         $fileName = time().'.'.$request->picture->extension();  
+    //         $request->picture->move(public_path('uploads'), $fileName);
+    //     }  
     
-        // Create a new event
-        Event::create([
-            'name' => $request->event_name,
-            'description' => $request->event_description,
-            'picture' => $fileName ?? null,
-            'event_date' => $request->event_date,
-            'event_location' => $request->event_location,
-            'event_type' => $request->event_type,
-            'event_status' => $request->event_status,
-        ]);
+    //     // Create a new event
+    //     Event::create([
+    //         'name' => $request->event_name,
+    //         'description' => $request->event_description,
+    //         'picture' => $fileName ?? null,
+    //         'event_date' => $request->event_date,
+    //         'event_location' => $request->event_location,
+    //         'event_type' => $request->event_type,
+    //         'event_status' => $request->event_status,
+    //     ]);
     
-        // Redirect or return response
-        return redirect('events')->with('success', 'Event created successfully.');
-    }
+    //     // Redirect or return response
+    //     return redirect('events')->with('success', 'Event created successfully.');
+    // }
     
 
 
@@ -111,34 +111,98 @@ class EveController extends Controller
     //     return response()->json(['success' => 'Event updated successfully.']);
     // }
 
-    public function update(Request $request, $id)
-    {
-        $event = Event::find($id);
+    // public function update(Request $request, $id)
+    // {
+    //     $event = Event::find($id);
     
-        if (!$event) {
-            return response()->json(['error' => 'Event not found.'], 404);
-        }
+    //     if (!$event) {
+    //         return response()->json(['error' => 'Event not found.'], 404);
+    //     }
     
-        $event->name = $request->name;
-        $event->event_type = $request->event_type;
-        $event->event_status = $request->event_status;
-        $event->event_location = $request->event_location;
-        $event->event_date = $request->event_date;
-        $event->description = $request->description;
+    //     $event->name = $request->name;
+    //     $event->event_type = $request->event_type;
+    //     $event->event_status = $request->event_status;
+    //     $event->event_location = $request->event_location;
+    //     $event->event_date = $request->event_date;
+    //     $event->description = $request->description;
     
-        if ($request->hasFile('picture')) {
-            $picture = $request->file('picture');
-            $picturePath = $picture->store('public/uploads');
-            $event->picture = basename($picturePath);
-        }
+    //     if ($request->hasFile('picture')) {
+    //         $picture = $request->file('picture');
+    //         $picturePath = $picture->store('public/uploads');
+    //         $event->picture = basename($picturePath);
+    //     }
     
-        $event->save();
+    //     $event->save();
     
-        return response()->json(['success' => 'Event updated successfully.']);
+    //     return response()->json(['success' => 'Event updated successfully.']);
+    // }
+    
+    
+    public function store(Request $request)
+{
+    $request->validate([
+        'event_name' => 'required|string|max:255',
+        'event_description' => 'required|string',
+        'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'event_date' => 'required|date',
+        'event_location' => 'required|string|max:255',
+        'event_type' => 'required|in:Conference,Workshop,Meetup,Other',
+        'event_status' => 'required|in:planned,ongoing,completed',
+    ]);
+
+    if ($request->hasFile('picture')) {
+        $fileName = time().'.'.$request->picture->extension();  
+        $request->picture->move(public_path('uploads'), $fileName);
+    }  
+
+    Event::create([
+        'name' => $request->event_name,
+        'description' => $request->event_description,
+        'picture' => $fileName ?? null,
+        'event_date' => $request->event_date,
+        'event_location' => $request->event_location,
+        'event_type' => $request->event_type,
+        'event_status' => $request->event_status,
+    ]);
+
+    return redirect('events')->with('success', 'Event created successfully.');
+}
+
+public function update(Request $request, $id)
+{
+    $event = Event::find($id);
+
+    if (!$event) {
+        return response()->json(['error' => 'Event not found.'], 404);
     }
-    
-    
-    
+
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'event_date' => 'required|date',
+        'event_location' => 'required|string|max:255',
+        'event_type' => 'required|in:Conference,Workshop,Meetup,Other',
+        'event_status' => 'required|in:planned,ongoing,completed',
+    ]);
+
+    $event->name = $request->name;
+    $event->event_type = $request->event_type;
+    $event->event_status = $request->event_status;
+    $event->event_location = $request->event_location;
+    $event->event_date = $request->event_date;
+    $event->description = $request->description;
+
+    if ($request->hasFile('picture')) {
+        $fileName = time().'.'.$request->picture->extension();  
+        $request->picture->move(public_path('uploads'), $fileName);
+        $event->picture = $fileName;
+    }
+
+    $event->save();
+
+    return response()->json(['success' => 'Event updated successfully.']);
+}
 
 }
 

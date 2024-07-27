@@ -85,10 +85,10 @@
         <div class="mb-3 col-md-12">
             <label class="form-label">Event Type:</label>
             <select class="default-select form-control wide" name="event_type">
-                <option value="1">Conference</option>
-                <option value="2">Workshop</option>
-                <option value="3">Meetup</option>
-                <option value="4">Other</option>
+                <option value="Conference">Conference</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Meetup">Meetup</option>
+                <option value="Other">Other</option>
             </select>
             <span class="text-danger" style="display: none;">Event type is required</span>
         </div>
