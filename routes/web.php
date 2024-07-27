@@ -153,7 +153,6 @@ Route::post('/events/{id}/update', [EveController::class, 'update'])->name('even
 // donation route
 Route::get('/donation', [DonationController::class, 'index']);
 Route::post('/donations', [DonationController::class, 'store'])->name('donations.store');
-Route::delete('/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
 
 
 // jobs route
@@ -161,3 +160,10 @@ Route::get('/jobs', [JobsController::class, 'index']);
 Route::post('/jobs', [JobsController::class, 'store'])->name('jobs.store');
 Route::delete('/jobs/{job}', [JobsController::class, 'destroy'])->name('jobs.destroy');
 
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/donations', [DonationController::class, 'index'])->name('donations.index');
+    Route::post('/donations', [DonationController::class, 'store'])->name('donations.store');
+    Route::delete('/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
+});

@@ -7,9 +7,29 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class DonationController extends Controller
 {
-    public function index(){
-        return view('students.donations.donation');
+    public function index()
+    {
+        // Check the role of the authenticated user
+        $user = auth()->user();
+        
+        if ($user->user_role == 0) {
+            // Retrieve all donations for the authenticated user
+            $donations = Donation::where('user_id', $user->id)->get();
+            // Redirect to student dashboard with user-specific donations
+            return view('students.donations.donation', compact('donations'));
+        } elseif ($user->user_role == 1) {
+            // Retrieve all donations for admin
+            $donations = Donation::all();
+            // Redirect to admin dashboard with all donations
+            return view('admin.donation.donations', compact('donations'));
+        } else {
+            return redirect()->route('home')->with('error', 'Unauthorized access.');
+        }
     }
+    
+    
+    
+
     public function store(Request $request)
     {
         // Validate the incoming request
