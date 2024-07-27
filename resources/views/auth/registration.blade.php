@@ -115,12 +115,13 @@
                                 @error('department')
                                     <span style="color: red" class="text-danger">{{ $message }}</span>
                                 @enderror
-                            </div>
+                            </div> 
                         
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="program">Program <span style="color: red">*</span></label>
                                 <select class="form-control" name="program" id="program" required>
                                     <option value="">Select Program</option>
+                                   
                                 </select>
                                 @error('program')
                                     <span style="color: red" class="text-danger">{{ $message }}</span>
