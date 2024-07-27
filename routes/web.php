@@ -129,17 +129,26 @@ Route::post('educationDetails/{id}', [UserDetails::class, 'updateEducationDetail
 
 
 // event route 
+
 Route::get('/event-form', [EveController::class, 'showForm']);
 Route::post('/events', [EveController::class, 'store'])->name('events.store');
-Route::get('/events', [EveController::class, 'index'])->name('events.show');
+Route::get('/events', [EveController::class, 'index'])->name('events.index');
 Route::delete('/events/{id}', [EveController::class, 'destroy'])->name('events.destroy');
-
-// Route to display the edit form for an event
 Route::get('/events/{id}/edit', [EveController::class, 'edit'])->name('events.edit');
-
-// Route to update an event using POST
 Route::post('/events/{id}/update', [EveController::class, 'update'])->name('events.update');
 
+
+
+// Route::get('/event-form', [EveController::class, 'showForm']);
+// Route::post('/events', [EveController::class, 'store'])->name('events.store');
+// Route::get('/events', [EveController::class, 'index'])->name('events.show');
+// Route::delete('/events/{id}', [EveController::class, 'destroy'])->name('events.destroy');
+
+// Route to display the edit form for an event
+// Route::get('/events/{id}/edit', [EveController::class, 'edit'])->name('events.edit');
+
+// Route to update an event using POST
+// Route::post('/events/{id}/update', [EveController::class, 'update'])->name('events.update');
 
 // donation route
 Route::get('/donation', [DonationController::class, 'index']);

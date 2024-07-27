@@ -71,58 +71,63 @@
                                 </div>
                             @endif
                             <div class="card-body">
-                                @csrf
+                                
                                 <div class="basic-form">
-                                    <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
-                                        <div class="row">
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Event Name:</label>
-                                                <input type="text" class="form-control" name="event_name" placeholder="Event Name:">
-                                                <span class="text-danger" style="display: none;">Event name is required</span>
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Event Type:</label>
-                                                <select class="default-select form-control wide" name="event_type">
-                                                    <option value="1">Conference</option>
-                                                    <option value="2">Workshop</option>
-                                                    <option value="3">Meetup</option>
-                                                    <option value="4">Other</option>
-                                                </select>
-                                                <span class="text-danger" style="display: none;">Event type is required</span>
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Event Status:</label>
-                                                <select class="default-select form-control wide" name="event_status">
-                                                    <option value="planned">Planned</option>
-                                                    <option value="ongoing">Ongoing</option>
-                                                    <option value="completed">Completed</option>
-                                                </select>
-                                                <span class="text-danger" style="display: none;">Event status is required</span>
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Event Location:</label>
-                                                <input type="text" class="form-control" name="event_location" placeholder="Event Location:">
-                                                <span class="text-danger" style="display: none;">Event location is required</span>
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Event Date:</label>
-                                                <input type="date" class="form-control" name="event_date">
-                                                <span class="text-danger" style="display: none;">Event date is required</span>
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label for="formFile" class="form-label">Picture:</label>
-                                                <input class="form-control" type="file" id="formFile" name="picture">
-                                                <span class="text-danger" style="display: none;">Picture is required</span>
-                                            </div>
-                                            <div class="mb-3 col-md-12">
-                                                <label class="form-label">Event Description:</label>
-                                                <textarea class="form-control" rows="5" name="event_description" placeholder="Type your message..."></textarea>
-                                                <span class="text-danger" style="display: none;">Event description is required</span>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </form>
+                              
+                                <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf    
+    <div class="row">
+        <div class="mb-3 col-md-12">
+            <label class="form-label">Event Name:</label>
+            <input type="text" class="form-control" name="event_name" placeholder="Event Name:">
+            <span class="text-danger" style="display: none;">Event name is required</span>
+        </div>
+        <div class="mb-3 col-md-12">
+            <label class="form-label">Event Type:</label>
+            <select class="default-select form-control wide" name="event_type">
+                <option value="1">Conference</option>
+                <option value="2">Workshop</option>
+                <option value="3">Meetup</option>
+                <option value="4">Other</option>
+            </select>
+            <span class="text-danger" style="display: none;">Event type is required</span>
+        </div>
+        <div class="mb-3 col-md-12">
+            <label class="form-label">Event Status:</label>
+            <select class="default-select form-control wide" name="event_status">
+                <option value="planned">Planned</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="completed">Completed</option>
+            </select>
+            <span class="text-danger" style="display: none;">Event status is required</span>
+        </div>
+        <div class="mb-3 col-md-12">
+            <label class="form-label">Event Location:</label>
+            <input type="text" class="form-control" name="event_location" placeholder="Event Location:">
+            <span class="text-danger" style="display: none;">Event location is required</span>
+        </div>
+        <div class="mb-3 col-md-12">
+            <label class="form-label">Event Date:</label>
+            <input type="date" class="form-control" name="event_date">
+            <span class="text-danger" style="display: none;">Event date is required</span>
+        </div>
+        <div class="mb-3 col-md-12">
+            <label for="formFile" class="form-label">Picture:</label>
+            <input class="form-control" type="file" id="formFile" name="picture">
+            <span class="text-danger" style="display: none;">Picture is required</span>
+        </div>
+        <div class="mb-3 col-md-12">
+            <label class="form-label">Event Description:</label>
+            <textarea class="form-control" rows="5" name="event_description" placeholder="Type your message..."></textarea>
+            <span class="text-danger" style="display: none;">Event description is required</span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+                                    
                                 </div>
+                               
                             </div>
                         </div>
                     </div>
