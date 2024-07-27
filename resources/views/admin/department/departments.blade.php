@@ -72,251 +72,250 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body p-0">
-                                <div class="card dz-card" id="accordion-one">
-                                    {{-- success alert --}}
-                                    @if (session()->has('message'))
-                                        <div class="alert alert-success">
-                                            <button type="button" class="close" data-dismiss="alert"
-                                                aria-hidden="true"></button>
-                                            {{ session()->get('message') }}
+                                    <div class="card dz-card" id="accordion-one">
+                                        {{-- success alert --}}
+                                        @if (session()->has('message'))
+                                            <div class="alert alert-success">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-hidden="true"></button>
+                                                {{ session()->get('message') }}
+                                            </div>
+                                        @endif
+                                        <h3 class="card-title m-3">Departments</h3>
+                                        <form action="{{ route('add.department') }}" method="post"
+                                            class="d-flex align-items-center">
+                                            @csrf
+                                            <input type="text" name="department_name" class="form-control mx-3"
+                                                placeholder="Enter department name" style="width: 880px;">
+                                            <button type="submit" class="btn btn-primary"
+                                                style="white-space: nowrap;">Add
+                                                Department</button>
+                                        </form>
+
+                                        <div class="card-header flex-wrap">
+
+                                            <div>
+                                                <h4 class="card-title">Department Table</h4>
+                                            </div>
+                                            <div>
+
+                                            </div>
+
                                         </div>
-                                    @endif
-                                    <h3 class="card-title m-3">Departments</h3>
-                                    <form action="{{ route('add.department') }}" method="post"
-                                        class="d-flex align-items-center">
-                                        @csrf
-                                        <input type="text" name="department_name" class="form-control mx-3"
-                                            placeholder="Enter department name" style="width: 880px;">
-                                        <button type="submit" class="btn btn-primary" style="white-space: nowrap;">Add
-                                            Department</button>
-                                    </form>
+                                        <div class="table-responsive active-projects style-1">
 
-                                    <div class="card-header flex-wrap">
-
-                                        <div>
-                                            <h4 class="card-title">Department Table</h4>
-                                        </div>
-                                        <div>
-
-                                        </div>
-
-                                    </div>
-                                    <div class="table-responsive active-projects style-1">
-
-                                        <table id="empoloyees-tblwrapper" class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>S.No</th>
-                                                    <th>Department Name</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @php
-                                                    $sno = 1;
-                                                @endphp
-                                                @foreach ($departments as $department)
+                                            <table id="empoloyees-tblwrapper" class="table">
+                                                <thead>
                                                     <tr>
-                                                        <td>{{ $sno++ }}</td>
-                                                        <td>{{ $department->department_name }}</td>
-                                                        <td>
-                                                            <div
-                                                                style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
-                                                                <button type="button" class="btn btn-primary edit-btn"
-                                                                    data-department-id="{{ $department->id }}"
-                                                                    data-department-name="{{ $department->department_name }}"
-                                                                    style="border-radius: 5px;">Edit</button>
-
-                                                                <form action="{{ url('delete', $department->id) }}"
-                                                                    method="POST" style="margin: 0;">
-                                                                    @csrf
-                                                                    <button type="submit" class="btn btn-danger"
-                                                                        style="border-radius: 5px;"
-                                                                        onclick="return confirm('Are you sure?')">Delete</button>
-                                                                </form>
-                                                            </div>
-                                                        </td>
+                                                        <th>S.No</th>
+                                                        <th>Department Name</th>
+                                                        <th>Action</th>
                                                     </tr>
-                                                @endforeach
-                                            </tbody>
+                                                </thead>
+                                                <tbody>
+                                                    @php
+                                                        $sno = 1;
+                                                    @endphp
+                                                    @foreach ($departments as $department)
+                                                        <tr>
+                                                            <td>{{ $sno++ }}</td>
+                                                            <td>{{ $department->department_name }}</td>
+                                                            <td>
+                                                                <div
+                                                                    style="display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+                                                                    <button type="button"
+                                                                        class="btn btn-primary edit-btn"
+                                                                        data-department-id="{{ $department->id }}"
+                                                                        data-department-name="{{ $department->department_name }}"
+                                                                        style="border-radius: 5px;">Edit</button>
+
+                                                                    <form action="{{ url('delete', $department->id) }}"
+                                                                        method="POST" style="margin: 0;">
+                                                                        @csrf
+                                                                        <button type="submit" class="btn btn-danger"
+                                                                            style="border-radius: 5px;"
+                                                                            onclick="return confirm('Are you sure?')">Delete</button>
+                                                                    </form>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
 
 
                                             </table>
 
 
 
-</div>
-</div>
-<!-- /Default accordion -->
+                                        </div>
+                                    </div>
+                                    <!-- /Default accordion -->
 
-<div class="modal fade" id="editModal" tabindex="-1"
-aria-labelledby="editModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="editModalLabel">Edit
-                Department</h5>
-            <button type="button" class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <!-- Your form for editing department -->
-            <form id="editForm">
-                <!-- Department name input -->
-                <div class="mb-3">
-                    <label for="departmentName"
-                        class="form-label">Department Name</label>
-                    <input type="text" class="form-control"
-                        id="departmentName" name="departmentName"
-                        required>
+                                    <div class="modal fade" id="editModal" tabindex="-1"
+                                        aria-labelledby="editModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editModalLabel">Edit
+                                                        Department</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- Your form for editing department -->
+                                                    <form id="editForm">
+                                                        <!-- Department name input -->
+                                                        <div class="mb-3">
+                                                            <label for="departmentName" class="form-label">Department
+                                                                Name</label>
+                                                            <input type="text" class="form-control"
+                                                                id="departmentName" name="departmentName" required>
+                                                        </div>
+                                                        <!-- Add more fields as needed -->
+                                                        <!-- Hidden input for department ID -->
+                                                        <input type="hidden" id="departmentId" name="departmentId">
+                                                        <button type="submit" class="btn btn-primary">Update</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="tab-pane fade " id="html" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="card-body pt-0 p-0 code-area">
+
+                                    </div>
+                                </div>
+                                <!--/tab-content-->
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- Column ends -->
+
                 </div>
-                <!-- Add more fields as needed -->
-                <!-- Hidden input for department ID -->
-                <input type="hidden" id="departmentId"
-                    name="departmentId">
-                <button type="submit"
-                    class="btn btn-primary">Update</button>
-            </form>
+
+            </div>
         </div>
+
+
+
+
+
     </div>
-</div>
-</div>
-</div>
+
+    <!-- Required vendors -->
+    <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
+
+    <!-- Dashboard 1 -->
+    <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
+    <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
+
+
+    <!-- tagify -->
+    <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
+
+    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
+    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
+
+    <!-- Apex Chart -->
+
+    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
+    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+
+
+    <!-- Vectormap -->
+    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
+    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
+    <script src="{{ url('assets/js/custom.js') }}"></script>
+    <script src="{{ url('assets/js/deznav-init.js') }}"></script>
+    <script src="{{ url('assets/js/demo.js') }}"></script>
+    <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
+
+
+    <!-- Datatable -->
+    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
 
 
 
-<div class="tab-pane fade " id="html" role="tabpanel"
-aria-labelledby="home-tab">
-<div class="card-body pt-0 p-0 code-area">
-
-</div>
-</div>
-<!--/tab-content-->
-</div>
-
-
-</div>
-</div>
-<!-- Column ends -->
-
-</div>
-
-</div>
-</div>
+    <!-- Your existing JavaScript code -->
+    <!-- Your existing JavaScript code -->
+    <script>
+        // Add CSRF token to all AJAX requests
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
 
+        $(document).ready(function() {
+            // Add event listener to form submission
+            $('#editForm').submit(function(event) {
+                // Prevent default form submission behavior
+                event.preventDefault();
 
+                // Serialize form data
+                var formData = $(this).serialize();
 
+                // Send AJAX request to update data
+                $.ajax({
+                    url: '{{ route('update.department') }}', // Use named route instead of URL
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        // Log response for debugging
+                        console.log('AJAX request successful');
+                        console.log('Response:', response);
 
-</div>
+                        // Hide the modal after successful update
+                        $('#editModal').modal('hide');
 
-<!-- Required vendors -->
-<script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
-<script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-<script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-<script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
+                        // Find the row that corresponds to the updated department
+                        var updatedRow = $('#example tbody').find(
+                                'button[data-department-id="' + response.departmentId + '"]')
+                            .closest('tr');
 
-<!-- Dashboard 1 -->
-<script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
-<script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
+                        // Update the department name in the row
+                        updatedRow.find('td:nth-child(2)').text(response.departmentName);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error response
+                        console.error(xhr.responseText); // Log detailed error message
+                        alert(
+                            'An error occurred while updating the department. Please try again.'
+                            ); // Show generic error message
+                    }
+                });
+            });
 
+            $('.edit-btn').click(function() {
+                // Get department ID and name from data attributes
+                var departmentId = $(this).data('department-id');
+                var departmentName = $(this).data('department-name');
 
-<!-- tagify -->
-<script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
+                // Populate the modal with department details
+                $('#departmentName').val(departmentName);
+                $('#departmentId').val(departmentId);
 
-<script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
-<script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
-<script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-
-<!-- Apex Chart -->
-
-<script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
-<script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
-
-
-<!-- Vectormap -->
-<script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
-<script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
-<script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
-<script src="{{ url('assets/js/custom.js') }}"></script>
-<script src="{{ url('assets/js/deznav-init.js') }}"></script>
-<script src="{{ url('assets/js/demo.js') }}"></script>
-<script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
-
-
-<!-- Datatable -->
-<script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-
-
-
-<!-- Your existing JavaScript code -->
-<!-- Your existing JavaScript code -->
-<script>
-// Add CSRF token to all AJAX requests
-$.ajaxSetup({
-headers: {
-'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-}
-});
-
-
-$(document).ready(function() {
-// Add event listener to form submission
-$('#editForm').submit(function(event) {
-// Prevent default form submission behavior
-event.preventDefault();
-
-// Serialize form data
-var formData = $(this).serialize();
-
-// Send AJAX request to update data
-$.ajax({
-url: '{{ route('update.department') }}', // Use named route instead of URL
-type: 'POST',
-data: formData,
-success: function(response) {
-// Log response for debugging
-console.log('AJAX request successful');
-console.log('Response:', response);
-
-// Hide the modal after successful update
-$('#editModal').modal('hide');
-
-// Find the row that corresponds to the updated department
-var updatedRow = $('#example tbody').find(
-'button[data-department-id="' + response.departmentId + '"]')
-.closest('tr');
-
-// Update the department name in the row
-updatedRow.find('td:nth-child(2)').text(response.departmentName);
-},
-error: function(xhr, status, error) {
-// Handle error response
-console.error(xhr.responseText); // Log detailed error message
-alert(
-'An error occurred while updating the department. Please try again.'); // Show generic error message
-}
-});
-});
-
-$('.edit-btn').click(function() {
-// Get department ID and name from data attributes
-var departmentId = $(this).data('department-id');
-var departmentName = $(this).data('department-name');
-
-// Populate the modal with department details
-$('#departmentName').val(departmentName);
-$('#departmentId').val(departmentId);
-
-// Show the modal
-$('#editModal').modal('show');
-});
-});
-</script>
+                // Show the modal
+                $('#editModal').modal('show');
+            });
+        });
+    </script>
 
 
 

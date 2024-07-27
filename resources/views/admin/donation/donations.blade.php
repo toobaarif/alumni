@@ -1,1 +1,1 @@
-<h1>donation form</h1>
+<h1>donation</h1>
