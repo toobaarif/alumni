@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- ... other meta tags ... -->
     <meta charset="utf-8">
@@ -27,7 +28,8 @@
     <link href="{{ url('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/jvmap/jquery-jvectormap.css') }}" rel="stylesheet">
     <link href="{{ url('assets/css/buttons.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"
+        rel="stylesheet">
     <link href="{{ url('assets/vendor/tagify/dist/tagify.css') }}" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <link href="vendor/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -43,7 +45,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black"
+    data-headerbg="color_1">
     <div id="main-wrapper">
         <!-- Preloader start -->
         <div id="preloader">
@@ -71,63 +74,80 @@
                                 </div>
                             @endif
                             <div class="card-body">
-                                
-                                <div class="basic-form">
-                              
-                                <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf    
-    <div class="row">
-        <div class="mb-3 col-md-12">
-            <label class="form-label">Event Name:</label>
-            <input type="text" class="form-control" name="event_name" placeholder="Event Name:">
-            <span class="text-danger" style="display: none;">Event name is required</span>
-        </div>
-        <div class="mb-3 col-md-12">
-            <label class="form-label">Event Type:</label>
-            <select class="default-select form-control wide" name="event_type">
-                <option value="Conference">Conference</option>
-                <option value="Workshop">Workshop</option>
-                <option value="Meetup">Meetup</option>
-                <option value="Other">Other</option>
-            </select>
-            <span class="text-danger" style="display: none;">Event type is required</span>
-        </div>
-        <div class="mb-3 col-md-12">
-            <label class="form-label">Event Status:</label>
-            <select class="default-select form-control wide" name="event_status">
-                <option value="planned">Planned</option>
-                <option value="ongoing">Ongoing</option>
-                <option value="completed">Completed</option>
-            </select>
-            <span class="text-danger" style="display: none;">Event status is required</span>
-        </div>
-        <div class="mb-3 col-md-12">
-            <label class="form-label">Event Location:</label>
-            <input type="text" class="form-control" name="event_location" placeholder="Event Location:">
-            <span class="text-danger" style="display: none;">Event location is required</span>
-        </div>
-        <div class="mb-3 col-md-12">
-            <label class="form-label">Event Date:</label>
-            <input type="date" class="form-control" name="event_date">
-            <span class="text-danger" style="display: none;">Event date is required</span>
-        </div>
-        <div class="mb-3 col-md-12">
-            <label for="formFile" class="form-label">Picture:</label>
-            <input class="form-control" type="file" id="formFile" name="picture">
-            <span class="text-danger" style="display: none;">Picture is required</span>
-        </div>
-        <div class="mb-3 col-md-12">
-            <label class="form-label">Event Description:</label>
-            <textarea class="form-control" rows="5" name="event_description" placeholder="Type your message..."></textarea>
-            <span class="text-danger" style="display: none;">Event description is required</span>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 
-                                    
+                                <div class="basic-form">
+
+                                <form action="{{ url('eventStore') }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Event Name:</label>
+                                                <input type="text" class="form-control" name="event_name"
+                                                    placeholder="Event Name:" >
+                                                    @error('event_name')
+                                    <span style="color: red">{{ $message }}</span>
+                                @enderror
+                                            </div>
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Event Type:</label>
+                                                <select class="form-control" name="event_type" >
+                                                    <option value="Conference">Conference</option>
+                                                    <option value="Workshop">Workshop</option>
+                                                    <option value="Meetup">Meetup</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                                @error('event_type')
+                                    <span style="color: red">{{ $message }}</span>
+                                @enderror
+                                            </div>
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Event Status:</label>
+                                                <select class="form-control" name="event_status" >
+                                                    <option value="planned">Planned</option>
+                                                    <option value="ongoing">Ongoing</option>
+                                                    <option value="completed">Completed</option>
+                                                </select>
+                                                @error('event_status')
+                                    <span style="color: red">{{ $message }}</span>
+                                @enderror
+                                            </div>
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Event Location:</label>
+                                                <input type="text" class="form-control" name="event_location"
+                                                    placeholder="Event Location:" >
+                                            </div>
+                                            @error('event_location')
+                                    <span style="color: red">{{ $message }}</span>
+                                @enderror
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Event Date:</label>
+                                                <input type="date" class="form-control" name="event_date" >
+                                            </div>
+                                            @error('event_date')
+                                    <span style="color: red">{{ $message }}</span>
+                                @enderror
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Picture:</label>
+                                                <input class="form-control" type="file" name="picture" >
+                                            </div>
+                                            @error('picture')
+                                    <span style="color: red">{{ $message }}</span>
+                                @enderror
+                                            <div class="mb-3 col-md-12">
+                                                <label class="form-label">Event Description:</label>
+                                                <textarea class="form-control" rows="5" name="event_description"
+                                                    placeholder="Type your message..." ></textarea>
+                                            </div>
+                                            @error('event_description')
+                                    <span style="color: red">{{ $message }}</span>
+                                @enderror
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -176,4 +196,5 @@
         <script src="js/styleSwitcher.js"></script>
     </div>
 </body>
+
 </html>

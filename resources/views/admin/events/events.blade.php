@@ -102,7 +102,7 @@
                                             @php
                                             $sno = 1;
                                             @endphp
-                                            .. @foreach ($event as $event) <!-- Corrected from $event to $events -->
+                                            @foreach ($event as $event) <!-- Corrected from $event to $events -->
                                             <tr>
                                                 <td>{{ $sno++ }}</td>
                                                 <td>{{ $event->name }}</td>
@@ -143,7 +143,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            @endforeach -->
+                                            @endforeach 
                                         </tbody>
                                     </table>
 

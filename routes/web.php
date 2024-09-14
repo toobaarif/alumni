@@ -107,7 +107,8 @@ Route::middleware(['auth'])->group(function () {
 // Event Routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/event-form', [EveController::class, 'showForm']);
-    Route::post('/events', [EveController::class, 'store'])->name('events.store');
+    Route::post('/eventStore', [EveController::class, 'store']);
+
     Route::get('/events', [EveController::class, 'index'])->name('events.index');
     Route::delete('/events/{id}', [EveController::class, 'destroy'])->name('events.destroy');
     Route::get('/events/{id}/edit', [EveController::class, 'edit'])->name('events.edit');

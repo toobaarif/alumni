@@ -17,13 +17,15 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('picture')->nullable(); // Storing the file path
+            $table->string('picture')->nullable();
             $table->date('event_date');
             $table->string('event_location');
-            $table->enum('event_type', ['1', '2', '3', '4']);
+            $table->enum('event_type', ['Conference', 'Workshop', 'Meetup', 'Other']);
             $table->enum('event_status', ['planned', 'ongoing', 'completed']);
             $table->timestamps();
         });
+        
+    
     }
 
     /**
