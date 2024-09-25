@@ -88,6 +88,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/get-programs/{departmentId}', [AlumnisController::class, 'getPrograms'])->name('getPrograms');
 });
 
+
 // Department Routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/departments', [DepartController::class, 'showDepartments']);
