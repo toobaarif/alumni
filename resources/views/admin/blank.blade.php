@@ -83,8 +83,6 @@
                                         @endif
                                         <h3 class="card-title m-3">Donations</h3>
 
-                                        <a class="btn btn-primary" style="white-space: nowrap;"
-                                        href="{{ url('campaign') }}">Add Donations</a>
                                         
                                         <div class="card-header flex-wrap">
 

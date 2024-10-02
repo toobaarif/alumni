@@ -81,19 +81,89 @@
                                                 {{ session()->get('message') }}
                                             </div>
                                         @endif
-                                        <h3 class="card-title m-3">Donations</h3>
+                                        <h3 class="card-title m-3">Campaign</h3>
+
+                                      
 
                                         <a class="btn btn-primary" style="white-space: nowrap;"
-                                        href="{{ url('campaign') }}">Add Donations</a>
-                                        
+                                         href="{{ url('campaign') }}">Add Campaign</a>
+
                                         <div class="card-header flex-wrap">
 
                                             <div>
-                                                <h4 class="card-title">Department Table</h4>
+                                                <h4 class="card-title">Campaign Table</h4>
                                             </div>
-                                            <div>
 
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Name</th>
+                                                            <th>Timeline</th>
+                                                            <th>Objectives</th>
+                                                            <th>Why</th>
+                                                            <th>Max Collection</th>
+                                                            <th>Minimum</th>
+                                                            <th>Status</th>
+                                                            <th>Cover Photo</th>
+                                                            <th>Pic One Main</th>
+                                                            <th>Pic Two</th>
+                                                            <th>Account Name</th>
+                                                            <th>Bank Name</th>
+                                                            <th>Account Number</th>
+                                                            <th>Account Name 2</th>
+                                                            <th>Bank Name 2</th>
+                                                            <th>Account Number 2</th>
+                                                            <th>Approved</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach($data as $campaign)
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $campaign->name }}</td>
+                                                            <td>{{ $campaign->timeline }}</td>
+                                                            <td>{{ $campaign->objectives }}</td>
+                                                            <td>{{ $campaign->why }}</td>
+                                                            <td>{{ $campaign->maxCollection }}</td>
+                                                            <td>{{ $campaign->minimum }}</td>
+                                                            <td>{{ $campaign->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                                            <td>
+                                                                @if($campaign->coverPhoto)
+                                                                    <img src="{{ asset('storage/' . $campaign->coverPhoto) }}" alt="Cover Photo" width="100">
+                                                                @else
+                                                                    N/A
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if($campaign->picOneMain)
+                                                                    <img src="{{ asset('storage/' . $campaign->picOneMain) }}" alt="Pic One Main" width="100">
+                                                                @else
+                                                                    N/A
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if($campaign->picTwo)
+                                                                    <img src="{{ asset('storage/' . $campaign->picTwo) }}" alt="Pic Two" width="100">
+                                                                @else
+                                                                    N/A
+                                                                @endif
+                                                            </td>
+                                                            <td>{{ $campaign->accountName }}</td>
+                                                            <td>{{ $campaign->bankName }}</td>
+                                                            <td>{{ $campaign->accountNumber }}</td>
+                                                            <td>{{ $campaign->accountName2 ?? 'N/A' }}</td>
+                                                            <td>{{ $campaign->bankName2 ?? 'N/A' }}</td>
+                                                            <td>{{ $campaign->accountNumber2 ?? 'N/A' }}</td>
+                                                            <td>{{ $campaign->approve == 1 ? 'Yes' : 'No' }}</td>
+                                                        </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
                                             </div>
+                                            
+                   
 
                                         </div>
                       

@@ -81,19 +81,18 @@
                                                 {{ session()->get('message') }}
                                             </div>
                                         @endif
-                                        <h3 class="card-title m-3">Donations</h3>
+                                        <h3 class="card-title m-3">Donation Form</h3>
 
-                                        <a class="btn btn-primary" style="white-space: nowrap;"
-                                        href="{{ url('campaign') }}">Add Donations</a>
                                         
                                         <div class="card-header flex-wrap">
 
-                                            <div>
+                                            {{-- <div>
                                                 <h4 class="card-title">Department Table</h4>
-                                            </div>
-                                            <div>
+                                            </div> --}}
+                    
 
-                                            </div>
+
+
 
                                         </div>
                       

@@ -9,6 +9,8 @@ use App\Http\Controllers\EveController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CampaignController;
+
 
 
 /*
@@ -126,8 +128,21 @@ Route::middleware(['auth'])->group(function () {
 // Donation Routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/donations', [DonationController::class, 'index'])->name('donations.index');
+    Route::get('/donations/add', [DonationController::class, 'add'])->name('donations.add');
+
     Route::post('/donations', [DonationController::class, 'store'])->name('donations.store');
     Route::get('/donations/{id}/edit', [DonationController::class, 'edit'])->name('donations.edit');
     Route::post('/donations/{id}', [DonationController::class, 'update'])->name('donations.update');
     Route::delete('/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
+});
+
+// campaign Routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/campaign', [CampaignController::class, 'create'])->name('campaign.create');
+    Route::post('campaign', [CampaignController::class, 'store']);
+    Route::get('/campaign/list', [CampaignController::class, 'index'])->name('campaign.index');
+
+    // Route::post('/delete/{id}', [DepartController::class, 'destroy']);
+    // Route::post('/update-department', [DepartController::class, 'update'])->name('update.department');
+    // Route::post('/add-department', [DepartController::class, 'addDepartment'])->name('add.department');
 });

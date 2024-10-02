@@ -28,6 +28,15 @@ class DonationController extends Controller
         }
     }
 
+    
+    public function add()
+    {
+        $data = Donation::all();
+
+        return view('admin.donation.donations', compact('data'));
+    }
+
+
     public function store(Request $request)
     {
         // Validate the incoming request
