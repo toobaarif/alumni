@@ -129,18 +129,30 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/donations', [DonationController::class, 'index'])->name('donations.index');
     Route::get('/donations/add', [DonationController::class, 'add'])->name('donations.add');
-
-    Route::post('/donations', [DonationController::class, 'store'])->name('donations.store');
+    Route::post('/donations/store', [DonationController::class, 'store'])->name('donations.store');
+    
+    // New routes for delete, approve, and edit
+    Route::delete('/donations/{id}/destroy', [DonationController::class, 'destroy'])->name('donations.destroy');
+    Route::post('/donations/{id}/approve', [DonationController::class, 'approve'])->name('donations.approve');
     Route::get('/donations/{id}/edit', [DonationController::class, 'edit'])->name('donations.edit');
-    Route::post('/donations/{id}', [DonationController::class, 'update'])->name('donations.update');
-    Route::delete('/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
+    Route::post('/donations/{id}/update', [DonationController::class, 'update'])->name('donations.update');
+    
+
+    // // Route::post('/donations', [DonationController::class, 'store'])->name('donations.store');
+    // Route::get('/donations/{id}/edit', [DonationController::class, 'edit'])->name('donations.edit');
+    // Route::post('/donations/{id}', [DonationController::class, 'update'])->name('donations.update');
+    // Route::delete('/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
 });
+
+Route::get('/get-campaign-details/{id}', [DonationController::class, 'getCampaignDetails']);
 
 // campaign Routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/campaign', [CampaignController::class, 'create'])->name('campaign.create');
     Route::post('campaign', [CampaignController::class, 'store']);
     Route::get('/campaign/list', [CampaignController::class, 'index'])->name('campaign.index');
+
+    Route::delete('/campaign/{id}/destroy', [CampaignController::class, 'destroy'])->name('campaign.destroy');
 
     // Route::post('/delete/{id}', [DepartController::class, 'destroy']);
     // Route::post('/update-department', [DepartController::class, 'update'])->name('update.department');

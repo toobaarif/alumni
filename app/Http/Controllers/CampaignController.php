@@ -9,7 +9,12 @@ class CampaignController extends Controller
 {
     public function index()
     {
-        $data = Campaign::all();
+        // $data = Campaign::all();
+        // $data = Campaign::withSum('donations', 'amount')->get();
+
+        $data = Campaign::withSum(['donations as approved_donations_sum' => function ($query) {
+            $query->where('approve', 1);
+        }], 'amount')->get();
 
         return view('admin.campaign.campaignShow', compact('data'));
     }
@@ -83,5 +88,22 @@ class CampaignController extends Controller
     
         // Redirect or return a view with success message
         return redirect()->route('campaign.create')->with('message', 'Campaign created successfully.');
+    }
+
+    public function destroy($id)
+    {
+        
+
+        $user = auth()->user();
+
+        // Only allow admin to toggle approval status
+        if ($user->user_role == 1) {
+            $donation = Campaign::findOrFail($id);
+            $donation->delete();
+
+            return redirect()->route('campaign.index')->with('message', 'Campaign deleted successfully.');
+        }
+
+        return redirect()->route('campaign.index')->with('error', 'Unauthorized action.');
     }
 }

@@ -100,6 +100,7 @@
                                                         <tr>
                                                             <th>#</th>
                                                             <th>Name</th>
+                                                            <th>Total Collection</th>
                                                             <th>Timeline</th>
                                                             <th>Objectives</th>
                                                             <th>Why</th>
@@ -115,7 +116,9 @@
                                                             <th>Account Name 2</th>
                                                             <th>Bank Name 2</th>
                                                             <th>Account Number 2</th>
-                                                            <th>Approved</th>
+                                                            {{-- <th>Approved</th> --}}
+                                                            <th>Action</th>
+
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -123,6 +126,7 @@
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $campaign->name }}</td>
+                                                            <td>{{ $campaign->approved_donations_sum ?? 0 }}</td> 
                                                             <td>{{ $campaign->timeline }}</td>
                                                             <td>{{ $campaign->objectives }}</td>
                                                             <td>{{ $campaign->why }}</td>
@@ -131,32 +135,51 @@
                                                             <td>{{ $campaign->status == 1 ? 'Active' : 'Inactive' }}</td>
                                                             <td>
                                                                 @if($campaign->coverPhoto)
-                                                                    <img src="{{ asset('storage/' . $campaign->coverPhoto) }}" alt="Cover Photo" width="100">
+                                                                    <a href="{{ asset('storage/' . $campaign->coverPhoto) }}" target="_blank">
+                                                                        <img src="{{ asset('storage/' . $campaign->coverPhoto) }}" alt="Cover Photo" width="100">
+                                                                    </a>
                                                                 @else
                                                                     N/A
                                                                 @endif
                                                             </td>
                                                             <td>
                                                                 @if($campaign->picOneMain)
-                                                                    <img src="{{ asset('storage/' . $campaign->picOneMain) }}" alt="Pic One Main" width="100">
+                                                                    <a href="{{ asset('storage/' . $campaign->picOneMain) }}" target="_blank">
+                                                                        <img src="{{ asset('storage/' . $campaign->picOneMain) }}" alt="Pic One Main" width="100">
+                                                                    </a>
                                                                 @else
                                                                     N/A
                                                                 @endif
                                                             </td>
                                                             <td>
                                                                 @if($campaign->picTwo)
-                                                                    <img src="{{ asset('storage/' . $campaign->picTwo) }}" alt="Pic Two" width="100">
+                                                                    <a href="{{ asset('storage/' . $campaign->picTwo) }}" target="_blank">
+                                                                        <img src="{{ asset('storage/' . $campaign->picTwo) }}" alt="Pic Two" width="100">
+                                                                    </a>
                                                                 @else
                                                                     N/A
                                                                 @endif
                                                             </td>
+                                                            
                                                             <td>{{ $campaign->accountName }}</td>
                                                             <td>{{ $campaign->bankName }}</td>
                                                             <td>{{ $campaign->accountNumber }}</td>
                                                             <td>{{ $campaign->accountName2 ?? 'N/A' }}</td>
                                                             <td>{{ $campaign->bankName2 ?? 'N/A' }}</td>
                                                             <td>{{ $campaign->accountNumber2 ?? 'N/A' }}</td>
-                                                            <td>{{ $campaign->approve == 1 ? 'Yes' : 'No' }}</td>
+                                                            {{-- <td>{{ $campaign->approve == 1 ? 'Yes' : 'No' }}</td> --}}
+
+                                                            <td>
+                                                                @if (auth()->user()->user_role == 1)
+                                                                    {{-- <a href="{{ route('donations.edit', $donation->id) }}" class="btn btn-sm btn-warning">Edit</a> --}}
+                                                                    <form action="{{ route('campaign.destroy', $campaign->id) }}" method="POST" style="display:inline-block;">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                                    </form>
+                                                                @endif
+                                                            </td>
+
                                                         </tr>
                                                         @endforeach
                                                     </tbody>

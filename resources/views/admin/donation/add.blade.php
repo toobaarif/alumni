@@ -89,7 +89,139 @@
                                             {{-- <div>
                                                 <h4 class="card-title">Department Table</h4>
                                             </div> --}}
-                    
+                                            <div class="container">
+                                                <form action="{{ url('donations/store') }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <div class="row">
+                                                        <!-- Name Field -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="name">Name:</label>
+                                                                <input type="text" name="name" id="name" class="form-control" required>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <!-- Email Field -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="email">Email:</label>
+                                                                <input type="email" name="email" id="email" class="form-control" required>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <!-- Amount Donate Field -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="amount">Amount to Donate:</label>
+                                                                <input type="number" name="amount" id="amount" step="0.01" class="form-control" required>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <!-- Campaign Select -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="campaign_id">Select Campaign:</label>
+                                                                <select name="campaign_id" id="campaign_id" class="form-control" required>
+                                                                    <option value="">Select a Campaign</option>
+                                                                    @foreach($data as $campaign)
+                                                                        <option value="{{ $campaign->id }}">{{ $campaign->name }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <!-- Hidden User ID -->
+                                                        <input type="hidden" name="user_id" value="{{ $userId }}">
+                                            
+                                                        <!-- Account 1 Details -->
+                                                        <div class="col-md-6" id="account_1_details" style="display: none;">
+                                                            <div class="form-group">
+                                                                <label for="account_name">Account Name 1:</label>
+                                                                <input type="text" id="account_name" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="bank_name">Bank Name 1:</label>
+                                                                <input type="text" id="bank_name" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="account_number">Account Number 1:</label>
+                                                                <input type="text" id="account_number" class="form-control" readonly>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <!-- Account 2 Details -->
+                                                        <div class="col-md-6" id="account_2_details" style="display: none;">
+                                                            <div class="form-group">
+                                                                <label for="account_name2">Account Name 2:</label>
+                                                                <input type="text" id="account_name2" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="bank_name2">Bank Name 2:</label>
+                                                                <input type="text" id="bank_name2" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="account_number2">Account Number 2:</label>
+                                                                <input type="text" id="account_number2" class="form-control" readonly>
+                                                            </div>
+                                                        </div>
+                                            
+                                                        <!-- Transaction Picture -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="transaction_pic">Transaction Picture:</label>
+                                                                <input type="file" name="transaction_pic" id="transaction_pic" class="form-control" accept="image/*" required>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <!-- Submit Button -->
+                                                        <div class="col-md-12">
+                                                            <br>
+                                                            <button type="submit" class="btn btn-primary">Submit Donation</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            
+                                            <!-- jQuery Script for Showing Account Details Based on Campaign -->
+                                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                            <script>
+                                                $(document).ready(function() {
+                                                    $('#campaign_id').change(function() {
+                                                        let campaignId = $(this).val();
+                                            
+                                                        // Fetch the selected campaign data via Ajax
+                                                        if (campaignId) {
+                                                            $.ajax({
+                                                                url: '/get-campaign-details/' + campaignId,
+                                                                method: 'GET',
+                                                                success: function(response) {
+                                                                    // Populate account details if available
+                                                                    if (response) {
+                                                                        $('#account_name').val(response.accountName);
+                                                                        $('#bank_name').val(response.bankName);
+                                                                        $('#account_number').val(response.accountNumber);
+                                            
+                                                                        $('#account_name2').val(response.accountName2);
+                                                                        $('#bank_name2').val(response.bankName2);
+                                                                        $('#account_number2').val(response.accountNumber2);
+                                            
+                                                                        // Show the account details
+                                                                        $('#account_1_details').show();
+                                                                        $('#account_2_details').show();
+                                                                    } else {
+                                                                        $('#account_1_details').hide();
+                                                                        $('#account_2_details').hide();
+                                                                    }
+                                                                }
+                                                            });
+                                                        } else {
+                                                            $('#account_1_details').hide();
+                                                            $('#account_2_details').hide();
+                                                        }
+                                                    });
+                                                });
+                                            </script>
+                                            
 
 
 

@@ -84,16 +84,80 @@
                                         <h3 class="card-title m-3">Donations</h3>
 
                                         <a class="btn btn-primary" style="white-space: nowrap;"
-                                        href="{{ url('campaign') }}">Add Donations</a>
+                                        href="{{ url('donations/add') }}">Add Donations</a>
                                         
                                         <div class="card-header flex-wrap">
 
                                             <div>
-                                                <h4 class="card-title">Department Table</h4>
+                                                <h4 class="card-title">Donations Table</h4>
                                             </div>
-                                            <div>
+                                        
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Name</th>
+                                                            <th>Email</th>
+                                                            <th>Amount</th>
+                                                            <th>Campaign</th>
+                                                            <th>User ID</th>
+                                                            <th>Approve</th>
+                                                            <th>Transaction Picture</th>
+                                                            <th>Created At</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($donations as $index => $donation)
+                                                            <tr>
+                                                                <td>{{ $index + 1 }}</td>
+                                                                <td>{{ $donation->name }}</td>
+                                                                <td>{{ $donation->email }}</td>
+                                                                <td>{{ $donation->amount }}</td>
+                                                                <td>{{ $donation->campaign->name ?? 'N/A' }}</td>
+                                                                <td>{{ $donation->user_id ?? 'Guest' }}</td>
+                                                                <td>
+                                                                    @if (auth()->user()->user_role == 1)
+                                                                        <form action="{{ route('donations.approve', $donation->id) }}" method="POST" style="display:inline-block;">
+                                                                            @csrf
+                                                                            <button type="submit" class="btn btn-sm {{ $donation->approve ? 'btn-success' : 'btn-warning' }}">
+                                                                                {{ $donation->approve ? 'Approved' : 'Pending' }}
+                                                                            </button>
+                                                                        </form>
+                                                                    @else
+                                                                        {{ $donation->approve ? 'Approved' : 'Pending' }}
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    @if ($donation->transaction_pic)
+                                                                        <a href="{{ asset('storage/' . $donation->transaction_pic) }}" target="_blank" class="btn btn-sm btn-primary">
+                                                                            View
+                                                                        </a>
+                                                                    @else
+                                                                        No Image
+                                                                    @endif
+                                                                </td>
+                                                                <td>{{ $donation->created_at->format('Y-m-d') }}</td>
+                                                                <td>
+                                                                    @if (auth()->user()->user_role == 1)
+                                                                        {{-- <a href="{{ route('donations.edit', $donation->id) }}" class="btn btn-sm btn-warning">Edit</a> --}}
+                                                                        <form action="{{ route('donations.destroy', $donation->id) }}" method="POST" style="display:inline-block;">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                                                        </form>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            
+                                            
 
-                                            </div>
+                     
 
                                         </div>
                       

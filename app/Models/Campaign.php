@@ -28,4 +28,9 @@ class Campaign extends Model
         'accountNumber2',
         'approve'
     ];
+
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
+    }
 }

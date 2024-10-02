@@ -10,12 +10,25 @@ class Donation extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
+        'email',
         'amount',
-        'date',
-        'transaction_picture',
-        'purpose',
+        'campaign_id',
         'user_id',
+        'approve',
+        'transaction_pic',
     ];
+
+    public function campaign()
+    {
+        return $this->belongsTo(Campaign::class);
+    }
+
+    // Relation to User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     // Define any additional relationships or methods as needed
 }
