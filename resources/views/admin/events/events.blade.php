@@ -244,7 +244,6 @@
     <!-- Demo JS -->
     <script src="{{ url('assets/js/demo.js') }}"></script>
     <!-- Style Switcher JS -->
-    <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
     <!-- Your Custom Scripts -->
     <script>
     $(document).ready(function () {

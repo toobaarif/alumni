@@ -1,174 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from w3crm.dexignzone.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 14 Feb 2024 14:27:51 GMT -->
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta name="robots" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
-    <meta property="og:title" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
-    <meta property="og:description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
-    <meta property="og:image" content="social-image.png">
-    <meta name="format-detection" content="telephone=no">
-
-    <!-- PAGE TITLE HERE -->
-    <title>W3CRM Customer Relationship Management</title>
-    <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/alumni.png') }}">
-
-    <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/css/swiper-bundle.min.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('assets/ajax/libs/noUiSlider/14.6.4/nouislider.min.css') }}">
-    <link href="{{ url('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/jvmap/jquery-jvectormap.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/css/buttons.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"
-        rel="stylesheet">
-
-    <!-- tagify-css -->
-    <link href="{{ url('assets/vendor/tagify/dist/tagify.css') }}" rel="stylesheet">
-
-    <!-- Style css -->
-    <!-- <link href="css/style.css" rel="stylesheet"> -->
-    <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
-
-    <link href="{{ url('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            color: #007BFF;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
+<body>
+    <h1 style=" color: #007BFF;">{{ $alumni->name }}'s Profile</h1> <!-- Profile Name Heading -->
 
-<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black"
-    data-headerbg="color_1">
-    <div id="main-wrapper">
-        <!--*******
-        Preloader start
-    ********-->
-        <div id="preloader">
-            <div class="lds-ripple">
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-        <!--*******
-    Preloader end
-********-->
+    <div class="section">
+        <h3>Basic Information</h3>
+        <p><strong>Name:</strong> {{ $alumni->name }}</p>
+        <p><strong>Email:</strong> {{ $alumni->email }}</p>
+        <!-- Other basic info fields -->
+        <p><strong>Phone:</strong> {{ $alumni->phone ?? 'N/A' }}</p>
+        <p><strong>Address:</strong> {{ $alumni->address ?? 'N/A' }}</p>
+        <p><strong>City:</strong> {{ $alumni->city ?? 'N/A' }}</p>
+        <p><strong>State:</strong> {{ $alumni->state ?? 'N/A' }}</p>
+        <p><strong>ZIP:</strong> {{ $alumni->zip ?? 'N/A' }}</p>
+        <p><strong>Gender:</strong> {{ $alumni->gender ?? 'N/A' }}</p>
+        <p><strong>Birthdate:</strong> {{ $alumni->birthdate ?? 'N/A' }}</p>
+    </div>
 
-        @include('admin.layout.header')
-        @include('admin.layout.sidebar')
+    <div class="section">
+        <h3>Work Experience</h3>
+        @if($workExperiences->isNotEmpty())
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Company</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Job Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($workExperiences as $experience)
+                        <tr>
+                            <td>{{ $experience->job_title }}</td>
+                            <td>{{ $experience->company }}</td>
+                            <td>{{ $experience->start_date }}</td>
+                            <td>{{ $experience->end_date }}</td>
+                            <td>{{ $experience->job_description }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>No work experience available.</p>
+        @endif
+    </div>
 
-
-        <div class="content-body">
-
-            <!-- container starts -->
-            <div class="container-fluid">
-
-                <!-- row -->
-                <div class="element-area">
-                    <div class="demo-view">
-                        <div class="container-fluid pt-0 ps-0 pe-lg-4 pe-0">
-                            <div class="row">
-                                <!-- Column starts -->
-                                <div class="col-xl-12">
-                                    <div class="card dz-card" id="accordion-one">
-
-                                        <div class="card-header flex-wrap">
-
-                                            <div>
-                                                <h4 class="card-title">Alumnni Profile</h4>
-                                            </div>
-                                        </div>
-                                        
-                                            <!--tab-content-->
-                                            <div class="tab-content" id="myTabContent">
-                                                <div class="tab-pane fade show active" id="Preview" role="tabpanel"
-                                                    aria-labelledby="home-tab">
-                                                    <div class="card-body pt-0">
-                                                     
-                                                    </div>
-                                                    <!-- /Default accordion -->
-                                                </div>
-
-
-
-                                                <div class="tab-pane fade " id="html" role="tabpanel"
-                                                    aria-labelledby="home-tab">
-                                                    <div class="card-body pt-0 p-0 code-area">
-
-                                                    </div>
-                                                </div>
-                                                <!--/tab-content-->
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                    <!-- Column ends -->
-
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-
-
-                    </div>
-
-                    <!-- Required vendors -->
-                    <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
-
-                    <!-- Dashboard 1 -->
-                    <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
-                    <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
-
-
-                    <!-- tagify -->
-                    <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
-
-                    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
-                    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-
-                    <!-- Apex Chart -->
-
-                    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
-                    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
-
-
-                    <!-- Vectormap -->
-                    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
-                    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
-                    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
-                    <script src="{{ url('assets/js/custom.js') }}"></script>
-                    <script src="{{ url('assets/js/deznav-init.js') }}"></script>
-                    <script src="{{ url('assets/js/demo.js') }}"></script>
-                    <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
-
-
-                    <!-- Datatable -->
-                    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-                    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-
-
-
-
-
-
-
+    <div class="section">
+        <h3>Education Details</h3>
+        @if($educationDetails->isNotEmpty())
+            <table>
+                <thead>
+                    <tr>
+                        <th>Institution</th>
+                        <th>Degree</th>
+                        <th>Field of Study</th>
+                        <th>Graduation Year</th>
+                        <th>GPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($educationDetails as $education)
+                        <tr>
+                            <td>{{ $education->institution }}</td>
+                            <td>{{ $education->degree }}</td>
+                            <td>{{ $education->field_of_study }}</td>
+                            <td>{{ $education->graduation_year }}</td>
+                            <td>{{ $education->gpa }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>No education details available.</p>
+        @endif
+    </div>
 
 </body>
-
-
 </html>

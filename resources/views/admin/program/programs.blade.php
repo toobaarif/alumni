@@ -18,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- PAGE TITLE HERE -->
-    <title>Alumni | programs</title>
+    <title>Alumni | Departments</title>
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/favi.png') }}">
 
@@ -36,7 +36,7 @@
     <link href="{{ url('assets/vendor/tagify/dist/tagify.css') }}" rel="stylesheet">
 
     <!-- Style css -->
-    {{-- <link href="css/style.css" rel="stylesheet">  --}}
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
     <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
 
 </head>
@@ -67,12 +67,11 @@
             <div class="container-fluid">
 
                 <!-- row -->
-                <div class="element-area">
-                    <div class="demo-view">
-                        <div class="container-fluid pt-0 ps-0 pe-lg-4 pe-0">
-                            <div class="row">
-                                <!-- Column starts -->
-                                <div class="col-xl-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body p-0">
                                     <div class="card dz-card" id="accordion-one">
                                         {{-- success alert --}}
                                         @if (session()->has('message'))
@@ -82,47 +81,47 @@
                                                 {{ session()->get('message') }}
                                             </div>
                                         @endif
-                                        <div>
-                                            <h3 class="card-title">Program</h3>
-                                        </div>
+                                        <h3 class="card-title m-3">Programms</h3>
                                         <form action="{{ route('add.program') }}" method="post"
-                                            class="d-flex align-items-center">
-                                            @csrf
-                                            <input type="text" name="program_name" class="form-control me-2"
-                                                placeholder="Enter program name">
-                                            <span style="color: red">
-                                                @error('program_name')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
-                                            <select name="department_id" class="form-select me-2">
-                                                <option value="">Select Department</option>
-                                                @foreach ($departments as $department)
-                                                    <option value="{{ $department->id }}">
-                                                        {{ $department->department_name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                            <span style="color: red">
-                                                @error('program_name')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
-                                            <button type="submit" class="btn btn-primary">Add program</button>
-                                        </form>
+                                        class="d-flex align-items-center">
+                                        @csrf
+                                        <input type="text" name="program_name" class="form-control me-2"
+                                            placeholder="Enter program name">
+                                        <span style="color: red">
+                                            @error('program_name')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                        <select name="department_id" class="form-select me-2">
+                                            <option value="">Select Department</option>
+                                            @foreach ($departments as $department)
+                                                <option value="{{ $department->id }}">
+                                                    {{ $department->department_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <span style="color: red">
+                                            @error('program_name')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
+                                        <button type="submit" class="btn btn-primary">Add Program</button>
+                                    </form>
+
                                         <div class="card-header flex-wrap">
+
                                             <div>
                                                 <h4 class="card-title">Programs Table</h4>
                                             </div>
                                             <div>
-
 
                                             </div>
 
                                         </div>
                                         <div class="table-responsive active-projects style-1">
 
-                                            <table id="empoloyees-tblwrapper" class="table">
+                                      
+                                        <table id="empoloyees-tblwrapper" class="table">
                                                 <thead>
                                                     <tr>
                                                         <th>S.No</th>
@@ -170,34 +169,11 @@
 
 
 
-
                                         </div>
                                     </div>
+                                    <!-- /Default accordion -->
 
-                                </div>
-
-
-
-                                <div class="tab-pane fade " id="html" role="tabpanel"
-                                    aria-labelledby="home-tab">
-                                    <div class="card-body pt-0 p-0 code-area">
-
-                                    </div>
-                                </div>
-                                <!--/tab-content-->
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <!-- Column ends -->
-
-                </div>
-
-            </div>
-        </div>
-
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editProgramModalLabel"
+                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editProgramModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -237,12 +213,37 @@
         </div>
 
 
+                                </div>
+
+
+
+                                <div class="tab-pane fade " id="html" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="card-body pt-0 p-0 code-area">
+
+                                    </div>
+                                </div>
+                                <!--/tab-content-->
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- Column ends -->
+
+                </div>
+
+            </div>
+        </div>
+
+
 
 
 
     </div>
 
     <!-- Required vendors -->
+    <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
     <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
     <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
@@ -274,7 +275,6 @@
     <script src="{{ url('assets/js/custom.js') }}"></script>
     <script src="{{ url('assets/js/deznav-init.js') }}"></script>
     <script src="{{ url('assets/js/demo.js') }}"></script>
-    <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
 
 
     <!-- Datatable -->
@@ -282,10 +282,8 @@
     <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
 
 
-    <!-- ye dekhna hai wo nhi program ka  -->
+
     <!-- Your existing JavaScript code -->
-
-
     <script>
         $.ajaxSetup({
             headers: {
@@ -341,9 +339,7 @@
                 $('#editModal').modal('show');
             });
         });
-    </script>
-
-
+    </script>  
 
 
 

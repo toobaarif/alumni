@@ -35,35 +35,69 @@
                             <div class="mb-4">
                                 <label for="phone">Phone Number:</label>
                                 <input class="form-control form-control" type="text" id="phone" name="phone" value="{{ old('phone', $basicInfo->phone ?? '') }}" autofocus>
+                                @error('phone')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="address">Address:</label>
                                 <input class="form-control form-control" type="text" id="address" name="address" value="{{ old('address', $basicInfo->address ?? '') }}">
+                                @error('address')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="city">City:</label>
                                 <input class="form-control form-control" type="text" id="city" name="city" value="{{ old('city', $basicInfo->city ?? '') }}">
+                                @error('city')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="state">State/Province:</label>
                                 <input class="form-control form-control" type="text" id="state" name="state" value="{{ old('state', $basicInfo->state ?? '') }}">
+                                @error('state')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="zip">Zip/Postal Code:</label>
                                 <input class="form-control form-control" type="text" id="zip" name="zip" value="{{ old('zip', $basicInfo->zip ?? '') }}">
+                                @error('zip')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="gender">Gender:</label>
-                                <input class="form-control form-control" type="text" id="gender" name="gender" value="{{ old('gender', $basicInfo->gender ?? '') }}">
+                                <select class="form-control" id="gender" name="gender">
+                                    <option value="" disabled {{ old('gender', $basicInfo->gender ?? '') === '' ? 'selected' : '' }}>Select Gender</option>
+                                    <option value="male" {{ old('gender', $basicInfo->gender ?? '') === 'male' ? 'selected' : '' }}>Male</option>
+                                    <option value="female" {{ old('gender', $basicInfo->gender ?? '') === 'female' ? 'selected' : '' }}>Female</option>
+                                    <option value="other" {{ old('gender', $basicInfo->gender ?? '') === 'other' ? 'selected' : '' }}>Other</option>
+                                </select>
+                                @error('gender')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label class="mb-1 text-dark" for="birthdate">Birthdate:</label>
                                 <input class="form-control form-control" type="date" id="birthdate" name="birthdate" value="{{ old('birthdate', $basicInfo->birthdate ?? '') }}">
+                                @error('birthdate')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="text-center mb-4">
                                 <button class="btn btn-primary btn-block" type="submit">Next</button>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>

@@ -128,7 +128,6 @@
                     <script src="{{ url('assets/js/custom.js') }}"></script>
                     <script src="{{ url('assets/js/deznav-init.js') }}"></script>
                     <script src="{{ url('assets/js/demo.js') }}"></script>
-                    <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
 
 
 

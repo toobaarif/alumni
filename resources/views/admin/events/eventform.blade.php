@@ -193,7 +193,6 @@
         <script src="js/custom.js"></script>
         <script src="js/deznav-init.js"></script>
         <script src="js/demo.js"></script>
-        <script src="js/styleSwitcher.js"></script>
     </div>
 </body>
 

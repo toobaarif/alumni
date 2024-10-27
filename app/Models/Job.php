@@ -22,6 +22,7 @@ class Job extends Model
         'zip_code',
         'job_description',
         'job_picture',
+        'approve',
     ];
 
     /**

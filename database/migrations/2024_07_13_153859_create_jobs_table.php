@@ -16,6 +16,7 @@ class CreateJobsTable extends Migration
             $table->string('zip_code')->nullable();
             $table->text('job_description');
             $table->string('job_picture')->nullable();
+            $table->boolean('approve')->default(0); // Approve field default set to 0 (boolean)
             $table->timestamps();
         });
     }

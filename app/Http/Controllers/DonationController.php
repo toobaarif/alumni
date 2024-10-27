@@ -21,7 +21,7 @@ class DonationController extends Controller
             // Retrieve all donations for the authenticated user
             $donations = Donation::where('user_id', $user->id)->get();
             // Redirect to student dashboard with user-specific donations
-            return view('students.donations.donation', compact('donations'));
+            return view('students.donation.donations', compact('donations'));
         } elseif ($user->user_role == 1) {
             // Retrieve all donations for admin
             $donations = Donation::all();

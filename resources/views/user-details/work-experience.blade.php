@@ -22,27 +22,48 @@
                             <div class="mb-4">
                                 <label for="job_title">Job Title:</label>
                                 <input class="form-control form-control" type="text" id="job_title" name="job_title" value="{{ old('job_title') }}" autofocus>
+                                @error('job_title')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label for="company">Company:</label>
                                 <input class="form-control form-control" type="text" id="company" name="company" value="{{ old('company') }}">
+                                @error('company')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label for="start_date">Start Date:</label>
                                 <input class="form-control form-control" type="date" id="start_date" name="start_date" value="{{ old('start_date') }}">
+                                @error('start_date')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label for="end_date">End Date:</label>
                                 <input class="form-control form-control" type="date" id="end_date" name="end_date" value="{{ old('end_date') }}">
+                                @error('end_date')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="mb-4">
                                 <label for="job_description">Job Description:</label>
                                 <textarea class="form-control form-control" id="job_description" name="job_description">{{ old('job_description') }}</textarea>
+                                @error('job_description')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            
                             <div class="text-center mb-4">
                                 <button class="btn btn-primary btn-block" type="submit">Next</button>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>

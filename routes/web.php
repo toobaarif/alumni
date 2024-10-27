@@ -83,10 +83,30 @@ Route::middleware(['auth'])->group(function () {
     Route::post('educationDetails/{id}', [UserDetails::class, 'updateEducationDetails'])->name('educationDetails.update');
 });
 
+
+Route::get('/profile', [UserDetails::class, 'showUserDetails'])->name('user.details');
+Route::get('/basic-information', [UserDetails::class, 'basicDetails']);
+Route::post('/add-details', [UserDetails::class, 'storeDetails'])->name('store.details');
+Route::get('/work-experience', [UserDetails::class, 'workExperience']);
+Route::post('/work-experience', [UserDetails::class, 'storeWorkExperience'])->name('store.work.experience');
+
+
+Route::get('/education', [UserDetails::class, 'education']);
+Route::post('/store-education', [UserDetails::class, 'storeEducation'])->name('store.education');
+Route::get('basicInfo/{id}/edit', [UserDetails::class, 'editBasicInfo'])->name('basicInfo.edit');
+Route::get('workExperience/{id}/edit', [UserDetails::class, 'editWorkExperience'])->name('workExperience.edit');
+Route::post('/experience/store', [UserDetails::class, 'experiencePrifile'])->name('experience.store');
+Route::get('educationDetails/{id}/edit', [UserDetails::class, 'editEducationDetails'])->name('educationDetails.edit');
+Route::post('/education/store', [UserDetails::class, 'educationProfile'])->name('education.store');
+Route::post('/basic-info/{id}', [UserDetails::class, 'updateBasicInfo'])->name('basicInfo.update');
+Route::post('workExperience/{id}', [UserDetails::class, 'updateWorkExperience'])->name('workExperience.update');
+Route::post('educationDetails/{id}', [UserDetails::class, 'updateEducationDetails'])->name('educationDetails.update');
+
 // Alumni Routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/alumnis', [AlumnisController::class, 'index']);
-    Route::get('/view-profile', [AlumnisController::class, 'alumnisProfiles']);
+    Route::get('/admin/alumni/{alumniId}/generate-pdf', [AlumnisController::class, 'generatePdf'])->name('alumni.generatePdf');
+
     Route::get('/get-programs/{departmentId}', [AlumnisController::class, 'getPrograms'])->name('getPrograms');
 });
 
@@ -120,9 +140,14 @@ Route::middleware(['auth'])->group(function () {
 
 // Job Routes
 Route::middleware(['auth'])->group(function () {
-    Route::get('/jobs', [JobsController::class, 'index']);
-    Route::post('/jobs', [JobsController::class, 'store'])->name('jobs.store');
+    // Route::get('/jobs', [JobsController::class, 'index']);
+    Route::post('/jobs/store', [JobsController::class, 'store'])->name('jobs.store');
     Route::delete('/jobs/{job}', [JobsController::class, 'destroy'])->name('jobs.destroy');
+    Route::get('/jobs/lists', [JobsController::class, 'index'])->name('jobs.list');
+    Route::get('/jobs/create', [JobsController::class, 'create']);
+    Route::post('/jobs/approve/{id}', [JobsController::class, 'approve'])->name('jobs.approve');
+
+    
 });
 
 // Donation Routes

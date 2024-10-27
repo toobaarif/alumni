@@ -10,7 +10,32 @@ class JobsController extends Controller
 {
     public function index()
     {
-        return view('students.jobs.jobs');
+        $user = auth()->user();
+    
+        if ($user->user_role == 0) {
+            // Retrieve only the jobs posted by the authenticated user
+            // $jobs = Job::where('user_id', $user->id)->get();
+            $jobs = Job::where('approve', true)->get();
+
+            // Redirect to student dashboard with user-specific jobs
+            return view('students.jobs.jobRecord', compact('jobs'));
+        } elseif ($user->user_role == 1) {
+            // Retrieve all jobs for admin
+            $jobs = Job::all();
+            // Redirect to admin dashboard with all jobs
+            return view('students.jobs.jobRecord', compact('jobs'));
+        } else {
+            return redirect()->route('home')->with('error', 'Unauthorized access.');
+        }
+    }
+    
+
+
+
+    public function create()
+    {
+        $userId = auth()->id();
+        return view('students.jobs.createJob', compact('userId'));
     }
 
     public function store(Request $request)
@@ -47,7 +72,7 @@ class JobsController extends Controller
             // Optionally, you can do something after job creation, like notify the user or log the action
 
             // Redirect with a success message
-            return redirect()->route('jobs.index')->with('success', 'Job added successfully.');
+            return redirect()->route('jobs.list')->with('message', 'Job added successfully.');
         } catch (\Exception $e) {
             // Handle exceptions, such as database errors or file storage failures
             // Log the error or show an error message to the user
@@ -60,9 +85,29 @@ class JobsController extends Controller
         try {
             $job->delete();
 
-            return redirect()->route('jobs.index')->with('success', 'Job deleted successfully.');
+            return redirect()->route('jobs.list')->with('message', 'Job deleted successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => 'Failed to delete job. Please try again.']);
         }
     }
+
+    public function approve($id)
+    {
+        // Find the job by ID
+        $job = Job::findOrFail($id);
+
+        // Toggle the approve status
+        $job->approve = !$job->approve;
+
+        // Save the updated approve status
+        $job->save();
+
+        // Redirect back with a success message
+        return redirect()->back()->with('message', 'Job approval status updated successfully.');
+    }
+
+
+    // public function jobList(){
+    //     return view('students.jobs.jobRecord');
+    // }
 }

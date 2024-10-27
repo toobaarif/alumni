@@ -13,21 +13,22 @@
     <meta name="description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
     <meta property="og:title" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
     <meta property="og:description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:image" content="social-image.png">
     <meta name="format-detection" content="telephone=no">
 
     <!-- PAGE TITLE HERE -->
-    <title>Alumni Portal</title>
+    <title>Alumnis</title>
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" type="image/png" href="{{ url('theme/images/favi.png') }}">
 
     <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/css/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ url('assets/vendor/swiper/css/swiper-bundle.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('assets/ajax/libs/noUiSlider/14.6.4/nouislider.min.css') }}">
     <link href="{{ url('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/jvmap/jquery-jvectormap.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/css/buttons.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ url('assets//buttons/1.6.4/css/buttons.dataTables.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"
         rel="stylesheet">
 
@@ -36,10 +37,6 @@
 
     <!-- Style css -->
     <!-- <link href="css/style.css" rel="stylesheet"> -->
-    <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
-
-    <link href="{{ url('assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/css/style.css') }}" rel="stylesheet">
 
 </head>
@@ -68,39 +65,46 @@
 
             <!-- container starts -->
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
-                            <div class="card-body p-0">
-                            <div class="card-header flex-wrap">
-                                    <div>
-                                        <h4 class="card-title">Students</h4>
-                                    </div>
-                                    <div>
 
-
-                                    </div>
-
-                                </div>
-                                <div class="table-responsive active-projects style-1">
+                <!-- row -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body p-0">
+                                    <div class="card dz-card" id="accordion-one">
                                    
-                                    <table id="empoloyees-tblwrapper" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>S.No</th>
-                                                <th>Name</th>
-                                                <th>Graduation Year</th>
-                                                <th>Transcript No</th>
-                                                <th>Department</th>
-                                                <th>Program</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @php
-                                                $sno = 1;
-                                            @endphp
-                                            @foreach($users as $user)
+                                        <h3 class="card-title m-3">Alumnis</h3>
+                                    
+
+                                        <div class="card-header flex-wrap">
+
+                                            <div>
+                                                <h4 class="card-title">Alumnis Table</h4>
+                                            </div>
+                                            <div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="table-responsive active-projects style-1">
+                                            <table id="empoloyees-tblwrapper" class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>S.No</th>
+                                                        <th>Name</th>
+                                                        <th>Graduation Year</th>
+                                                        <th>Transcript No</th>
+                                                        <th>Department</th>
+                                                        <th>Program</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @php
+                                                        $sno = 1;
+                                                    @endphp
+                                                @foreach($users as $user)
                                                 <tr>
                                                     <td>{{ $sno++ }}</td> <!-- Serial number column -->
                                                     <td>{{ $user->name }}</td>
@@ -114,61 +118,91 @@
                                                     <td>
                                                         {{ optional($user->department)->department_name }}
                                                     </td>
-                                                    <td><a style="color:blue" href="{{url('/view-profile')}}">View
-                                                            Profile</a></td>
+                                                    <td>
+                                                        <a style="color: blue" href="{{ route('alumni.generatePdf', ['alumniId' => $user->id]) }}" target="_blank">View Profile</a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
-                                        </tbody>
+                                            
+                                                </tbody>
+        
+        
+                                            </table>
 
 
-                                    </table>
+
+                                        </div>
+                                    </div>
+                                    <!-- /Default accordion -->
+
+                                
                                 </div>
+
+
+
+                                <div class="tab-pane fade " id="html" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="card-body pt-0 p-0 code-area">
+
+                                    </div>
+                                </div>
+                                <!--/tab-content-->
                             </div>
+
+
                         </div>
                     </div>
+                    <!-- Column ends -->
+
                 </div>
 
             </div>
-
-            <!-- Required vendors -->
-            <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-            <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-            <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
-
-            <!-- Dashboard 1 -->
-            <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
-            <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
+        </div>
 
 
-            <!-- tagify -->
-            <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
-
-            <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-            <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
-            <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
-            <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
-            <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
-
-            <!-- Apex Chart -->
-
-            <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
-            <script
-                src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
 
 
-            <!-- Vectormap -->
-            <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
-            <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
-            <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
-            <script src="{{ url('assets/js/custom.js') }}"></script>
-            <script src="{{ url('assets/js/deznav-init.js') }}"></script>
-            <script src="{{ url('assets/js/demo.js') }}"></script>
-            <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
+
+    </div>
+
+    <!-- Required vendors -->
+    <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/apexchart/apexchart.js') }}"></script>
+
+    <!-- Dashboard 1 -->
+    <script src="{{ url('assets/js/dashboard/dashboard-1.js') }}"></script>
+    <script src="{{ url('assets/vendor/draggable/draggable.js') }}"></script>
 
 
-            <!-- Datatable -->
-            <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-            <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
+    <!-- tagify -->
+    <script src="{{ url('assets/vendor/tagify/dist/tagify.js') }}"></script>
+
+    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/datatables/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/datatables/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/datatables/js/jszip.min.js') }}"></script>
+    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
+
+    <!-- Apex Chart -->
+
+    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>
+    <script src="{{ url('assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
+
+
+    <!-- Vectormap -->
+    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
+    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
+    <script src="{{ url('assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
+    <script src="{{ url('assets/js/custom.js') }}"></script>
+    <script src="{{ url('assets/js/deznav-init.js') }}"></script>
+    <script src="{{ url('assets/js/demo.js') }}"></script>
+
+
+    <!-- Datatable -->
+    <script src="{{ url('assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url('assets/js/plugins-init/datatables.init.js') }}"></script>
 
 
 

@@ -81,83 +81,87 @@
                                                 {{ session()->get('message') }}
                                             </div>
                                         @endif
-                                        <h3 class="card-title m-3">Donations</h3>
-
-                                        {{-- <a class="btn btn-primary" style="white-space: nowrap;"
-                                        href="{{ url('donations/add') }}">Add Donations</a> --}}
+                                        <h3 class="card-title m-3">Post a Job</h3>
+                                                        <!-- Hidden User ID -->
+                                                        <input type="hidden" name="user_id" value="{{ $userId }}">
+                                            
                                         
                                         <div class="card-header flex-wrap">
 
-                                            <div>
-                                                <h4 class="card-title">Donations Table</h4>
-                                            </div>
-                                        
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>#</th>
-                                                            <th>Name</th>
-                                                            <th>Email</th>
-                                                            <th>Amount</th>
-                                                            <th>Campaign</th>
-                                                            <th>User ID</th>
-                                                            <th>Approve</th>
-                                                            <th>Transaction Picture</th>
-                                                            <th>Created At</th>
-                                                            <th>Actions</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($donations as $index => $donation)
-                                                            <tr>
-                                                                <td>{{ $index + 1 }}</td>
-                                                                <td>{{ $donation->name }}</td>
-                                                                <td>{{ $donation->email }}</td>
-                                                                <td>{{ $donation->amount }}</td>
-                                                                <td>{{ $donation->campaign->name ?? 'N/A' }}</td>
-                                                                <td>{{ $donation->user_id ?? 'Guest' }}</td>
-                                                                <td>
-                                                                    @if (auth()->user()->user_role == 1)
-                                                                        <form action="{{ route('donations.approve', $donation->id) }}" method="POST" style="display:inline-block;">
-                                                                            @csrf
-                                                                            <button type="submit" class="btn btn-sm {{ $donation->approve ? 'btn-success' : 'btn-warning' }}">
-                                                                                {{ $donation->approve ? 'Approved' : 'Pending' }}
-                                                                            </button>
-                                                                        </form>
-                                                                    @else
-                                                                        {{ $donation->approve ? 'Approved' : 'Pending' }}
-                                                                    @endif
-                                                                </td>
-                                                                <td>
-                                                                    @if ($donation->transaction_pic)
-                                                                        <a href="{{ asset('storage/' . $donation->transaction_pic) }}" target="_blank" class="btn btn-sm btn-primary">
-                                                                            View
-                                                                        </a>
-                                                                    @else
-                                                                        No Image
-                                                                    @endif
-                                                                </td>
-                                                                <td>{{ $donation->created_at->format('Y-m-d') }}</td>
-                                                                <td>
-                                                                    @if (auth()->user()->user_role == 1)
-                                                                        {{-- <a href="{{ route('donations.edit', $donation->id) }}" class="btn btn-sm btn-warning">Edit</a> --}}
-                                                                        <form action="{{ route('donations.destroy', $donation->id) }}" method="POST" style="display:inline-block;">
-                                                                            @csrf
-                                                                            @method('DELETE')
-                                                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                                                        </form>
-                                                                    @endif
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
+                                            {{-- <div>
+                                                <h4 class="card-title">Department Table</h4>
+                                            </div> --}}
+                                            <div class="container">
+                                                <form action="{{ url('jobs/store') }}" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+
+                                                    <div class="row">
+                                                        <!-- Job Title Field -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="job_title">Job Title:</label>
+                                                                <input type="text" name="job_title" id="job_title" class="form-control" required>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <!-- Company Name Field -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="company_name">Company Name:</label>
+                                                                <input type="text" name="company_name" id="company_name" class="form-control" required>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <!-- Job Location Field -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="job_location">Job Location:</label>
+                                                                <input type="text" name="job_location" id="job_location" class="form-control" required>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <!-- Zip Code Field -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="zip_code">Zip Code:</label>
+                                                                <input type="text" name="zip_code" id="zip_code" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <!-- Job Description Field -->
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="job_description">Job Description:</label>
+                                                                <textarea name="job_description" id="job_description" class="form-control" rows="4" required></textarea>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <!-- Job Picture Field -->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="job_picture">Job Picture:</label>
+                                                                <input type="file" name="job_picture" id="job_picture" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <!-- Submit Button -->
+                                                        <div class="col-md-12">
+                                                            <br>
+                                                            <button type="submit" class="btn btn-primary">Submit Job</button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                   
+                                                </form>
                                             </div>
                                             
+                                            <!-- jQuery Script for Showing Account Details Based on Campaign -->
+                                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                  
                                             
 
-                     
+
+
 
                                         </div>
                       

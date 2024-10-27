@@ -23,29 +23,48 @@
                             <div class="mb-4">
                                 <label for="institution">Institution:</label>
                                 <input class="form-control" type="text" id="institution" name="institution" value="{{ old('institution') }}" autofocus>
+                                @error('institution')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                        
                             <div class="mb-4">
                                 <label for="degree">Degree:</label>
                                 <input class="form-control" type="text" id="degree" name="degree" value="{{ old('degree') }}">
+                                @error('degree')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                        
                             <div class="mb-4">
                                 <label for="field_of_study">Field of Study/Major:</label>
                                 <input class="form-control" type="text" id="field_of_study" name="field_of_study" value="{{ old('field_of_study') }}">
+                                @error('field_of_study')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                        
                             <div class="mb-4">
                                 <label for="graduation_year">Graduation Year:</label>
                                 <input class="form-control" type="number" id="graduation_year" name="graduation_year" value="{{ old('graduation_year') }}">
+                                @error('graduation_year')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                        
                             <div class="mb-4">
                                 <label for="gpa">GPA:</label>
                                 <input class="form-control" type="text" id="gpa" name="gpa" value="{{ old('gpa') }}">
+                                @error('gpa')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                           
                         
                             <div class="text-center mb-4">
                                 <button class="btn btn-primary btn-block" type="submit">Done</button>
                             </div>
                         </form>
+                        
                         
                     </div>
                 </div>

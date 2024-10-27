@@ -279,7 +279,6 @@
         <script src="{{ url('assets/js/demo.js') }}"></script>
         <link href="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css" rel="stylesheet">
 
-        <script src="{{ url('assets/js/styleSwitcher.js') }}"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('add-experience-btn').addEventListener('click', function() {
