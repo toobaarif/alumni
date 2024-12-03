@@ -87,7 +87,7 @@ class CampaignController extends Controller
         ]);
     
         // Redirect or return a view with success message
-        return redirect()->route('campaign.create')->with('message', 'Campaign created successfully.');
+        return redirect()->route('campaign.index')->with('message', 'Campaign created successfully.');
     }
 
     public function destroy($id)

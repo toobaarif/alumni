@@ -172,7 +172,7 @@
                 </li>
             @elseif(Auth::user()->user_role == 0)
                 <li>
-                    <a class="has-arrow" href="{{ route('admin.dashboard') }}" aria-expanded="false">
+                    <a class="has-arrow" href="{{ url('student/dashboard') }}" aria-expanded="false">
                         <div class="menu-icon">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -208,7 +208,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/jobs') }}" class="" aria-expanded="false">
+                    <a href="{{ route('jobs.list') }}" class="" aria-expanded="false">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.9951 16.6768V14.1398" stroke="#888888" stroke-width="1.5"

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Password;
+use App\Models\Job;
 
 
 class CustomAuthController extends Controller
@@ -19,16 +20,64 @@ class CustomAuthController extends Controller
     public function admin_dashboard()
     {
         if (Auth::check()) {
-            return view('admin.admin-dashboard');
+
+            $user = auth()->user();
+    
+            if ($user->user_role == 0) {
+                // Retrieve only the jobs posted by the authenticated user
+                // $jobs = Job::where('user_id', $user->id)->get();
+                $jobs = Job::where('approve', true)->get();
+    
+                // Redirect to student dashboard with user-specific jobs
+                return view('students.student-dashboard', compact('jobs'));
+            } elseif ($user->user_role == 1) {
+                // Retrieve all jobs for admin
+                $jobs = Job::all();
+                // Redirect to admin dashboard with all jobs
+                return view('admin.admin-dashboard', compact('jobs'));
+            } else {
+                return redirect()->route('home')->with('error', 'Unauthorized access.');
+            }
+
+            // return view('admin.admin-dashboard');
+
+
         } else {
             return redirect()->route('login');
         }
+
+       
+
+
     }
 
     public function student_dashboard()
     {
         if (Auth::check()) {
-            return view('students.student-dashboard');
+
+            $user = auth()->user();
+    
+            if ($user->user_role == 0) {
+                // Retrieve only the jobs posted by the authenticated user
+                // $jobs = Job::where('user_id', $user->id)->get();
+                $jobs = Job::where('approve', true)->get();
+    
+                // Redirect to student dashboard with user-specific jobs
+                return view('students.student-dashboard', compact('jobs'));
+            } elseif ($user->user_role == 1) {
+                // Retrieve all jobs for admin
+                $jobs = Job::all();
+                // Redirect to admin dashboard with all jobs
+                return view('admin.admin-dashboard', compact('jobs'));
+            } else {
+                return redirect()->route('home')->with('error', 'Unauthorized access.');
+            }
+
+
+
+
+            // return view('students.student-dashboard');
+
         } else {
             return redirect()->route('login');
         }

@@ -107,8 +107,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/alumnis', [AlumnisController::class, 'index']);
     Route::get('/admin/alumni/{alumniId}/generate-pdf', [AlumnisController::class, 'generatePdf'])->name('alumni.generatePdf');
 
-    Route::get('/get-programs/{departmentId}', [AlumnisController::class, 'getPrograms'])->name('getPrograms');
 });
+Route::get('/get-programs/{departmentId}', [AlumnisController::class, 'getPrograms'])->name('getPrograms');
 
 
 // Department Routes
@@ -146,7 +146,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/jobs/lists', [JobsController::class, 'index'])->name('jobs.list');
     Route::get('/jobs/create', [JobsController::class, 'create']);
     Route::post('/jobs/approve/{id}', [JobsController::class, 'approve'])->name('jobs.approve');
-
+    Route::get('/jobs/show/{id}', [JobsController::class, 'show'])->name('jobs.show');
     
 });
 

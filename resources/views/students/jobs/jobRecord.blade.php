@@ -148,9 +148,20 @@
 
                                                                 <td>{{ $job->created_at->format('Y-m-d') }}</td>
                                                                 <td>
+                                                                    <button type="button" class="btn btn-sm btn-info view-details-btn" 
+                                                                        data-title="{{ $job->job_title }}" 
+                                                                        data-company="{{ $job->company_name }}" 
+                                                                        data-location="{{ $job->job_location }}" 
+                                                                        data-zip="{{ $job->zip_code ?? 'N/A' }}" 
+                                                                        data-description="{{ $job->job_description }}" 
+                                                                        data-picture="{{ $job->job_picture ? asset('storage/jobs/' . $job->job_picture) : '#' }}">
+                                                                        View Details
+                                                                    </button>
                                                                     @if (auth()->user()->user_role == 1)
                                                                         {{-- Edit Button --}}
                                                                         {{-- <a href="{{ route('jobs.edit', $job->id) }}" class="btn btn-sm btn-warning">Edit</a> --}}
+                                                                       
+                                                                                                                                            
                                                                         <form action="{{ route('jobs.destroy', $job->id) }}" method="POST" style="display:inline-block;">
                                                                             @csrf
                                                                             @method('DELETE')
@@ -162,6 +173,7 @@
                                                         @endforeach
                                                     </tbody>
                                                 </table>
+
                                             </div>
                                             
                                             
@@ -202,6 +214,38 @@
 
 
     </div>
+
+        {{-- model --}}
+
+        <div class="modal fade" id="jobDetailsModal" tabindex="-1" aria-labelledby="jobDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="jobDetailsModalLabel">Job Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Job Title:</strong> <span id="jobTitle"></span></p>
+                        <p><strong>Company Name:</strong> <span id="companyName"></span></p>
+                        <p><strong>Location:</strong> <span id="jobLocation"></span></p>
+                        <p><strong>Zip Code:</strong> <span id="zipCode"></span></p>
+                        <p><strong>Description:</strong></p>
+                        <p id="jobDescription"></p>
+                        <p><strong>Job Picture:</strong></p>
+                        <div class="text-center">
+                            <img id="jobImage" src="#" alt="Job Picture" style="max-width: 100%; max-height: 300px; object-fit: contain; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
+                            <br>
+                            <a id="viewImageLink" href="#" target="_blank" class="btn btn-sm btn-primary mt-2">View in New Tab</a>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+
+
+
 
     <!-- Required vendors -->
     <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
@@ -245,7 +289,39 @@
 
 
  
-
+    <script>
+        $(document).ready(function() {
+            $('.view-details-btn').on('click', function() {
+                // Fetch data attributes from the clicked button
+                const title = $(this).data('title');
+                const company = $(this).data('company');
+                const location = $(this).data('location');
+                const zip = $(this).data('zip');
+                const description = $(this).data('description');
+                const picture = $(this).data('picture');
+                
+                // Populate the modal fields
+                $('#jobTitle').text(title);
+                $('#companyName').text(company);
+                $('#jobLocation').text(location);
+                $('#zipCode').text(zip);
+                $('#jobDescription').text(description);
+    
+                if (picture === '#') {
+                    $('#jobImage').attr('src', '').hide(); // Hide the image if not available
+                    $('#viewImageLink').hide(); // Hide the "View in New Tab" button
+                } else {
+                    $('#jobImage').attr('src', picture).show(); // Show the image
+                    $('#viewImageLink').attr('href', picture).show(); // Update the "View in New Tab" link
+                }
+    
+                // Show the modal
+                $('#jobDetailsModal').modal('show');
+            });
+        });
+    </script>
+    
+    
 
 
 

@@ -90,7 +90,8 @@ class DonationController extends Controller
             ]);
 
             // Redirect to a success page or back to the form with a success message
-            return redirect()->back()->with('message', 'Donation added successfully!');
+            return redirect()->route('donations.index')->with('message', 'Donation added successfully!');
+
     }
 
 

@@ -140,8 +140,21 @@
                                                                 </td>
                                                                 <td>{{ $donation->created_at->format('Y-m-d') }}</td>
                                                                 <td>
+                                                                    <button 
+                                                                        type="button" 
+                                                                        class="btn btn-sm btn-info view-details-btn" 
+                                                                        data-name="{{ $donation->name }}" 
+                                                                        data-email="{{ $donation->email }}" 
+                                                                        data-amount="{{ $donation->amount }}" 
+                                                                        data-campaign="{{ $donation->campaign->name ?? 'N/A' }}" 
+                                                                        data-userid="{{ $donation->user_id ?? 'Guest' }}" 
+                                                                        data-image="{{ $donation->transaction_pic ? asset('storage/' . $donation->transaction_pic) : '' }}">
+                                                                        View Details
+                                                                    </button>
                                                                     @if (auth()->user()->user_role == 1)
                                                                         {{-- <a href="{{ route('donations.edit', $donation->id) }}" class="btn btn-sm btn-warning">Edit</a> --}}
+                                                                        {{-- <button class="btn btn-sm btn-info">View Details</button> --}}
+
                                                                         <form action="{{ route('donations.destroy', $donation->id) }}" method="POST" style="display:inline-block;">
                                                                             @csrf
                                                                             @method('DELETE')
@@ -193,6 +206,31 @@
 
     </div>
 
+        {{-- modal --}}
+        <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Donation Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Name:</strong> <span id="modalName"></span></p>
+                        <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+                        <p><strong>Amount:</strong> <span id="modalAmount"></span></p>
+                        <p><strong>Campaign:</strong> <span id="modalCampaign"></span></p>
+                        <p><strong>User ID:</strong> <span id="modalUserId"></span></p>
+                        <p><strong>Transaction Picture:</strong></p>
+                        <div class="text-center">
+                            <img id="modalImage" src="#" alt="Transaction Picture" style="max-width: 100%; max-height: 300px; object-fit: contain; border: 1px solid #ddd; padding: 5px; border-radius: 5px;">
+                            <br>
+                            <a id="viewImageLink" href="#" target="_blank" class="btn btn-sm btn-primary mt-2">View in New Tab</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <!-- Required vendors -->
     <script src="{{ url('assets/vendor/global/global.min.js') }}"></script>
     <script src="{{ url('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
@@ -236,7 +274,38 @@
 
  
 
-
+    <script>
+        $(document).ready(function () {
+            $('.view-details-btn').on('click', function () {
+                // Fetch data attributes from the clicked button
+                const name = $(this).data('name');
+                const email = $(this).data('email');
+                const amount = $(this).data('amount');
+                const campaign = $(this).data('campaign');
+                const userId = $(this).data('userid');
+                const imageUrl = $(this).data('image');
+    
+                // Populate modal fields
+                $('#modalName').text(name);
+                $('#modalEmail').text(email);
+                $('#modalAmount').text(amount);
+                $('#modalCampaign').text(campaign);
+                $('#modalUserId').text(userId);
+    
+                if (imageUrl) {
+                    $('#modalImage').attr('src', imageUrl).show();
+                    $('#viewImageLink').attr('href', imageUrl).show();
+                } else {
+                    $('#modalImage').hide();
+                    $('#viewImageLink').hide();
+                }
+    
+                // Show the modal
+                $('#detailsModal').modal('show');
+            });
+        });
+    </script>
+    
 
 
 
